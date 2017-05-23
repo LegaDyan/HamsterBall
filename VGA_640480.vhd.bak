@@ -37,12 +37,14 @@ clk50 <= clk;
         end if;
  	end process;
  	
- 	process(clk1)	--??50Mê?è?D?o??t·??μ
+ 	process(clk1)	--对50M输入信号二分频
     begin
         if(clk1'event and clk1='1') then 
              clk <= not clk;
         end if;
  	end process;
+ 	
+----------------------------------------------------------------------
 
 	process(clk, reset)
 	begin
@@ -83,7 +85,7 @@ clk50 <= clk;
 				if (starty = 480-256) then
 					starty <= (others => '0');
 				else
-					starty <= starty + 1;
+					starty <= starty + wkey;
 				end if;
 			end if;
 		end if;

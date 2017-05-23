@@ -9,23 +9,23 @@ port(
 	clk      : in std_logic;
 	reset    : in std_logic;
 
-	read_en	: in std_logic;	--1:write;0:read
-	--button3	: in std_logic;
-	--button4	: in std_logic;
-	--LEDBUS	: out std_logic_vector(31 downto 0);-- 32 LED
+	button	: in std_logic;
+	button3	: in std_logic;
+	button4	: in std_logic;
+	LEDBUS	: out std_logic_vector(31 downto 0);-- 32 LED
 --- memory 	to CFPGA
 	BASERAMWE           : out std_logic;   --write                    
 	BASERAMOE           : out std_logic;    --read                   
 	BASERAMCE           : out std_logic;		--cs
-	BASERAMADDR         : out std_logic_vector(19 downto 0);  --address                                                            
-	BASERAMDATA         : inout std_logic_vector(31 downto 0)	--data
+	BASERAMADDR         : out std_logic_vector(19 downto 0);                                                              
+	BASERAMDATA         : inout std_logic_vector(31 downto 0)
 );
-end SRAM;
+end sram;
 
-architecture logic_memy of SRAM is 
+architecture logic_memy of sram is 
 
 type memory_state is  (idle,mem_read,mem_write,mem_end);
-signal state : memory_state;	--cur_state
+signal state : memory_state;
 signal mem_cnt : integer range 0 to 4;
 signal addr_in : std_logic_vector(19 downto 0);
 signal data_out : std_logic_vector(31 downto 0);
@@ -39,7 +39,7 @@ begin
 		mem_cnt<=0;
 	elsif clk'event and clk='1' then 
 		case state is 
-			when idle      => if read_en='0' then 
+			when idle      => if button='0' then 
 										state<=mem_read;
 									else 
 										state<=mem_write;

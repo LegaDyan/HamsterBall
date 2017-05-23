@@ -1,0 +1,747 @@
+Classic Timing Analyzer report for sram
+Tue May 23 12:06:06 2017
+Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Parallel Compilation
+  6. Clock Setup: 'clk'
+  7. tsu
+  8. tco
+  9. tpd
+ 10. th
+ 11. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                              ;
++------------------------------+-------+---------------+----------------------------------+----------------+--------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From           ; To                 ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+----------------+--------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 8.880 ns                         ; reset          ; data_out[29]       ; --         ; clk      ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 16.227 ns                        ; data_out[2]    ; LEDBUS[2]          ; clk        ; --       ; 0            ;
+; Worst-case tpd               ; N/A   ; None          ; 22.817 ns                        ; reset          ; LEDBUS[2]          ; --         ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; -3.445 ns                        ; BASERAMDATA[3] ; data_out[3]        ; --         ; clk      ; 0            ;
+; Clock Setup: 'clk'           ; N/A   ; None          ; 300.75 MHz ( period = 3.325 ns ) ; state.idle     ; BASERAMDATA[27]~en ; clk        ; clk      ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;                ;                    ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+----------------+--------------------+------------+----------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                           ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                              ; Setting            ; From ; To ; Entity Name ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                         ; EP2C70F672C8       ;      ;    ;             ;
+; Timing Models                                                       ; Final              ;      ;    ;             ;
+; Default hold multicycle                                             ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                           ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                              ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                      ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                    ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                               ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                             ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                    ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                       ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                                   ; 0                  ;      ;    ;             ;
+; Maximum Core Junction Temperature                                   ; 85                 ;      ;    ;             ;
+; Number of source nodes to report per destination node               ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                               ; 10                 ;      ;    ;             ;
+; Number of paths to report                                           ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                        ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                              ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                          ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                        ; On                 ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis      ; Off                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                          ; Near End           ;      ;    ;             ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; clk             ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 2           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     1 processor            ; 100.0%      ;
+;     2 processors           ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clk'                                                                                                                                                                                                                                 ;
++-----------------------------------------+-----------------------------------------------------+-----------------+----------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From            ; To                   ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+-----------------+----------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A                                     ; 300.75 MHz ( period = 3.325 ns )                    ; state.idle      ; BASERAMDATA[18]~en   ; clk        ; clk      ; None                        ; None                      ; 3.059 ns                ;
+; N/A                                     ; 300.75 MHz ( period = 3.325 ns )                    ; state.idle      ; BASERAMDATA[21]~en   ; clk        ; clk      ; None                        ; None                      ; 3.059 ns                ;
+; N/A                                     ; 300.75 MHz ( period = 3.325 ns )                    ; state.idle      ; BASERAMDATA[25]~en   ; clk        ; clk      ; None                        ; None                      ; 3.059 ns                ;
+; N/A                                     ; 300.75 MHz ( period = 3.325 ns )                    ; state.idle      ; BASERAMDATA[27]~en   ; clk        ; clk      ; None                        ; None                      ; 3.059 ns                ;
+; N/A                                     ; 300.93 MHz ( period = 3.323 ns )                    ; state.idle      ; BASERAMDATA[24]~en   ; clk        ; clk      ; None                        ; None                      ; 3.057 ns                ;
+; N/A                                     ; 300.93 MHz ( period = 3.323 ns )                    ; state.idle      ; BASERAMDATA[26]~en   ; clk        ; clk      ; None                        ; None                      ; 3.057 ns                ;
+; N/A                                     ; 301.11 MHz ( period = 3.321 ns )                    ; state.idle      ; BASERAMDATA[22]~en   ; clk        ; clk      ; None                        ; None                      ; 3.055 ns                ;
+; N/A                                     ; 301.30 MHz ( period = 3.319 ns )                    ; state.idle      ; BASERAMDATA[28]~en   ; clk        ; clk      ; None                        ; None                      ; 3.053 ns                ;
+; N/A                                     ; 301.48 MHz ( period = 3.317 ns )                    ; state.idle      ; BASERAMDATA[23]~en   ; clk        ; clk      ; None                        ; None                      ; 3.051 ns                ;
+; N/A                                     ; 301.57 MHz ( period = 3.316 ns )                    ; state.idle      ; BASERAMDATA[19]~en   ; clk        ; clk      ; None                        ; None                      ; 3.050 ns                ;
+; N/A                                     ; 301.57 MHz ( period = 3.316 ns )                    ; state.idle      ; BASERAMDATA[20]~en   ; clk        ; clk      ; None                        ; None                      ; 3.050 ns                ;
+; N/A                                     ; 324.57 MHz ( period = 3.081 ns )                    ; state.idle      ; BASERAMADDR[12]~en   ; clk        ; clk      ; None                        ; None                      ; 2.783 ns                ;
+; N/A                                     ; 324.57 MHz ( period = 3.081 ns )                    ; state.idle      ; BASERAMADDR[17]~en   ; clk        ; clk      ; None                        ; None                      ; 2.783 ns                ;
+; N/A                                     ; 324.57 MHz ( period = 3.081 ns )                    ; state.idle      ; BASERAMADDR[18]~en   ; clk        ; clk      ; None                        ; None                      ; 2.783 ns                ;
+; N/A                                     ; 324.68 MHz ( period = 3.080 ns )                    ; state.idle      ; BASERAMDATA[15]~en   ; clk        ; clk      ; None                        ; None                      ; 2.782 ns                ;
+; N/A                                     ; 324.68 MHz ( period = 3.080 ns )                    ; state.idle      ; BASERAMADDR[19]~en   ; clk        ; clk      ; None                        ; None                      ; 2.782 ns                ;
+; N/A                                     ; 324.89 MHz ( period = 3.078 ns )                    ; state.idle      ; BASERAMDATA[14]~en   ; clk        ; clk      ; None                        ; None                      ; 2.780 ns                ;
+; N/A                                     ; 324.89 MHz ( period = 3.078 ns )                    ; state.idle      ; BASERAMADDR[13]~en   ; clk        ; clk      ; None                        ; None                      ; 2.780 ns                ;
+; N/A                                     ; 325.10 MHz ( period = 3.076 ns )                    ; state.idle      ; BASERAMADDR[11]~en   ; clk        ; clk      ; None                        ; None                      ; 2.778 ns                ;
+; N/A                                     ; 325.10 MHz ( period = 3.076 ns )                    ; state.idle      ; BASERAMADDR[14]~en   ; clk        ; clk      ; None                        ; None                      ; 2.778 ns                ;
+; N/A                                     ; 325.20 MHz ( period = 3.075 ns )                    ; state.idle      ; BASERAMDATA[16]~en   ; clk        ; clk      ; None                        ; None                      ; 2.777 ns                ;
+; N/A                                     ; 325.20 MHz ( period = 3.075 ns )                    ; state.idle      ; BASERAMADDR[16]~en   ; clk        ; clk      ; None                        ; None                      ; 2.777 ns                ;
+; N/A                                     ; 325.31 MHz ( period = 3.074 ns )                    ; state.idle      ; BASERAMDATA[17]~en   ; clk        ; clk      ; None                        ; None                      ; 2.776 ns                ;
+; N/A                                     ; 325.31 MHz ( period = 3.074 ns )                    ; state.idle      ; BASERAMADDR[15]~en   ; clk        ; clk      ; None                        ; None                      ; 2.776 ns                ;
+; N/A                                     ; 325.41 MHz ( period = 3.073 ns )                    ; state.idle      ; BASERAMDATA[13]~en   ; clk        ; clk      ; None                        ; None                      ; 2.775 ns                ;
+; N/A                                     ; 327.01 MHz ( period = 3.058 ns )                    ; state.idle      ; state.mem_read       ; clk        ; clk      ; None                        ; None                      ; 2.794 ns                ;
+; N/A                                     ; 327.98 MHz ( period = 3.049 ns )                    ; state.idle      ; state.mem_write      ; clk        ; clk      ; None                        ; None                      ; 2.784 ns                ;
+; N/A                                     ; 328.52 MHz ( period = 3.044 ns )                    ; mem_cnt[0]      ; state.mem_read       ; clk        ; clk      ; None                        ; None                      ; 2.781 ns                ;
+; N/A                                     ; 329.49 MHz ( period = 3.035 ns )                    ; mem_cnt[0]      ; state.mem_write      ; clk        ; clk      ; None                        ; None                      ; 2.771 ns                ;
+; N/A                                     ; 334.22 MHz ( period = 2.992 ns )                    ; state.idle      ; BASERAMDATA[31]~en   ; clk        ; clk      ; None                        ; None                      ; 2.680 ns                ;
+; N/A                                     ; 334.34 MHz ( period = 2.991 ns )                    ; state.idle      ; BASERAMDATA[29]~en   ; clk        ; clk      ; None                        ; None                      ; 2.679 ns                ;
+; N/A                                     ; 334.34 MHz ( period = 2.991 ns )                    ; state.idle      ; BASERAMDATA[30]~en   ; clk        ; clk      ; None                        ; None                      ; 2.679 ns                ;
+; N/A                                     ; 339.44 MHz ( period = 2.946 ns )                    ; state.mem_end   ; BASERAMDATA[18]~en   ; clk        ; clk      ; None                        ; None                      ; 2.680 ns                ;
+; N/A                                     ; 339.44 MHz ( period = 2.946 ns )                    ; state.mem_end   ; BASERAMDATA[21]~en   ; clk        ; clk      ; None                        ; None                      ; 2.680 ns                ;
+; N/A                                     ; 339.44 MHz ( period = 2.946 ns )                    ; state.mem_end   ; BASERAMDATA[25]~en   ; clk        ; clk      ; None                        ; None                      ; 2.680 ns                ;
+; N/A                                     ; 339.44 MHz ( period = 2.946 ns )                    ; state.mem_end   ; BASERAMDATA[27]~en   ; clk        ; clk      ; None                        ; None                      ; 2.680 ns                ;
+; N/A                                     ; 339.67 MHz ( period = 2.944 ns )                    ; state.mem_end   ; BASERAMDATA[24]~en   ; clk        ; clk      ; None                        ; None                      ; 2.678 ns                ;
+; N/A                                     ; 339.67 MHz ( period = 2.944 ns )                    ; state.mem_end   ; BASERAMDATA[26]~en   ; clk        ; clk      ; None                        ; None                      ; 2.678 ns                ;
+; N/A                                     ; 339.90 MHz ( period = 2.942 ns )                    ; state.mem_end   ; BASERAMDATA[22]~en   ; clk        ; clk      ; None                        ; None                      ; 2.676 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMDATA[28]~en   ; clk        ; clk      ; None                        ; None                      ; 2.674 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMDATA[23]~en   ; clk        ; clk      ; None                        ; None                      ; 2.672 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMDATA[19]~en   ; clk        ; clk      ; None                        ; None                      ; 2.671 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMDATA[20]~en   ; clk        ; clk      ; None                        ; None                      ; 2.671 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.idle      ; BASERAMADDR[0]~en    ; clk        ; clk      ; None                        ; None                      ; 2.642 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.idle      ; BASERAMCE~reg0       ; clk        ; clk      ; None                        ; None                      ; 2.641 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.idle      ; BASERAMADDR[5]~en    ; clk        ; clk      ; None                        ; None                      ; 2.641 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.idle      ; BASERAMADDR[2]~en    ; clk        ; clk      ; None                        ; None                      ; 2.639 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.idle      ; BASERAMADDR[10]~en   ; clk        ; clk      ; None                        ; None                      ; 2.637 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.idle      ; BASERAMADDR[4]~en    ; clk        ; clk      ; None                        ; None                      ; 2.635 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.idle      ; BASERAMADDR[9]~en    ; clk        ; clk      ; None                        ; None                      ; 2.635 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.idle      ; BASERAMADDR[3]~en    ; clk        ; clk      ; None                        ; None                      ; 2.634 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.idle      ; BASERAMADDR[1]~en    ; clk        ; clk      ; None                        ; None                      ; 2.633 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.idle      ; BASERAMADDR[8]~en    ; clk        ; clk      ; None                        ; None                      ; 2.633 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.idle      ; BASERAMADDR[6]~en    ; clk        ; clk      ; None                        ; None                      ; 2.632 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.idle      ; BASERAMADDR[7]~en    ; clk        ; clk      ; None                        ; None                      ; 2.632 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; mem_cnt[2]      ; state.mem_read       ; clk        ; clk      ; None                        ; None                      ; 2.538 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[14]         ; clk        ; clk      ; None                        ; None                      ; 2.546 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[15]         ; clk        ; clk      ; None                        ; None                      ; 2.546 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[16]         ; clk        ; clk      ; None                        ; None                      ; 2.546 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[17]         ; clk        ; clk      ; None                        ; None                      ; 2.546 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[18]         ; clk        ; clk      ; None                        ; None                      ; 2.546 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[19]         ; clk        ; clk      ; None                        ; None                      ; 2.546 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[20]         ; clk        ; clk      ; None                        ; None                      ; 2.546 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[21]         ; clk        ; clk      ; None                        ; None                      ; 2.546 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[22]         ; clk        ; clk      ; None                        ; None                      ; 2.546 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[23]         ; clk        ; clk      ; None                        ; None                      ; 2.546 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[24]         ; clk        ; clk      ; None                        ; None                      ; 2.546 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[25]         ; clk        ; clk      ; None                        ; None                      ; 2.546 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[26]         ; clk        ; clk      ; None                        ; None                      ; 2.546 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[27]         ; clk        ; clk      ; None                        ; None                      ; 2.546 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[28]         ; clk        ; clk      ; None                        ; None                      ; 2.546 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[29]         ; clk        ; clk      ; None                        ; None                      ; 2.546 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[30]         ; clk        ; clk      ; None                        ; None                      ; 2.547 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[31]         ; clk        ; clk      ; None                        ; None                      ; 2.547 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; mem_cnt[2]      ; state.mem_write      ; clk        ; clk      ; None                        ; None                      ; 2.528 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMADDR[12]~en   ; clk        ; clk      ; None                        ; None                      ; 2.404 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMADDR[17]~en   ; clk        ; clk      ; None                        ; None                      ; 2.404 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMADDR[18]~en   ; clk        ; clk      ; None                        ; None                      ; 2.404 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMDATA[15]~en   ; clk        ; clk      ; None                        ; None                      ; 2.403 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMADDR[19]~en   ; clk        ; clk      ; None                        ; None                      ; 2.403 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMDATA[14]~en   ; clk        ; clk      ; None                        ; None                      ; 2.401 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[18]~en   ; clk        ; clk      ; None                        ; None                      ; 2.433 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[19]~en   ; clk        ; clk      ; None                        ; None                      ; 2.433 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[19]~reg0 ; clk        ; clk      ; None                        ; None                      ; 2.433 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[20]~en   ; clk        ; clk      ; None                        ; None                      ; 2.433 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[21]~en   ; clk        ; clk      ; None                        ; None                      ; 2.433 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[21]~reg0 ; clk        ; clk      ; None                        ; None                      ; 2.433 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[22]~en   ; clk        ; clk      ; None                        ; None                      ; 2.433 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[23]~en   ; clk        ; clk      ; None                        ; None                      ; 2.433 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[23]~reg0 ; clk        ; clk      ; None                        ; None                      ; 2.433 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[24]~en   ; clk        ; clk      ; None                        ; None                      ; 2.433 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[25]~en   ; clk        ; clk      ; None                        ; None                      ; 2.433 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[25]~reg0 ; clk        ; clk      ; None                        ; None                      ; 2.433 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[26]~en   ; clk        ; clk      ; None                        ; None                      ; 2.433 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[27]~en   ; clk        ; clk      ; None                        ; None                      ; 2.433 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[27]~reg0 ; clk        ; clk      ; None                        ; None                      ; 2.433 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[28]~en   ; clk        ; clk      ; None                        ; None                      ; 2.433 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMADDR[13]~en   ; clk        ; clk      ; None                        ; None                      ; 2.401 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMADDR[11]~en   ; clk        ; clk      ; None                        ; None                      ; 2.399 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMADDR[14]~en   ; clk        ; clk      ; None                        ; None                      ; 2.399 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMDATA[16]~en   ; clk        ; clk      ; None                        ; None                      ; 2.398 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMADDR[16]~en   ; clk        ; clk      ; None                        ; None                      ; 2.398 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMDATA[17]~en   ; clk        ; clk      ; None                        ; None                      ; 2.397 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMADDR[15]~en   ; clk        ; clk      ; None                        ; None                      ; 2.397 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMDATA[13]~en   ; clk        ; clk      ; None                        ; None                      ; 2.396 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; mem_cnt[1]      ; state.mem_read       ; clk        ; clk      ; None                        ; None                      ; 2.355 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMDATA[31]~en   ; clk        ; clk      ; None                        ; None                      ; 2.301 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMDATA[29]~en   ; clk        ; clk      ; None                        ; None                      ; 2.300 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMDATA[30]~en   ; clk        ; clk      ; None                        ; None                      ; 2.300 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; mem_cnt[1]      ; state.mem_write      ; clk        ; clk      ; None                        ; None                      ; 2.345 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMADDR[0]~en    ; clk        ; clk      ; None                        ; None                      ; 2.263 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMCE~reg0       ; clk        ; clk      ; None                        ; None                      ; 2.262 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMADDR[5]~en    ; clk        ; clk      ; None                        ; None                      ; 2.262 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMADDR[2]~en    ; clk        ; clk      ; None                        ; None                      ; 2.260 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMADDR[10]~en   ; clk        ; clk      ; None                        ; None                      ; 2.258 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMADDR[4]~en    ; clk        ; clk      ; None                        ; None                      ; 2.256 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMADDR[9]~en    ; clk        ; clk      ; None                        ; None                      ; 2.256 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMADDR[3]~en    ; clk        ; clk      ; None                        ; None                      ; 2.255 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMADDR[1]~en    ; clk        ; clk      ; None                        ; None                      ; 2.254 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMADDR[8]~en    ; clk        ; clk      ; None                        ; None                      ; 2.254 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMADDR[6]~en    ; clk        ; clk      ; None                        ; None                      ; 2.253 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMADDR[7]~en    ; clk        ; clk      ; None                        ; None                      ; 2.253 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[1]~reg0  ; clk        ; clk      ; None                        ; None                      ; 2.018 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[3]~reg0  ; clk        ; clk      ; None                        ; None                      ; 2.018 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[5]~reg0  ; clk        ; clk      ; None                        ; None                      ; 2.018 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[7]~reg0  ; clk        ; clk      ; None                        ; None                      ; 2.018 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[9]~reg0  ; clk        ; clk      ; None                        ; None                      ; 2.018 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[11]~reg0 ; clk        ; clk      ; None                        ; None                      ; 2.018 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[17]~reg0 ; clk        ; clk      ; None                        ; None                      ; 2.018 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[29]~en   ; clk        ; clk      ; None                        ; None                      ; 2.018 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[29]~reg0 ; clk        ; clk      ; None                        ; None                      ; 2.018 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[30]~en   ; clk        ; clk      ; None                        ; None                      ; 2.018 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[31]~en   ; clk        ; clk      ; None                        ; None                      ; 2.018 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[31]~reg0 ; clk        ; clk      ; None                        ; None                      ; 2.018 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[13]~en   ; clk        ; clk      ; None                        ; None                      ; 1.998 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[13]~reg0 ; clk        ; clk      ; None                        ; None                      ; 1.998 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[14]~en   ; clk        ; clk      ; None                        ; None                      ; 1.998 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[15]~en   ; clk        ; clk      ; None                        ; None                      ; 1.998 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[15]~reg0 ; clk        ; clk      ; None                        ; None                      ; 1.998 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[16]~en   ; clk        ; clk      ; None                        ; None                      ; 1.998 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[17]~en   ; clk        ; clk      ; None                        ; None                      ; 1.998 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.idle      ; BASERAMDATA[6]~en    ; clk        ; clk      ; None                        ; None                      ; 1.864 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.idle      ; BASERAMDATA[7]~en    ; clk        ; clk      ; None                        ; None                      ; 1.864 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.idle      ; BASERAMDATA[9]~en    ; clk        ; clk      ; None                        ; None                      ; 1.864 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.idle      ; BASERAMDATA[5]~en    ; clk        ; clk      ; None                        ; None                      ; 1.863 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.idle      ; BASERAMDATA[8]~en    ; clk        ; clk      ; None                        ; None                      ; 1.863 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.idle      ; BASERAMDATA[2]~en    ; clk        ; clk      ; None                        ; None                      ; 1.861 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.idle      ; BASERAMDATA[12]~en   ; clk        ; clk      ; None                        ; None                      ; 1.861 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.idle      ; BASERAMDATA[1]~en    ; clk        ; clk      ; None                        ; None                      ; 1.858 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.idle      ; BASERAMDATA[4]~en    ; clk        ; clk      ; None                        ; None                      ; 1.858 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.idle      ; BASERAMDATA[11]~en   ; clk        ; clk      ; None                        ; None                      ; 1.858 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.idle      ; BASERAMDATA[0]~en    ; clk        ; clk      ; None                        ; None                      ; 1.857 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.idle      ; BASERAMDATA[3]~en    ; clk        ; clk      ; None                        ; None                      ; 1.857 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.idle      ; state.mem_end        ; clk        ; clk      ; None                        ; None                      ; 1.855 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[0]          ; clk        ; clk      ; None                        ; None                      ; 1.827 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[1]          ; clk        ; clk      ; None                        ; None                      ; 1.827 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[2]          ; clk        ; clk      ; None                        ; None                      ; 1.827 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[3]          ; clk        ; clk      ; None                        ; None                      ; 1.827 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[4]          ; clk        ; clk      ; None                        ; None                      ; 1.827 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[5]          ; clk        ; clk      ; None                        ; None                      ; 1.827 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[6]          ; clk        ; clk      ; None                        ; None                      ; 1.827 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[7]          ; clk        ; clk      ; None                        ; None                      ; 1.827 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[8]          ; clk        ; clk      ; None                        ; None                      ; 1.827 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[9]          ; clk        ; clk      ; None                        ; None                      ; 1.827 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[10]         ; clk        ; clk      ; None                        ; None                      ; 1.827 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[11]         ; clk        ; clk      ; None                        ; None                      ; 1.827 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[12]         ; clk        ; clk      ; None                        ; None                      ; 1.827 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; data_out[13]         ; clk        ; clk      ; None                        ; None                      ; 1.827 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; mem_cnt[0]      ; mem_cnt[2]           ; clk        ; clk      ; None                        ; None                      ; 1.824 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; mem_cnt[1]      ; state.mem_end        ; clk        ; clk      ; None                        ; None                      ; 1.806 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMOE~reg0       ; clk        ; clk      ; None                        ; None                      ; 1.679 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_write ; BASERAMADDR[0]~reg0  ; clk        ; clk      ; None                        ; None                      ; 1.727 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_write ; BASERAMWE~reg0       ; clk        ; clk      ; None                        ; None                      ; 1.725 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; mem_cnt[2]      ; state.mem_end        ; clk        ; clk      ; None                        ; None                      ; 1.692 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.idle      ; mem_cnt[0]           ; clk        ; clk      ; None                        ; None                      ; 1.574 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.idle      ; mem_cnt[2]           ; clk        ; clk      ; None                        ; None                      ; 1.574 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.idle      ; mem_cnt[1]           ; clk        ; clk      ; None                        ; None                      ; 1.574 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[0]~en    ; clk        ; clk      ; None                        ; None                      ; 1.560 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[1]~en    ; clk        ; clk      ; None                        ; None                      ; 1.560 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[2]~en    ; clk        ; clk      ; None                        ; None                      ; 1.560 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[3]~en    ; clk        ; clk      ; None                        ; None                      ; 1.560 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[4]~en    ; clk        ; clk      ; None                        ; None                      ; 1.560 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[5]~en    ; clk        ; clk      ; None                        ; None                      ; 1.560 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[6]~en    ; clk        ; clk      ; None                        ; None                      ; 1.560 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[7]~en    ; clk        ; clk      ; None                        ; None                      ; 1.560 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[8]~en    ; clk        ; clk      ; None                        ; None                      ; 1.560 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[9]~en    ; clk        ; clk      ; None                        ; None                      ; 1.560 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[10]~en   ; clk        ; clk      ; None                        ; None                      ; 1.560 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[11]~en   ; clk        ; clk      ; None                        ; None                      ; 1.560 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_read  ; BASERAMDATA[12]~en   ; clk        ; clk      ; None                        ; None                      ; 1.560 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMDATA[6]~en    ; clk        ; clk      ; None                        ; None                      ; 1.485 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMDATA[7]~en    ; clk        ; clk      ; None                        ; None                      ; 1.485 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMDATA[9]~en    ; clk        ; clk      ; None                        ; None                      ; 1.485 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMDATA[5]~en    ; clk        ; clk      ; None                        ; None                      ; 1.484 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMDATA[8]~en    ; clk        ; clk      ; None                        ; None                      ; 1.484 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMDATA[2]~en    ; clk        ; clk      ; None                        ; None                      ; 1.482 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMDATA[12]~en   ; clk        ; clk      ; None                        ; None                      ; 1.482 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMDATA[1]~en    ; clk        ; clk      ; None                        ; None                      ; 1.479 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMDATA[4]~en    ; clk        ; clk      ; None                        ; None                      ; 1.479 ns                ;
+; N/A                                     ; Restricted to 340.02 MHz ( period = 2.941 ns )      ; state.mem_end   ; BASERAMDATA[11]~en   ; clk        ; clk      ; None                        ; None                      ; 1.479 ns                ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                 ;                      ;            ;          ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+-----------------+----------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++---------------------------------------------------------------------------------------+
+; tsu                                                                                   ;
++-------+--------------+------------+-----------------+----------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From            ; To                   ; To Clock ;
++-------+--------------+------------+-----------------+----------------------+----------+
+; N/A   ; None         ; 8.880 ns   ; reset           ; data_out[14]         ; clk      ;
+; N/A   ; None         ; 8.880 ns   ; reset           ; data_out[15]         ; clk      ;
+; N/A   ; None         ; 8.880 ns   ; reset           ; data_out[16]         ; clk      ;
+; N/A   ; None         ; 8.880 ns   ; reset           ; data_out[17]         ; clk      ;
+; N/A   ; None         ; 8.880 ns   ; reset           ; data_out[18]         ; clk      ;
+; N/A   ; None         ; 8.880 ns   ; reset           ; data_out[19]         ; clk      ;
+; N/A   ; None         ; 8.880 ns   ; reset           ; data_out[20]         ; clk      ;
+; N/A   ; None         ; 8.880 ns   ; reset           ; data_out[21]         ; clk      ;
+; N/A   ; None         ; 8.880 ns   ; reset           ; data_out[22]         ; clk      ;
+; N/A   ; None         ; 8.880 ns   ; reset           ; data_out[23]         ; clk      ;
+; N/A   ; None         ; 8.880 ns   ; reset           ; data_out[24]         ; clk      ;
+; N/A   ; None         ; 8.880 ns   ; reset           ; data_out[25]         ; clk      ;
+; N/A   ; None         ; 8.880 ns   ; reset           ; data_out[26]         ; clk      ;
+; N/A   ; None         ; 8.880 ns   ; reset           ; data_out[27]         ; clk      ;
+; N/A   ; None         ; 8.880 ns   ; reset           ; data_out[28]         ; clk      ;
+; N/A   ; None         ; 8.880 ns   ; reset           ; data_out[29]         ; clk      ;
+; N/A   ; None         ; 8.874 ns   ; reset           ; data_out[30]         ; clk      ;
+; N/A   ; None         ; 8.874 ns   ; reset           ; data_out[31]         ; clk      ;
+; N/A   ; None         ; 8.170 ns   ; reset           ; data_out[0]          ; clk      ;
+; N/A   ; None         ; 8.170 ns   ; reset           ; data_out[1]          ; clk      ;
+; N/A   ; None         ; 8.170 ns   ; reset           ; data_out[2]          ; clk      ;
+; N/A   ; None         ; 8.170 ns   ; reset           ; data_out[3]          ; clk      ;
+; N/A   ; None         ; 8.170 ns   ; reset           ; data_out[4]          ; clk      ;
+; N/A   ; None         ; 8.170 ns   ; reset           ; data_out[5]          ; clk      ;
+; N/A   ; None         ; 8.170 ns   ; reset           ; data_out[6]          ; clk      ;
+; N/A   ; None         ; 8.170 ns   ; reset           ; data_out[7]          ; clk      ;
+; N/A   ; None         ; 8.170 ns   ; reset           ; data_out[8]          ; clk      ;
+; N/A   ; None         ; 8.170 ns   ; reset           ; data_out[9]          ; clk      ;
+; N/A   ; None         ; 8.170 ns   ; reset           ; data_out[10]         ; clk      ;
+; N/A   ; None         ; 8.170 ns   ; reset           ; data_out[11]         ; clk      ;
+; N/A   ; None         ; 8.170 ns   ; reset           ; data_out[12]         ; clk      ;
+; N/A   ; None         ; 8.170 ns   ; reset           ; data_out[13]         ; clk      ;
+; N/A   ; None         ; 7.394 ns   ; button3         ; BASERAMDATA[23]~reg0 ; clk      ;
+; N/A   ; None         ; 7.394 ns   ; button3         ; BASERAMDATA[27]~reg0 ; clk      ;
+; N/A   ; None         ; 7.393 ns   ; button3         ; BASERAMDATA[25]~reg0 ; clk      ;
+; N/A   ; None         ; 7.392 ns   ; button3         ; BASERAMDATA[19]~reg0 ; clk      ;
+; N/A   ; None         ; 7.392 ns   ; button3         ; BASERAMDATA[21]~reg0 ; clk      ;
+; N/A   ; None         ; 7.065 ns   ; button3         ; BASERAMDATA[1]~reg0  ; clk      ;
+; N/A   ; None         ; 7.065 ns   ; button3         ; BASERAMDATA[5]~reg0  ; clk      ;
+; N/A   ; None         ; 7.065 ns   ; button3         ; BASERAMDATA[31]~reg0 ; clk      ;
+; N/A   ; None         ; 7.064 ns   ; button4         ; BASERAMADDR[0]~reg0  ; clk      ;
+; N/A   ; None         ; 7.064 ns   ; button3         ; BASERAMDATA[3]~reg0  ; clk      ;
+; N/A   ; None         ; 7.063 ns   ; button3         ; BASERAMDATA[7]~reg0  ; clk      ;
+; N/A   ; None         ; 7.063 ns   ; button3         ; BASERAMDATA[11]~reg0 ; clk      ;
+; N/A   ; None         ; 7.063 ns   ; button3         ; BASERAMDATA[17]~reg0 ; clk      ;
+; N/A   ; None         ; 7.060 ns   ; button3         ; BASERAMDATA[29]~reg0 ; clk      ;
+; N/A   ; None         ; 7.059 ns   ; button3         ; BASERAMDATA[9]~reg0  ; clk      ;
+; N/A   ; None         ; 6.956 ns   ; button3         ; BASERAMDATA[15]~reg0 ; clk      ;
+; N/A   ; None         ; 6.955 ns   ; button3         ; BASERAMDATA[13]~reg0 ; clk      ;
+; N/A   ; None         ; 6.854 ns   ; button          ; state.mem_read       ; clk      ;
+; N/A   ; None         ; 6.847 ns   ; button          ; state.mem_write      ; clk      ;
+; N/A   ; None         ; 6.830 ns   ; button3         ; BASERAMADDR[0]~reg0  ; clk      ;
+; N/A   ; None         ; 5.904 ns   ; BASERAMDATA[26] ; data_out[26]         ; clk      ;
+; N/A   ; None         ; 5.823 ns   ; BASERAMDATA[29] ; data_out[29]         ; clk      ;
+; N/A   ; None         ; 5.803 ns   ; BASERAMDATA[28] ; data_out[28]         ; clk      ;
+; N/A   ; None         ; 5.694 ns   ; BASERAMDATA[22] ; data_out[22]         ; clk      ;
+; N/A   ; None         ; 5.651 ns   ; BASERAMDATA[30] ; data_out[30]         ; clk      ;
+; N/A   ; None         ; 5.612 ns   ; BASERAMDATA[23] ; data_out[23]         ; clk      ;
+; N/A   ; None         ; 5.546 ns   ; BASERAMDATA[24] ; data_out[24]         ; clk      ;
+; N/A   ; None         ; 5.527 ns   ; BASERAMDATA[27] ; data_out[27]         ; clk      ;
+; N/A   ; None         ; 5.458 ns   ; BASERAMDATA[25] ; data_out[25]         ; clk      ;
+; N/A   ; None         ; 5.295 ns   ; BASERAMDATA[31] ; data_out[31]         ; clk      ;
+; N/A   ; None         ; 5.293 ns   ; BASERAMDATA[21] ; data_out[21]         ; clk      ;
+; N/A   ; None         ; 5.184 ns   ; BASERAMDATA[19] ; data_out[19]         ; clk      ;
+; N/A   ; None         ; 4.988 ns   ; BASERAMDATA[20] ; data_out[20]         ; clk      ;
+; N/A   ; None         ; 4.960 ns   ; BASERAMDATA[17] ; data_out[17]         ; clk      ;
+; N/A   ; None         ; 4.954 ns   ; BASERAMDATA[11] ; data_out[11]         ; clk      ;
+; N/A   ; None         ; 4.913 ns   ; BASERAMDATA[16] ; data_out[16]         ; clk      ;
+; N/A   ; None         ; 4.741 ns   ; BASERAMDATA[18] ; data_out[18]         ; clk      ;
+; N/A   ; None         ; 4.548 ns   ; BASERAMDATA[15] ; data_out[15]         ; clk      ;
+; N/A   ; None         ; 4.546 ns   ; BASERAMDATA[14] ; data_out[14]         ; clk      ;
+; N/A   ; None         ; 4.483 ns   ; BASERAMDATA[0]  ; data_out[0]          ; clk      ;
+; N/A   ; None         ; 4.383 ns   ; BASERAMDATA[4]  ; data_out[4]          ; clk      ;
+; N/A   ; None         ; 4.216 ns   ; BASERAMDATA[12] ; data_out[12]         ; clk      ;
+; N/A   ; None         ; 4.188 ns   ; BASERAMDATA[13] ; data_out[13]         ; clk      ;
+; N/A   ; None         ; 4.073 ns   ; BASERAMDATA[7]  ; data_out[7]          ; clk      ;
+; N/A   ; None         ; 4.063 ns   ; BASERAMDATA[9]  ; data_out[9]          ; clk      ;
+; N/A   ; None         ; 4.063 ns   ; BASERAMDATA[6]  ; data_out[6]          ; clk      ;
+; N/A   ; None         ; 4.047 ns   ; BASERAMDATA[1]  ; data_out[1]          ; clk      ;
+; N/A   ; None         ; 3.997 ns   ; BASERAMDATA[2]  ; data_out[2]          ; clk      ;
+; N/A   ; None         ; 3.720 ns   ; BASERAMDATA[5]  ; data_out[5]          ; clk      ;
+; N/A   ; None         ; 3.717 ns   ; BASERAMDATA[8]  ; data_out[8]          ; clk      ;
+; N/A   ; None         ; 3.712 ns   ; BASERAMDATA[10] ; data_out[10]         ; clk      ;
+; N/A   ; None         ; 3.711 ns   ; BASERAMDATA[3]  ; data_out[3]          ; clk      ;
++-------+--------------+------------+-----------------+----------------------+----------+
+
+
++-----------------------------------------------------------------------------------------+
+; tco                                                                                     ;
++-------+--------------+------------+----------------------+-----------------+------------+
+; Slack ; Required tco ; Actual tco ; From                 ; To              ; From Clock ;
++-------+--------------+------------+----------------------+-----------------+------------+
+; N/A   ; None         ; 16.227 ns  ; data_out[2]          ; LEDBUS[2]       ; clk        ;
+; N/A   ; None         ; 15.370 ns  ; data_out[6]          ; LEDBUS[6]       ; clk        ;
+; N/A   ; None         ; 14.520 ns  ; data_out[1]          ; LEDBUS[1]       ; clk        ;
+; N/A   ; None         ; 14.246 ns  ; data_out[8]          ; LEDBUS[8]       ; clk        ;
+; N/A   ; None         ; 14.151 ns  ; data_out[18]         ; LEDBUS[18]      ; clk        ;
+; N/A   ; None         ; 14.066 ns  ; data_out[11]         ; LEDBUS[11]      ; clk        ;
+; N/A   ; None         ; 13.970 ns  ; data_out[5]          ; LEDBUS[5]       ; clk        ;
+; N/A   ; None         ; 13.954 ns  ; data_out[16]         ; LEDBUS[16]      ; clk        ;
+; N/A   ; None         ; 13.767 ns  ; data_out[7]          ; LEDBUS[7]       ; clk        ;
+; N/A   ; None         ; 13.705 ns  ; data_out[30]         ; LEDBUS[30]      ; clk        ;
+; N/A   ; None         ; 13.673 ns  ; data_out[10]         ; LEDBUS[10]      ; clk        ;
+; N/A   ; None         ; 13.129 ns  ; data_out[25]         ; LEDBUS[25]      ; clk        ;
+; N/A   ; None         ; 12.568 ns  ; data_out[17]         ; LEDBUS[17]      ; clk        ;
+; N/A   ; None         ; 12.543 ns  ; data_out[20]         ; LEDBUS[20]      ; clk        ;
+; N/A   ; None         ; 12.480 ns  ; data_out[9]          ; LEDBUS[9]       ; clk        ;
+; N/A   ; None         ; 12.181 ns  ; data_out[13]         ; LEDBUS[13]      ; clk        ;
+; N/A   ; None         ; 11.797 ns  ; data_out[22]         ; LEDBUS[22]      ; clk        ;
+; N/A   ; None         ; 11.777 ns  ; data_out[27]         ; LEDBUS[27]      ; clk        ;
+; N/A   ; None         ; 11.672 ns  ; data_out[4]          ; LEDBUS[4]       ; clk        ;
+; N/A   ; None         ; 11.657 ns  ; data_out[0]          ; LEDBUS[0]       ; clk        ;
+; N/A   ; None         ; 11.584 ns  ; data_out[3]          ; LEDBUS[3]       ; clk        ;
+; N/A   ; None         ; 11.554 ns  ; data_out[31]         ; LEDBUS[31]      ; clk        ;
+; N/A   ; None         ; 11.445 ns  ; data_out[19]         ; LEDBUS[19]      ; clk        ;
+; N/A   ; None         ; 11.403 ns  ; data_out[28]         ; LEDBUS[28]      ; clk        ;
+; N/A   ; None         ; 11.399 ns  ; data_out[12]         ; LEDBUS[12]      ; clk        ;
+; N/A   ; None         ; 11.091 ns  ; data_out[23]         ; LEDBUS[23]      ; clk        ;
+; N/A   ; None         ; 11.015 ns  ; data_out[26]         ; LEDBUS[26]      ; clk        ;
+; N/A   ; None         ; 11.008 ns  ; data_out[14]         ; LEDBUS[14]      ; clk        ;
+; N/A   ; None         ; 10.950 ns  ; data_out[21]         ; LEDBUS[21]      ; clk        ;
+; N/A   ; None         ; 10.921 ns  ; data_out[15]         ; LEDBUS[15]      ; clk        ;
+; N/A   ; None         ; 10.645 ns  ; data_out[24]         ; LEDBUS[24]      ; clk        ;
+; N/A   ; None         ; 10.332 ns  ; data_out[29]         ; LEDBUS[29]      ; clk        ;
+; N/A   ; None         ; 9.809 ns   ; BASERAMDATA[27]~reg0 ; BASERAMDATA[27] ; clk        ;
+; N/A   ; None         ; 9.802 ns   ; BASERAMDATA[26]~en   ; BASERAMDATA[26] ; clk        ;
+; N/A   ; None         ; 9.767 ns   ; BASERAMDATA[23]~reg0 ; BASERAMDATA[23] ; clk        ;
+; N/A   ; None         ; 9.648 ns   ; BASERAMDATA[27]~en   ; BASERAMDATA[27] ; clk        ;
+; N/A   ; None         ; 9.542 ns   ; BASERAMADDR[0]~reg0  ; BASERAMADDR[0]  ; clk        ;
+; N/A   ; None         ; 9.518 ns   ; BASERAMDATA[25]~reg0 ; BASERAMDATA[25] ; clk        ;
+; N/A   ; None         ; 9.505 ns   ; BASERAMADDR[1]~en    ; BASERAMADDR[1]  ; clk        ;
+; N/A   ; None         ; 9.463 ns   ; BASERAMDATA[29]~reg0 ; BASERAMDATA[29] ; clk        ;
+; N/A   ; None         ; 9.419 ns   ; BASERAMDATA[25]~en   ; BASERAMDATA[25] ; clk        ;
+; N/A   ; None         ; 9.419 ns   ; BASERAMDATA[24]~en   ; BASERAMDATA[24] ; clk        ;
+; N/A   ; None         ; 9.403 ns   ; BASERAMADDR[0]~en    ; BASERAMADDR[0]  ; clk        ;
+; N/A   ; None         ; 9.363 ns   ; BASERAMDATA[29]~en   ; BASERAMDATA[29] ; clk        ;
+; N/A   ; None         ; 9.239 ns   ; BASERAMDATA[30]~en   ; BASERAMDATA[30] ; clk        ;
+; N/A   ; None         ; 9.204 ns   ; BASERAMDATA[31]~en   ; BASERAMDATA[31] ; clk        ;
+; N/A   ; None         ; 9.066 ns   ; BASERAMDATA[31]~reg0 ; BASERAMDATA[31] ; clk        ;
+; N/A   ; None         ; 9.028 ns   ; BASERAMDATA[28]~en   ; BASERAMDATA[28] ; clk        ;
+; N/A   ; None         ; 9.012 ns   ; BASERAMDATA[23]~en   ; BASERAMDATA[23] ; clk        ;
+; N/A   ; None         ; 8.758 ns   ; BASERAMADDR[18]~en   ; BASERAMADDR[18] ; clk        ;
+; N/A   ; None         ; 8.629 ns   ; BASERAMOE~reg0       ; BASERAMOE       ; clk        ;
+; N/A   ; None         ; 8.601 ns   ; BASERAMDATA[17]~reg0 ; BASERAMDATA[17] ; clk        ;
+; N/A   ; None         ; 8.533 ns   ; BASERAMDATA[21]~reg0 ; BASERAMDATA[21] ; clk        ;
+; N/A   ; None         ; 8.481 ns   ; BASERAMDATA[17]~en   ; BASERAMDATA[17] ; clk        ;
+; N/A   ; None         ; 8.461 ns   ; BASERAMDATA[12]~en   ; BASERAMDATA[12] ; clk        ;
+; N/A   ; None         ; 8.457 ns   ; BASERAMADDR[13]~en   ; BASERAMADDR[13] ; clk        ;
+; N/A   ; None         ; 8.444 ns   ; BASERAMADDR[19]~en   ; BASERAMADDR[19] ; clk        ;
+; N/A   ; None         ; 8.409 ns   ; BASERAMDATA[11]~en   ; BASERAMDATA[11] ; clk        ;
+; N/A   ; None         ; 8.396 ns   ; BASERAMDATA[22]~en   ; BASERAMDATA[22] ; clk        ;
+; N/A   ; None         ; 8.300 ns   ; BASERAMCE~reg0       ; BASERAMCE       ; clk        ;
+; N/A   ; None         ; 8.235 ns   ; BASERAMDATA[19]~reg0 ; BASERAMDATA[19] ; clk        ;
+; N/A   ; None         ; 8.199 ns   ; BASERAMDATA[15]~reg0 ; BASERAMDATA[15] ; clk        ;
+; N/A   ; None         ; 8.193 ns   ; BASERAMDATA[13]~reg0 ; BASERAMDATA[13] ; clk        ;
+; N/A   ; None         ; 8.174 ns   ; BASERAMADDR[2]~en    ; BASERAMADDR[2]  ; clk        ;
+; N/A   ; None         ; 8.110 ns   ; BASERAMDATA[14]~en   ; BASERAMDATA[14] ; clk        ;
+; N/A   ; None         ; 8.107 ns   ; BASERAMDATA[19]~en   ; BASERAMDATA[19] ; clk        ;
+; N/A   ; None         ; 8.089 ns   ; BASERAMDATA[20]~en   ; BASERAMDATA[20] ; clk        ;
+; N/A   ; None         ; 8.084 ns   ; BASERAMDATA[21]~en   ; BASERAMDATA[21] ; clk        ;
+; N/A   ; None         ; 8.075 ns   ; BASERAMADDR[7]~en    ; BASERAMADDR[7]  ; clk        ;
+; N/A   ; None         ; 8.070 ns   ; BASERAMDATA[13]~en   ; BASERAMDATA[13] ; clk        ;
+; N/A   ; None         ; 8.068 ns   ; BASERAMDATA[1]~reg0  ; BASERAMDATA[1]  ; clk        ;
+; N/A   ; None         ; 8.059 ns   ; BASERAMDATA[16]~en   ; BASERAMDATA[16] ; clk        ;
+; N/A   ; None         ; 8.059 ns   ; BASERAMDATA[15]~en   ; BASERAMDATA[15] ; clk        ;
+; N/A   ; None         ; 8.039 ns   ; BASERAMDATA[5]~en    ; BASERAMDATA[5]  ; clk        ;
+; N/A   ; None         ; 8.033 ns   ; BASERAMDATA[6]~en    ; BASERAMDATA[6]  ; clk        ;
+; N/A   ; None         ; 8.030 ns   ; BASERAMDATA[4]~en    ; BASERAMDATA[4]  ; clk        ;
+; N/A   ; None         ; 8.029 ns   ; BASERAMDATA[9]~en    ; BASERAMDATA[9]  ; clk        ;
+; N/A   ; None         ; 8.028 ns   ; BASERAMDATA[0]~en    ; BASERAMDATA[0]  ; clk        ;
+; N/A   ; None         ; 8.009 ns   ; BASERAMDATA[18]~en   ; BASERAMDATA[18] ; clk        ;
+; N/A   ; None         ; 8.000 ns   ; BASERAMDATA[2]~en    ; BASERAMDATA[2]  ; clk        ;
+; N/A   ; None         ; 7.999 ns   ; BASERAMDATA[10]~en   ; BASERAMDATA[10] ; clk        ;
+; N/A   ; None         ; 7.998 ns   ; BASERAMDATA[8]~en    ; BASERAMDATA[8]  ; clk        ;
+; N/A   ; None         ; 7.985 ns   ; BASERAMDATA[7]~en    ; BASERAMDATA[7]  ; clk        ;
+; N/A   ; None         ; 7.981 ns   ; BASERAMDATA[3]~en    ; BASERAMDATA[3]  ; clk        ;
+; N/A   ; None         ; 7.975 ns   ; BASERAMDATA[1]~en    ; BASERAMDATA[1]  ; clk        ;
+; N/A   ; None         ; 7.855 ns   ; BASERAMADDR[4]~en    ; BASERAMADDR[4]  ; clk        ;
+; N/A   ; None         ; 7.821 ns   ; BASERAMADDR[10]~en   ; BASERAMADDR[10] ; clk        ;
+; N/A   ; None         ; 7.820 ns   ; BASERAMADDR[12]~en   ; BASERAMADDR[12] ; clk        ;
+; N/A   ; None         ; 7.818 ns   ; BASERAMADDR[6]~en    ; BASERAMADDR[6]  ; clk        ;
+; N/A   ; None         ; 7.809 ns   ; BASERAMADDR[8]~en    ; BASERAMADDR[8]  ; clk        ;
+; N/A   ; None         ; 7.808 ns   ; BASERAMADDR[5]~en    ; BASERAMADDR[5]  ; clk        ;
+; N/A   ; None         ; 7.804 ns   ; BASERAMADDR[14]~en   ; BASERAMADDR[14] ; clk        ;
+; N/A   ; None         ; 7.802 ns   ; BASERAMADDR[11]~en   ; BASERAMADDR[11] ; clk        ;
+; N/A   ; None         ; 7.783 ns   ; BASERAMADDR[9]~en    ; BASERAMADDR[9]  ; clk        ;
+; N/A   ; None         ; 7.782 ns   ; BASERAMDATA[3]~reg0  ; BASERAMDATA[3]  ; clk        ;
+; N/A   ; None         ; 7.768 ns   ; BASERAMDATA[11]~reg0 ; BASERAMDATA[11] ; clk        ;
+; N/A   ; None         ; 7.758 ns   ; BASERAMADDR[15]~en   ; BASERAMADDR[15] ; clk        ;
+; N/A   ; None         ; 7.757 ns   ; BASERAMDATA[5]~reg0  ; BASERAMDATA[5]  ; clk        ;
+; N/A   ; None         ; 7.753 ns   ; BASERAMADDR[16]~en   ; BASERAMADDR[16] ; clk        ;
+; N/A   ; None         ; 7.743 ns   ; BASERAMADDR[17]~en   ; BASERAMADDR[17] ; clk        ;
+; N/A   ; None         ; 7.438 ns   ; BASERAMWE~reg0       ; BASERAMWE       ; clk        ;
+; N/A   ; None         ; 7.431 ns   ; BASERAMADDR[3]~en    ; BASERAMADDR[3]  ; clk        ;
+; N/A   ; None         ; 7.351 ns   ; BASERAMDATA[9]~reg0  ; BASERAMDATA[9]  ; clk        ;
+; N/A   ; None         ; 7.344 ns   ; BASERAMDATA[7]~reg0  ; BASERAMDATA[7]  ; clk        ;
++-------+--------------+------------+----------------------+-----------------+------------+
+
+
++------------------------------------------------------------------+
+; tpd                                                              ;
++-------+-------------------+-----------------+-------+------------+
+; Slack ; Required P2P Time ; Actual P2P Time ; From  ; To         ;
++-------+-------------------+-----------------+-------+------------+
+; N/A   ; None              ; 22.817 ns       ; reset ; LEDBUS[2]  ;
+; N/A   ; None              ; 21.957 ns       ; reset ; LEDBUS[6]  ;
+; N/A   ; None              ; 21.110 ns       ; reset ; LEDBUS[1]  ;
+; N/A   ; None              ; 20.831 ns       ; reset ; LEDBUS[8]  ;
+; N/A   ; None              ; 20.650 ns       ; reset ; LEDBUS[11] ;
+; N/A   ; None              ; 20.576 ns       ; reset ; LEDBUS[18] ;
+; N/A   ; None              ; 20.555 ns       ; reset ; LEDBUS[5]  ;
+; N/A   ; None              ; 20.385 ns       ; reset ; LEDBUS[16] ;
+; N/A   ; None              ; 20.351 ns       ; reset ; LEDBUS[7]  ;
+; N/A   ; None              ; 20.257 ns       ; reset ; LEDBUS[10] ;
+; N/A   ; None              ; 20.002 ns       ; reset ; LEDBUS[30] ;
+; N/A   ; None              ; 19.550 ns       ; reset ; LEDBUS[25] ;
+; N/A   ; None              ; 19.063 ns       ; reset ; LEDBUS[9]  ;
+; N/A   ; None              ; 18.998 ns       ; reset ; LEDBUS[17] ;
+; N/A   ; None              ; 18.970 ns       ; reset ; LEDBUS[20] ;
+; N/A   ; None              ; 18.768 ns       ; reset ; LEDBUS[13] ;
+; N/A   ; None              ; 18.261 ns       ; reset ; LEDBUS[4]  ;
+; N/A   ; None              ; 18.247 ns       ; reset ; LEDBUS[0]  ;
+; N/A   ; None              ; 18.228 ns       ; reset ; LEDBUS[22] ;
+; N/A   ; None              ; 18.208 ns       ; reset ; LEDBUS[27] ;
+; N/A   ; None              ; 18.165 ns       ; reset ; LEDBUS[3]  ;
+; N/A   ; None              ; 17.982 ns       ; reset ; LEDBUS[12] ;
+; N/A   ; None              ; 17.868 ns       ; reset ; LEDBUS[19] ;
+; N/A   ; None              ; 17.852 ns       ; reset ; LEDBUS[31] ;
+; N/A   ; None              ; 17.827 ns       ; reset ; LEDBUS[28] ;
+; N/A   ; None              ; 17.518 ns       ; reset ; LEDBUS[23] ;
+; N/A   ; None              ; 17.445 ns       ; reset ; LEDBUS[26] ;
+; N/A   ; None              ; 17.431 ns       ; reset ; LEDBUS[14] ;
+; N/A   ; None              ; 17.374 ns       ; reset ; LEDBUS[21] ;
+; N/A   ; None              ; 17.346 ns       ; reset ; LEDBUS[15] ;
+; N/A   ; None              ; 17.066 ns       ; reset ; LEDBUS[24] ;
+; N/A   ; None              ; 16.756 ns       ; reset ; LEDBUS[29] ;
++-------+-------------------+-----------------+-------+------------+
+
+
++---------------------------------------------------------------------------------------------+
+; th                                                                                          ;
++---------------+-------------+-----------+-----------------+----------------------+----------+
+; Minimum Slack ; Required th ; Actual th ; From            ; To                   ; To Clock ;
++---------------+-------------+-----------+-----------------+----------------------+----------+
+; N/A           ; None        ; -3.445 ns ; BASERAMDATA[3]  ; data_out[3]          ; clk      ;
+; N/A           ; None        ; -3.446 ns ; BASERAMDATA[10] ; data_out[10]         ; clk      ;
+; N/A           ; None        ; -3.451 ns ; BASERAMDATA[8]  ; data_out[8]          ; clk      ;
+; N/A           ; None        ; -3.454 ns ; BASERAMDATA[5]  ; data_out[5]          ; clk      ;
+; N/A           ; None        ; -3.731 ns ; BASERAMDATA[2]  ; data_out[2]          ; clk      ;
+; N/A           ; None        ; -3.781 ns ; BASERAMDATA[1]  ; data_out[1]          ; clk      ;
+; N/A           ; None        ; -3.797 ns ; BASERAMDATA[9]  ; data_out[9]          ; clk      ;
+; N/A           ; None        ; -3.797 ns ; BASERAMDATA[6]  ; data_out[6]          ; clk      ;
+; N/A           ; None        ; -3.807 ns ; BASERAMDATA[7]  ; data_out[7]          ; clk      ;
+; N/A           ; None        ; -3.922 ns ; BASERAMDATA[13] ; data_out[13]         ; clk      ;
+; N/A           ; None        ; -3.950 ns ; BASERAMDATA[12] ; data_out[12]         ; clk      ;
+; N/A           ; None        ; -4.117 ns ; BASERAMDATA[4]  ; data_out[4]          ; clk      ;
+; N/A           ; None        ; -4.217 ns ; BASERAMDATA[0]  ; data_out[0]          ; clk      ;
+; N/A           ; None        ; -4.280 ns ; BASERAMDATA[14] ; data_out[14]         ; clk      ;
+; N/A           ; None        ; -4.282 ns ; BASERAMDATA[15] ; data_out[15]         ; clk      ;
+; N/A           ; None        ; -4.475 ns ; BASERAMDATA[18] ; data_out[18]         ; clk      ;
+; N/A           ; None        ; -4.647 ns ; BASERAMDATA[16] ; data_out[16]         ; clk      ;
+; N/A           ; None        ; -4.688 ns ; BASERAMDATA[11] ; data_out[11]         ; clk      ;
+; N/A           ; None        ; -4.694 ns ; BASERAMDATA[17] ; data_out[17]         ; clk      ;
+; N/A           ; None        ; -4.722 ns ; BASERAMDATA[20] ; data_out[20]         ; clk      ;
+; N/A           ; None        ; -4.918 ns ; BASERAMDATA[19] ; data_out[19]         ; clk      ;
+; N/A           ; None        ; -5.027 ns ; BASERAMDATA[21] ; data_out[21]         ; clk      ;
+; N/A           ; None        ; -5.029 ns ; BASERAMDATA[31] ; data_out[31]         ; clk      ;
+; N/A           ; None        ; -5.192 ns ; BASERAMDATA[25] ; data_out[25]         ; clk      ;
+; N/A           ; None        ; -5.261 ns ; BASERAMDATA[27] ; data_out[27]         ; clk      ;
+; N/A           ; None        ; -5.280 ns ; BASERAMDATA[24] ; data_out[24]         ; clk      ;
+; N/A           ; None        ; -5.346 ns ; BASERAMDATA[23] ; data_out[23]         ; clk      ;
+; N/A           ; None        ; -5.385 ns ; BASERAMDATA[30] ; data_out[30]         ; clk      ;
+; N/A           ; None        ; -5.428 ns ; BASERAMDATA[22] ; data_out[22]         ; clk      ;
+; N/A           ; None        ; -5.537 ns ; BASERAMDATA[28] ; data_out[28]         ; clk      ;
+; N/A           ; None        ; -5.557 ns ; BASERAMDATA[29] ; data_out[29]         ; clk      ;
+; N/A           ; None        ; -5.638 ns ; BASERAMDATA[26] ; data_out[26]         ; clk      ;
+; N/A           ; None        ; -6.564 ns ; button3         ; BASERAMADDR[0]~reg0  ; clk      ;
+; N/A           ; None        ; -6.581 ns ; button          ; state.mem_write      ; clk      ;
+; N/A           ; None        ; -6.588 ns ; button          ; state.mem_read       ; clk      ;
+; N/A           ; None        ; -6.689 ns ; button3         ; BASERAMDATA[13]~reg0 ; clk      ;
+; N/A           ; None        ; -6.690 ns ; button3         ; BASERAMDATA[15]~reg0 ; clk      ;
+; N/A           ; None        ; -6.793 ns ; button3         ; BASERAMDATA[9]~reg0  ; clk      ;
+; N/A           ; None        ; -6.794 ns ; button3         ; BASERAMDATA[29]~reg0 ; clk      ;
+; N/A           ; None        ; -6.797 ns ; button3         ; BASERAMDATA[7]~reg0  ; clk      ;
+; N/A           ; None        ; -6.797 ns ; button3         ; BASERAMDATA[11]~reg0 ; clk      ;
+; N/A           ; None        ; -6.797 ns ; button3         ; BASERAMDATA[17]~reg0 ; clk      ;
+; N/A           ; None        ; -6.798 ns ; button4         ; BASERAMADDR[0]~reg0  ; clk      ;
+; N/A           ; None        ; -6.798 ns ; button3         ; BASERAMDATA[3]~reg0  ; clk      ;
+; N/A           ; None        ; -6.799 ns ; button3         ; BASERAMDATA[1]~reg0  ; clk      ;
+; N/A           ; None        ; -6.799 ns ; button3         ; BASERAMDATA[5]~reg0  ; clk      ;
+; N/A           ; None        ; -6.799 ns ; button3         ; BASERAMDATA[31]~reg0 ; clk      ;
+; N/A           ; None        ; -7.126 ns ; button3         ; BASERAMDATA[19]~reg0 ; clk      ;
+; N/A           ; None        ; -7.126 ns ; button3         ; BASERAMDATA[21]~reg0 ; clk      ;
+; N/A           ; None        ; -7.127 ns ; button3         ; BASERAMDATA[25]~reg0 ; clk      ;
+; N/A           ; None        ; -7.128 ns ; button3         ; BASERAMDATA[23]~reg0 ; clk      ;
+; N/A           ; None        ; -7.128 ns ; button3         ; BASERAMDATA[27]~reg0 ; clk      ;
+; N/A           ; None        ; -7.904 ns ; reset           ; data_out[0]          ; clk      ;
+; N/A           ; None        ; -7.904 ns ; reset           ; data_out[1]          ; clk      ;
+; N/A           ; None        ; -7.904 ns ; reset           ; data_out[2]          ; clk      ;
+; N/A           ; None        ; -7.904 ns ; reset           ; data_out[3]          ; clk      ;
+; N/A           ; None        ; -7.904 ns ; reset           ; data_out[4]          ; clk      ;
+; N/A           ; None        ; -7.904 ns ; reset           ; data_out[5]          ; clk      ;
+; N/A           ; None        ; -7.904 ns ; reset           ; data_out[6]          ; clk      ;
+; N/A           ; None        ; -7.904 ns ; reset           ; data_out[7]          ; clk      ;
+; N/A           ; None        ; -7.904 ns ; reset           ; data_out[8]          ; clk      ;
+; N/A           ; None        ; -7.904 ns ; reset           ; data_out[9]          ; clk      ;
+; N/A           ; None        ; -7.904 ns ; reset           ; data_out[10]         ; clk      ;
+; N/A           ; None        ; -7.904 ns ; reset           ; data_out[11]         ; clk      ;
+; N/A           ; None        ; -7.904 ns ; reset           ; data_out[12]         ; clk      ;
+; N/A           ; None        ; -7.904 ns ; reset           ; data_out[13]         ; clk      ;
+; N/A           ; None        ; -8.608 ns ; reset           ; data_out[30]         ; clk      ;
+; N/A           ; None        ; -8.608 ns ; reset           ; data_out[31]         ; clk      ;
+; N/A           ; None        ; -8.614 ns ; reset           ; data_out[14]         ; clk      ;
+; N/A           ; None        ; -8.614 ns ; reset           ; data_out[15]         ; clk      ;
+; N/A           ; None        ; -8.614 ns ; reset           ; data_out[16]         ; clk      ;
+; N/A           ; None        ; -8.614 ns ; reset           ; data_out[17]         ; clk      ;
+; N/A           ; None        ; -8.614 ns ; reset           ; data_out[18]         ; clk      ;
+; N/A           ; None        ; -8.614 ns ; reset           ; data_out[19]         ; clk      ;
+; N/A           ; None        ; -8.614 ns ; reset           ; data_out[20]         ; clk      ;
+; N/A           ; None        ; -8.614 ns ; reset           ; data_out[21]         ; clk      ;
+; N/A           ; None        ; -8.614 ns ; reset           ; data_out[22]         ; clk      ;
+; N/A           ; None        ; -8.614 ns ; reset           ; data_out[23]         ; clk      ;
+; N/A           ; None        ; -8.614 ns ; reset           ; data_out[24]         ; clk      ;
+; N/A           ; None        ; -8.614 ns ; reset           ; data_out[25]         ; clk      ;
+; N/A           ; None        ; -8.614 ns ; reset           ; data_out[26]         ; clk      ;
+; N/A           ; None        ; -8.614 ns ; reset           ; data_out[27]         ; clk      ;
+; N/A           ; None        ; -8.614 ns ; reset           ; data_out[28]         ; clk      ;
+; N/A           ; None        ; -8.614 ns ; reset           ; data_out[29]         ; clk      ;
++---------------+-------------+-----------+-----------------+----------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
+    Info: Processing started: Tue May 23 12:06:06 2017
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off sram -c sram --timing_analysis_only
+Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "clk" is an undefined clock
+Info: Clock "clk" has Internal fmax of 300.75 MHz between source register "state.idle" and destination register "BASERAMDATA[18]~en" (period= 3.325 ns)
+    Info: + Longest register to register delay is 3.059 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X93_Y9_N1; Fanout = 7; REG Node = 'state.idle'
+        Info: 2: + IC(0.450 ns) + CELL(0.624 ns) = 1.074 ns; Loc. = LCCOMB_X93_Y9_N28; Fanout = 54; COMB Node = 'Selector3~0'
+        Info: 3: + IC(1.671 ns) + CELL(0.206 ns) = 2.951 ns; Loc. = LCCOMB_X94_Y17_N0; Fanout = 1; COMB Node = 'BASERAMDATA[18]~enfeeder'
+        Info: 4: + IC(0.000 ns) + CELL(0.108 ns) = 3.059 ns; Loc. = LCFF_X94_Y17_N1; Fanout = 1; REG Node = 'BASERAMDATA[18]~en'
+        Info: Total cell delay = 0.938 ns ( 30.66 % )
+        Info: Total interconnect delay = 2.121 ns ( 69.34 % )
+    Info: - Smallest clock skew is -0.002 ns
+        Info: + Shortest clock path from clock "clk" to destination register is 3.338 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.100 ns) = 1.100 ns; Loc. = PIN_N2; Fanout = 1; CLK Node = 'clk'
+            Info: 2: + IC(0.135 ns) + CELL(0.000 ns) = 1.235 ns; Loc. = CLKCTRL_G2; Fanout = 111; COMB Node = 'clk~clkctrl'
+            Info: 3: + IC(1.437 ns) + CELL(0.666 ns) = 3.338 ns; Loc. = LCFF_X94_Y17_N1; Fanout = 1; REG Node = 'BASERAMDATA[18]~en'
+            Info: Total cell delay = 1.766 ns ( 52.91 % )
+            Info: Total interconnect delay = 1.572 ns ( 47.09 % )
+        Info: - Longest clock path from clock "clk" to source register is 3.340 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.100 ns) = 1.100 ns; Loc. = PIN_N2; Fanout = 1; CLK Node = 'clk'
+            Info: 2: + IC(0.135 ns) + CELL(0.000 ns) = 1.235 ns; Loc. = CLKCTRL_G2; Fanout = 111; COMB Node = 'clk~clkctrl'
+            Info: 3: + IC(1.439 ns) + CELL(0.666 ns) = 3.340 ns; Loc. = LCFF_X93_Y9_N1; Fanout = 7; REG Node = 'state.idle'
+            Info: Total cell delay = 1.766 ns ( 52.87 % )
+            Info: Total interconnect delay = 1.574 ns ( 47.13 % )
+    Info: + Micro clock to output delay of source is 0.304 ns
+    Info: + Micro setup delay of destination is -0.040 ns
+Info: tsu for register "data_out[14]" (data pin = "reset", clock pin = "clk") is 8.880 ns
+    Info: + Longest pin to register delay is 12.269 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.934 ns) = 0.934 ns; Loc. = PIN_AD4; Fanout = 95; PIN Node = 'reset'
+        Info: 2: + IC(9.070 ns) + CELL(0.366 ns) = 10.370 ns; Loc. = LCCOMB_X94_Y9_N22; Fanout = 32; COMB Node = 'data_out[0]~34'
+        Info: 3: + IC(1.044 ns) + CELL(0.855 ns) = 12.269 ns; Loc. = LCFF_X94_Y8_N9; Fanout = 1; REG Node = 'data_out[14]'
+        Info: Total cell delay = 2.155 ns ( 17.56 % )
+        Info: Total interconnect delay = 10.114 ns ( 82.44 % )
+    Info: + Micro setup delay of destination is -0.040 ns
+    Info: - Shortest clock path from clock "clk" to destination register is 3.349 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.100 ns) = 1.100 ns; Loc. = PIN_N2; Fanout = 1; CLK Node = 'clk'
+        Info: 2: + IC(0.135 ns) + CELL(0.000 ns) = 1.235 ns; Loc. = CLKCTRL_G2; Fanout = 111; COMB Node = 'clk~clkctrl'
+        Info: 3: + IC(1.448 ns) + CELL(0.666 ns) = 3.349 ns; Loc. = LCFF_X94_Y8_N9; Fanout = 1; REG Node = 'data_out[14]'
+        Info: Total cell delay = 1.766 ns ( 52.73 % )
+        Info: Total interconnect delay = 1.583 ns ( 47.27 % )
+Info: tco from clock "clk" to destination pin "LEDBUS[2]" through register "data_out[2]" is 16.227 ns
+    Info: + Longest clock path from clock "clk" to source register is 3.340 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.100 ns) = 1.100 ns; Loc. = PIN_N2; Fanout = 1; CLK Node = 'clk'
+        Info: 2: + IC(0.135 ns) + CELL(0.000 ns) = 1.235 ns; Loc. = CLKCTRL_G2; Fanout = 111; COMB Node = 'clk~clkctrl'
+        Info: 3: + IC(1.439 ns) + CELL(0.666 ns) = 3.340 ns; Loc. = LCFF_X94_Y9_N21; Fanout = 1; REG Node = 'data_out[2]'
+        Info: Total cell delay = 1.766 ns ( 52.87 % )
+        Info: Total interconnect delay = 1.574 ns ( 47.13 % )
+    Info: + Micro clock to output delay of source is 0.304 ns
+    Info: + Longest register to pin delay is 12.583 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X94_Y9_N21; Fanout = 1; REG Node = 'data_out[2]'
+        Info: 2: + IC(0.000 ns) + CELL(0.393 ns) = 0.393 ns; Loc. = LCCOMB_X94_Y9_N20; Fanout = 1; COMB Node = 'LEDBUS~34'
+        Info: 3: + IC(8.974 ns) + CELL(3.216 ns) = 12.583 ns; Loc. = PIN_AC8; Fanout = 0; PIN Node = 'LEDBUS[2]'
+        Info: Total cell delay = 3.609 ns ( 28.68 % )
+        Info: Total interconnect delay = 8.974 ns ( 71.32 % )
+Info: Longest tpd from source pin "reset" to destination pin "LEDBUS[2]" is 22.817 ns
+    Info: 1: + IC(0.000 ns) + CELL(0.934 ns) = 0.934 ns; Loc. = PIN_AD4; Fanout = 95; PIN Node = 'reset'
+    Info: 2: + IC(9.069 ns) + CELL(0.624 ns) = 10.627 ns; Loc. = LCCOMB_X94_Y9_N20; Fanout = 1; COMB Node = 'LEDBUS~34'
+    Info: 3: + IC(8.974 ns) + CELL(3.216 ns) = 22.817 ns; Loc. = PIN_AC8; Fanout = 0; PIN Node = 'LEDBUS[2]'
+    Info: Total cell delay = 4.774 ns ( 20.92 % )
+    Info: Total interconnect delay = 18.043 ns ( 79.08 % )
+Info: th for register "data_out[3]" (data pin = "BASERAMDATA[3]", clock pin = "clk") is -3.445 ns
+    Info: + Longest clock path from clock "clk" to destination register is 3.340 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.100 ns) = 1.100 ns; Loc. = PIN_N2; Fanout = 1; CLK Node = 'clk'
+        Info: 2: + IC(0.135 ns) + CELL(0.000 ns) = 1.235 ns; Loc. = CLKCTRL_G2; Fanout = 111; COMB Node = 'clk~clkctrl'
+        Info: 3: + IC(1.439 ns) + CELL(0.666 ns) = 3.340 ns; Loc. = LCFF_X94_Y9_N15; Fanout = 1; REG Node = 'data_out[3]'
+        Info: Total cell delay = 1.766 ns ( 52.87 % )
+        Info: Total interconnect delay = 1.574 ns ( 47.13 % )
+    Info: + Micro hold delay of destination is 0.306 ns
+    Info: - Shortest pin to register delay is 7.091 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = PIN_W24; Fanout = 1; PIN Node = 'BASERAMDATA[3]'
+        Info: 2: + IC(0.000 ns) + CELL(0.935 ns) = 0.935 ns; Loc. = IOC_X95_Y11_N1; Fanout = 1; COMB Node = 'BASERAMDATA[3]~60'
+        Info: 3: + IC(5.696 ns) + CELL(0.460 ns) = 7.091 ns; Loc. = LCFF_X94_Y9_N15; Fanout = 1; REG Node = 'data_out[3]'
+        Info: Total cell delay = 1.395 ns ( 19.67 % )
+        Info: Total interconnect delay = 5.696 ns ( 80.33 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 211 megabytes
+    Info: Processing ended: Tue May 23 12:06:06 2017
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
+
+
