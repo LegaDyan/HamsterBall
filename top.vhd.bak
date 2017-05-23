@@ -7,7 +7,7 @@ entity top is
 port(
 datain,clkin,fclk,rst_in: in std_logic;
 seg0,seg1:out std_logic_vector(6 downto 0);
-wkey:out std_logic
+wkey, fok, breako,f0o, do:out std_logic
 );
 end top;
 
@@ -16,9 +16,8 @@ component Keyboard is
 port (
 	datain, clkin : in std_logic ; -- PS2 clk and data
 	fclk, rst : in std_logic ;  -- filter clock
-	foko : out std_logic ;  -- data output enable signal
+	keys : out std_logic ;  -- data output enable signal
 	scancode : out std_logic_vector(7 downto 0) -- scan code signal output
-
 	) ;
 end component ;
 
@@ -34,49 +33,52 @@ signal rst : std_logic;
 signal clk_f: std_logic;
 type state is (s0, s1);
 signal q: state;
-signal fok: std_logic;
+--signal foko : std_logic;
+--signal break: std_logic;
+--signal f00, d0: std_logic;
 begin
 rst<=not rst_in;
-
-u0: Keyboard port map(datain,clkin,fclk,rst,fok,scancode);
+--fok <= foko;
+u0: Keyboard port map(datain,clkin,fclk,rst,wkey,scancode);
 u1: seg7 port map(scancode(3 downto 0),seg0);
 u2: seg7 port map(scancode(7 downto 4),seg1);
 
-process(rst, fok)
-begin
-	if rst = '1' then
-		q <= s0;
-		wkey <= '0';
-	elsif (fok'event and fok = '1') then
-		if q = s0 then
-			if scancode = "11110000" then
-				q <= s1;
-			elsif scancode = "00011101" then
-				wkey <= '0';
-			end if;
-		else
-			q <= s0;
-			if scancode = "00011101" then
-				wkey <= '1';
-			end if;
-		end if;
-	end if;
-end process;
-
+--process(foko)
+--begin
+--	if (foko'event and foko = '1') then
+----		if q = s0 then
+----			if scancode = "11110000" then
+----				q <= s1;
+----			elsif scancode = "00011101" then
+----				wkey <= '1';
+----			end if;
+----		else
+----			q <= s0;
+----			if scancode = "00011101" then
+----				wkey <= '0';
+----			end if;
+----		end if;
+--		case scancode is
+--			when x"F0" => 
+--				break <= '0';
+--				if (f00 = '0') then
+--					f00 <= '1';
+--				else f00 <= '0';
+--				end if;
+--			when x"1D" => 
+--				if (d0 = '0') then
+--					d0 <= '1';
+--				else d0 <= '0';
+--				end if;
+--				wkey <= break; 
+--				break <= '1';
+--			when others => break <= '1';
+--		end case;
+--	end if;
+--end process;
 --
--- 		if scancode = "11110000" then
--- 			q <= s1;
--- 		elsif scancode = "00011101" then
--- 			if q = s0 then
--- 				wkey <= '1';
--- 			else
--- 				wkey <= '0';
--- 			end if;
--- 			q <= s0;
--- 		else
--- 			q <= s0;
--- 		end if;
--- 	end if;
--- end process;
+--breako <= break;
+--f0o <= f00;
+--do <= d0;
 
 end behave;

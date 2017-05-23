@@ -1,5 +1,5 @@
 Flow report for HamsterBall
-Tue May 23 10:38:57 2017
+Tue May 23 21:44:07 2017
 Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +------------------------------------+------------------------------------------+
-; Flow Status                        ; Successful - Tue May 23 10:38:57 2017    ;
+; Flow Status                        ; Successful - Tue May 23 21:44:07 2017    ;
 ; Quartus II Version                 ; 9.0 Build 132 02/25/2009 SJ Full Version ;
 ; Revision Name                      ; HamsterBall                              ;
 ; Top-level Entity Name              ; HamsterBall                              ;
@@ -46,11 +46,11 @@ applicable agreement for further details.
 ; Device                             ; EP2C70F672C8                             ;
 ; Timing Models                      ; Final                                    ;
 ; Met timing requirements            ; No                                       ;
-; Total logic elements               ; 231 / 68,416 ( < 1 % )                   ;
-;     Total combinational functions  ; 205 / 68,416 ( < 1 % )                   ;
-;     Dedicated logic registers      ; 121 / 68,416 ( < 1 % )                   ;
-; Total registers                    ; 121                                      ;
-; Total pins                         ; 15 / 422 ( 4 % )                         ;
+; Total logic elements               ; 273 / 68,416 ( < 1 % )                   ;
+;     Total combinational functions  ; 246 / 68,416 ( < 1 % )                   ;
+;     Dedicated logic registers      ; 136 / 68,416 ( < 1 % )                   ;
+; Total registers                    ; 136                                      ;
+; Total pins                         ; 34 / 422 ( 8 % )                         ;
 ; Total virtual pins                 ; 0                                        ;
 ; Total memory bits                  ; 196,608 / 1,152,000 ( 17 % )             ;
 ; Embedded Multiplier 9-bit elements ; 0 / 300 ( 0 % )                          ;
@@ -63,7 +63,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/23/2017 10:38:33 ;
+; Start date & time ; 05/23/2017 21:43:45 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; HamsterBall         ;
 +-------------------+---------------------+
@@ -74,7 +74,7 @@ applicable agreement for further details.
 +------------------------------------+------------------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                    ; Value                                          ; Default Value ; Entity Name ; Section Id     ;
 +------------------------------------+------------------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID              ; 121378507560.149550711305000                   ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID              ; 121378507560.149554702508744                   ; --            ; --          ; --             ;
 ; IP_TOOL_NAME                       ; ROM: 1-PORT                                    ; --            ; --          ; --             ;
 ; IP_TOOL_NAME                       ; ROM: 1-PORT                                    ; --            ; --          ; --             ;
 ; IP_TOOL_NAME                       ; ROM: 1-PORT                                    ; --            ; --          ; --             ;
@@ -85,11 +85,11 @@ applicable agreement for further details.
 ; IP_TOOL_VERSION                    ; 9.0                                            ; --            ; --          ; --             ;
 ; MAX_CORE_JUNCTION_TEMP             ; 85                                             ; --            ; --          ; --             ;
 ; MIN_CORE_JUNCTION_TEMP             ; 0                                              ; --            ; --          ; --             ;
+; MISC_FILE                          ; \\Mac\Home\Desktop\HamsterBall\HamsterBall.dpf ; --            ; --          ; --             ;
 ; MISC_FILE                          ; blue.cmp                                       ; --            ; --          ; --             ;
 ; MISC_FILE                          ; green.cmp                                      ; --            ; --          ; --             ;
 ; MISC_FILE                          ; num6.cmp                                       ; --            ; --          ; --             ;
 ; MISC_FILE                          ; red.cmp                                        ; --            ; --          ; --             ;
-; MISC_FILE                          ; \\Mac\Home\Desktop\HamsterBall\HamsterBall.dpf ; --            ; --          ; --             ;
 ; PARTITION_COLOR                    ; 16764057                                       ; --            ; --          ; Top            ;
 ; PARTITION_NETLIST_TYPE             ; SOURCE                                         ; --            ; --          ; Top            ;
 ; USE_GENERATED_PHYSICAL_CONSTRAINTS ; Off                                            ; --            ; --          ; eda_blast_fpga ;
@@ -101,11 +101,11 @@ applicable agreement for further details.
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name             ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis    ; 00:00:04     ; 1.0                     ; 275 MB              ; 00:00:03                           ;
-; Fitter                  ; 00:00:11     ; 1.2                     ; 409 MB              ; 00:00:10                           ;
-; Assembler               ; 00:00:05     ; 1.0                     ; 359 MB              ; 00:00:05                           ;
+; Analysis & Synthesis    ; 00:00:05     ; 1.0                     ; 270 MB              ; 00:00:03                           ;
+; Fitter                  ; 00:00:09     ; 1.4                     ; 402 MB              ; 00:00:10                           ;
+; Assembler               ; 00:00:04     ; 1.0                     ; 363 MB              ; 00:00:05                           ;
 ; Classic Timing Analyzer ; 00:00:01     ; 1.0                     ; 196 MB              ; 00:00:00                           ;
-; Total                   ; 00:00:21     ; --                      ; --                  ; 00:00:18                           ;
+; Total                   ; 00:00:19     ; --                      ; --                  ; 00:00:18                           ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

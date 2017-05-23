@@ -110,7 +110,7 @@ u4: blue port map(
 						clock=>clk50, 
 						q=>q_blue
 					);
-u5: top port map(datain,clkin,clkf,reset,wkey,fok, breako,f0o,do,seg0,seg1);
+u5: top port map(datain,clkin,clkf,reset,wkey,fok, breako,f0o,do);
 
 seg <= wkey;
 

@@ -7,30 +7,43 @@ entity Keyboard is
 port (
 	datain, clkin : in std_logic ; -- PS2 clk and data
 	fclk, rst : in std_logic ;  -- filter clock
-	foko : out std_logic ;  -- data output enable signal
+	wkey : out std_logic ;  -- data output enable signal
 	scancode : out std_logic_vector(7 downto 0) -- scan code signal output
 	) ;
 end Keyboard ;
 
 architecture rtl of Keyboard is
 type state_type is (delay, start, d0, d1, d2, d3, d4, d5, d6, d7, parity, stop, finish) ;
-signal data, clk, clk1, clk2, odd, fok : std_logic ; -- Ã«´Ì´¦ÀíÄÚ²¿ÐÅºÅ, oddÎªÆæÅ¼Ð£Ñé
-signal code : std_logic_vector(7 downto 0) ; 
+signal data, clk, clk1, clk2, odd, fok : std_logic ; -- Ã«ï¿½Ì´ï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½Åºï¿½, oddÎªï¿½ï¿½Å¼Ð£ï¿½ï¿½
+signal code : std_logic_vector(7 downto 0) ;
 signal state : state_type ;
+signal break: std_logic := '1';
 begin
 	clk1 <= clkin when rising_edge(fclk) ;
 	clk2 <= clk1 when rising_edge(fclk) ;
 	clk <= (not clk1) and clk2 ;
-	
+
 	data <= datain when rising_edge(fclk) ;
-	
-	odd <= code(0) xor code(1) xor code(2) xor code(3) 
+
+	odd <= code(0) xor code(1) xor code(2) xor code(3)
 		xor code(4) xor code(5) xor code(6) xor code(7) ;
-	
+
 	scancode <= code when fok = '1' ;
-	
-	foko <= fok;
-	
+
+	process(fok)
+	begin
+		if (fok'event and fok = '1') then
+			case code is
+				when x"F0" =>
+					break <= '0';
+				when x"1D" =>
+					wkey <= break;
+					break <= '1';
+				when others => break <= '1';
+			end case;
+		end if;
+	end process;
+
 	process(rst, fclk)
 	begin
 		if rst = '1' then
@@ -39,7 +52,7 @@ begin
 			fok <= '0' ;
 		elsif rising_edge(fclk) then
 			fok <= '0' ;
-			case state is 
+			case state is
 				when delay =>
 					state <= start ;
 				when start =>
@@ -113,9 +126,7 @@ begin
 					fok <= '1' ;
 				when others =>
 					state <= delay ;
-			end case ; 
+			end case ;
 		end if ;
 	end process ;
 end rtl ;
-			
-						
