@@ -47,3 +47,107 @@ set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name VHDL_FILE sram.vhd
 set_global_assignment -name VHDL_FILE init_sram.vhd
+set_global_assignment -name MISC_FILE "E:/mycode/quartus/prj/HamsterBall/HamsterBall/sram/sram.dpf"
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
+
+set_location_assignment PIN_AE23 -to BASERAMADDR[19]
+set_location_assignment PIN_AF23 -to BASERAMADDR[18]
+set_location_assignment PIN_Y23 -to BASERAMADDR[17]
+set_location_assignment PIN_Y24 -to BASERAMADDR[16]
+set_location_assignment PIN_AA25 -to BASERAMADDR[15]
+set_location_assignment PIN_AA26 -to BASERAMADDR[14]
+set_location_assignment PIN_V22 -to BASERAMADDR[13]
+set_location_assignment PIN_AB26 -to BASERAMADDR[12]
+set_location_assignment PIN_AB25 -to BASERAMADDR[11]
+set_location_assignment PIN_AB23 -to BASERAMADDR[10]
+set_location_assignment PIN_AB24 -to BASERAMADDR[9]
+set_location_assignment PIN_AA23 -to BASERAMADDR[8]
+set_location_assignment PIN_AA24 -to BASERAMADDR[7]
+set_location_assignment PIN_Y22 -to BASERAMADDR[6]
+set_location_assignment PIN_AC24 -to BASERAMADDR[5]
+set_location_assignment PIN_AD24 -to BASERAMADDR[4]
+set_location_assignment PIN_AC26 -to BASERAMADDR[3]
+set_location_assignment PIN_AC23 -to BASERAMADDR[2]
+set_location_assignment PIN_N23 -to BASERAMADDR[1]
+set_location_assignment PIN_N24 -to BASERAMADDR[0]
+set_location_assignment PIN_AB21 -to BASERAMCE
+set_location_assignment PIN_M25 -to BASERAMDATA[31]
+set_location_assignment PIN_M24 -to BASERAMDATA[30]
+set_location_assignment PIN_M23 -to BASERAMDATA[29]
+set_location_assignment PIN_M22 -to BASERAMDATA[28]
+set_location_assignment PIN_K23 -to BASERAMDATA[27]
+set_location_assignment PIN_K22 -to BASERAMDATA[26]
+set_location_assignment PIN_K24 -to BASERAMDATA[25]
+set_location_assignment PIN_L23 -to BASERAMDATA[24]
+set_location_assignment PIN_L24 -to BASERAMDATA[23]
+set_location_assignment PIN_P23 -to BASERAMDATA[22]
+set_location_assignment PIN_P24 -to BASERAMDATA[21]
+set_location_assignment PIN_R25 -to BASERAMDATA[20]
+set_location_assignment PIN_R24 -to BASERAMDATA[19]
+set_location_assignment PIN_T22 -to BASERAMDATA[18]
+set_location_assignment PIN_T23 -to BASERAMDATA[17]
+set_location_assignment PIN_T24 -to BASERAMDATA[16]
+set_location_assignment PIN_T25 -to BASERAMDATA[15]
+set_location_assignment PIN_U26 -to BASERAMDATA[14]
+set_location_assignment PIN_U25 -to BASERAMDATA[13]
+set_location_assignment PIN_U23 -to BASERAMDATA[12]
+set_location_assignment PIN_U24 -to BASERAMDATA[11]
+set_location_assignment PIN_V26 -to BASERAMDATA[10]
+set_location_assignment PIN_V25 -to BASERAMDATA[9]
+set_location_assignment PIN_V24 -to BASERAMDATA[8]
+set_location_assignment PIN_V23 -to BASERAMDATA[7]
+set_location_assignment PIN_W26 -to BASERAMDATA[6]
+set_location_assignment PIN_W25 -to BASERAMDATA[5]
+set_location_assignment PIN_W23 -to BASERAMDATA[4]
+set_location_assignment PIN_W24 -to BASERAMDATA[3]
+set_location_assignment PIN_U22 -to BASERAMDATA[2]
+set_location_assignment PIN_Y25 -to BASERAMDATA[1]
+set_location_assignment PIN_Y26 -to BASERAMDATA[0]
+set_location_assignment PIN_AD25 -to BASERAMOE
+set_location_assignment PIN_AC25 -to BASERAMWE
+set_location_assignment PIN_AC6 -to button
+set_location_assignment PIN_N2 -to clk
+set_location_assignment PIN_AC7 -to LEDBUS[0]
+set_location_assignment PIN_AB8 -to LEDBUS[1]
+set_location_assignment PIN_AC8 -to LEDBUS[2]
+set_location_assignment PIN_AD8 -to LEDBUS[3]
+set_location_assignment PIN_AE6 -to LEDBUS[4]
+set_location_assignment PIN_AF6 -to LEDBUS[5]
+set_location_assignment PIN_AB10 -to LEDBUS[6]
+set_location_assignment PIN_AE7 -to LEDBUS[7]
+set_location_assignment PIN_AF7 -to LEDBUS[8]
+set_location_assignment PIN_AE8 -to LEDBUS[9]
+set_location_assignment PIN_AF8 -to LEDBUS[10]
+set_location_assignment PIN_AC9 -to LEDBUS[11]
+set_location_assignment PIN_AC10 -to LEDBUS[12]
+set_location_assignment PIN_AE9 -to LEDBUS[13]
+set_location_assignment PIN_AF9 -to LEDBUS[14]
+set_location_assignment PIN_AD10 -to LEDBUS[15]
+set_location_assignment PIN_AC11 -to LEDBUS[16]
+set_location_assignment PIN_AB12 -to LEDBUS[17]
+set_location_assignment PIN_AE10 -to LEDBUS[18]
+set_location_assignment PIN_AF10 -to LEDBUS[19]
+set_location_assignment PIN_AD15 -to LEDBUS[20]
+set_location_assignment PIN_AE11 -to LEDBUS[21]
+set_location_assignment PIN_AC15 -to LEDBUS[22]
+set_location_assignment PIN_AD12 -to LEDBUS[23]
+set_location_assignment PIN_AE12 -to LEDBUS[24]
+set_location_assignment PIN_AE13 -to LEDBUS[25]
+set_location_assignment PIN_AF13 -to LEDBUS[26]
+set_location_assignment PIN_AE15 -to LEDBUS[27]
+set_location_assignment PIN_AD11 -to LEDBUS[28]
+set_location_assignment PIN_AB15 -to LEDBUS[29]
+set_location_assignment PIN_AC12 -to LEDBUS[30]
+set_location_assignment PIN_AE16 -to LEDBUS[31]
+set_location_assignment PIN_AD4 -to reset
+set_location_assignment PIN_AD5 -to button3
+set_location_assignment PIN_AE5 -to button4
+
+
+set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
+set_global_assignment -name USE_CONFIGURATION_DEVICE ON
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS INPUT TRI-STATED"

@@ -1,0 +1,7 @@
+
+State Machine - |sram|state
+Name state.mem_end state.mem_write state.mem_read state.idle 
+state.idle 0 0 0 0 
+state.mem_read 0 0 1 1 
+state.mem_write 0 1 0 1 
+state.mem_end 1 0 0 1 

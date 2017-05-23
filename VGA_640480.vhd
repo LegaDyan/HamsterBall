@@ -29,7 +29,7 @@ architecture behavior of vga640480 is
 begin
 clk50 <= clk;
 
- --------------------- --------------------------------------------------
+ -----------------------------------------------------------------------
   process(clk_0)	--对50M输入信号二分频
     begin
         if(clk_0'event and clk_0='1') then 
@@ -37,12 +37,14 @@ clk50 <= clk;
         end if;
  	end process;
  	
- 	process(clk1)	--??50Mê?è?D?o??t·??μ
+ 	process(clk1)	--对50M输入信号二分频
     begin
         if(clk1'event and clk1='1') then 
              clk <= not clk;
         end if;
  	end process;
+ 	
+----------------------------------------------------------------------
 
 	process(clk, reset)
 	begin
