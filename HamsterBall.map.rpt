@@ -1,5 +1,5 @@
 Analysis & Synthesis report for HamsterBall
-Tue May 23 21:43:49 2017
+Tue May 23 21:51:49 2017
 Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
 
 
@@ -51,7 +51,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +------------------------------------+------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue May 23 21:43:49 2017    ;
+; Analysis & Synthesis Status        ; Successful - Tue May 23 21:51:49 2017    ;
 ; Quartus II Version                 ; 9.0 Build 132 02/25/2009 SJ Full Version ;
 ; Revision Name                      ; HamsterBall                              ;
 ; Top-level Entity Name              ; HamsterBall                              ;
@@ -591,7 +591,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
-    Info: Processing started: Tue May 23 21:43:44 2017
+    Info: Processing started: Tue May 23 21:51:44 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off HamsterBall -c HamsterBall
 Info: Found 2 design units, including 1 entities, in source file Keyboard.vhd
     Info: Found design unit 1: Keyboard-rtl
@@ -629,8 +629,8 @@ Info: Found 2 design units, including 1 entities, in source file vga_rom.vhd
     Info: Found entity 1: HamsterBall
 Info: Elaborating entity "HamsterBall" for the top level hierarchy
 Info: Elaborating entity "vga640480" for hierarchy "vga640480:u1"
-Warning (10492): VHDL Process Statement warning at VGA_640480.vhd(194): signal "vector_x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at VGA_640480.vhd(194): signal "vector_y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at VGA_640480.vhd(196): signal "vector_x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at VGA_640480.vhd(196): signal "vector_y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Info: Elaborating entity "red" for hierarchy "red:u2"
 Info: Elaborating entity "altsyncram" for hierarchy "red:u2|altsyncram:altsyncram_component"
 Info: Elaborated megafunction instantiation "red:u2|altsyncram:altsyncram_component"
@@ -824,8 +824,8 @@ Info: Implemented 364 device resources after synthesis - the final resource coun
     Info: Implemented 48 RAM segments
 Info: Quartus II Analysis & Synthesis was successful. 0 errors, 110 warnings
     Info: Peak virtual memory: 270 megabytes
-    Info: Processing ended: Tue May 23 21:43:49 2017
+    Info: Processing ended: Tue May 23 21:51:49 2017
     Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Total CPU time (on all processors): 00:00:04
 
 
