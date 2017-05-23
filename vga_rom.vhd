@@ -1,15 +1,15 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity vga_rom is
+entity HamsterBall is
 port(
 	clk_0,reset,datain,clkin: in std_logic;
 	hs,vs: out STD_LOGIC; 
 	r,g,b: out STD_LOGIC_vector(2 downto 0)
 );
-end vga_rom;
+end HamsterBall;
 
-architecture vga_rom of vga_rom is
+architecture arc of HamsterBall is
 
 component vga640480 is
 	 port(
@@ -92,4 +92,4 @@ u4: blue port map(
 						q=>q_blue
 					);
 u5: top port map(datain,clkin,clk_0,reset,wkey);
-end vga_rom;
+end arc;

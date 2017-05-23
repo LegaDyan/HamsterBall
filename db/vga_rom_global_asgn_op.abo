@@ -8789,32 +8789,9 @@ Chip Device Options:
 
 
 - ATOM ------------------------
-	ATOM_NAME: top:u5|q -- NON-UNIQUE
-	Atom Hier Name: 
-	Atom Id: 306
-	Atom Type: cycloneii_lcell_ff
-
-	power up = low
-
-	INPUTS (Driven By):
-		0: [CLK]	  top:u5|Keyboard:u0|fok	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		1: [DATAIN]	  top:u5|q~4	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		2: NO ITERM
-		3: [ACLR]	~ reset	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:CONNECTED,NONE
-		4: NO ITERM
-		5: NO ITERM
-		6: NO ITERM
-	OUTPUTS (Int. Connections):
-		0: [REGOUT]	top:u5|q	LIT INDEX 0 FANOUTS 2 REGED POS
-
-	PARAMETER LIST:
-		EMPTY!!
-
-
-- ATOM ------------------------
 	ATOM_NAME: top:u5|wkey~4 -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 307
+	Atom Id: 306
 	Atom Type: cycloneii_lcell_comb
 
 	INPUTS (Driven By):
@@ -8835,7 +8812,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: top:u5|wkey~5 -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 308
+	Atom Id: 307
 	Atom Type: cycloneii_lcell_comb
 
 	INPUTS (Driven By):
@@ -8854,16 +8831,39 @@ Chip Device Options:
 
 
 - ATOM ------------------------
+	ATOM_NAME: top:u5|q -- NON-UNIQUE
+	Atom Hier Name: 
+	Atom Id: 308
+	Atom Type: cycloneii_lcell_ff
+
+	power up = low
+
+	INPUTS (Driven By):
+		0: [CLK]	  top:u5|Keyboard:u0|fok	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		1: [DATAIN]	  top:u5|q~4	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		2: NO ITERM
+		3: [ACLR]	~ reset	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:CONNECTED,NONE
+		4: NO ITERM
+		5: NO ITERM
+		6: NO ITERM
+	OUTPUTS (Int. Connections):
+		0: [REGOUT]	top:u5|q	LIT INDEX 0 FANOUTS 2 REGED POS
+
+	PARAMETER LIST:
+		EMPTY!!
+
+
+- ATOM ------------------------
 	ATOM_NAME: top:u5|wkey~6 -- NON-UNIQUE
 	Atom Hier Name: 
 	Atom Id: 309
 	Atom Type: cycloneii_lcell_comb
 
 	INPUTS (Driven By):
-		0: [DATAA]	  top:u5|q	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		1: [DATAB]	  top:u5|wkey	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		2: [DATAC]	  top:u5|wkey~4	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		3: [DATAD]	  top:u5|wkey~5	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		0: [DATAA]	  top:u5|wkey	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		1: [DATAB]	  top:u5|wkey~4	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		2: [DATAC]	  top:u5|wkey~5	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		3: [DATAD]	  top:u5|q	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
 		4: NO ITERM
 	OUTPUTS (Int. Connections):
 		0: [COMBOUT]	top:u5|wkey~6	LIT INDEX 0 FANOUTS 1
@@ -8871,7 +8871,7 @@ Chip Device Options:
 
 	PARAMETER LIST:
 		sum_lutc_input                 = datac
-		lut_mask                       = accc
+		lut_mask                       = 2aea
 
 
 - ATOM ------------------------
@@ -9308,72 +9308,9 @@ Chip Device Options:
 
 
 - ATOM ------------------------
-	ATOM_NAME: top:u5|q~2 -- NON-UNIQUE
-	Atom Hier Name: 
-	Atom Id: 329
-	Atom Type: cycloneii_lcell_comb
-
-	INPUTS (Driven By):
-		0: [DATAA]	  top:u5|Keyboard:u0|scancode[4]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		1: [DATAB]	  top:u5|q	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		2: [DATAC]	  top:u5|Keyboard:u0|scancode[1]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		3: [DATAD]	  top:u5|Keyboard:u0|scancode[2]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		4: NO ITERM
-	OUTPUTS (Int. Connections):
-		0: [COMBOUT]	top:u5|q~2	LIT INDEX 0 FANOUTS 1
-		1: NONE
-
-	PARAMETER LIST:
-		sum_lutc_input                 = datac
-		lut_mask                       = 0002
-
-
-- ATOM ------------------------
-	ATOM_NAME: top:u5|q~3 -- NON-UNIQUE
-	Atom Hier Name: 
-	Atom Id: 330
-	Atom Type: cycloneii_lcell_comb
-
-	INPUTS (Driven By):
-		0: [DATAA]	  top:u5|Keyboard:u0|scancode[5]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		1: [DATAB]	  top:u5|Keyboard:u0|scancode[6]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		2: [DATAC]	  top:u5|Keyboard:u0|scancode[7]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		3: [DATAD]	  top:u5|Keyboard:u0|scancode[3]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		4: NO ITERM
-	OUTPUTS (Int. Connections):
-		0: [COMBOUT]	top:u5|q~3	LIT INDEX 0 FANOUTS 1
-		1: NONE
-
-	PARAMETER LIST:
-		sum_lutc_input                 = datac
-		lut_mask                       = 0080
-
-
-- ATOM ------------------------
-	ATOM_NAME: top:u5|q~4 -- NON-UNIQUE
-	Atom Hier Name: 
-	Atom Id: 331
-	Atom Type: cycloneii_lcell_comb
-
-	INPUTS (Driven By):
-		0: [DATAA]	  top:u5|q~2	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		1: [DATAB]	  top:u5|q~3	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		2: NO ITERM
-		3: [DATAD]	  top:u5|Keyboard:u0|scancode[0]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
-		4: NO ITERM
-	OUTPUTS (Int. Connections):
-		0: [COMBOUT]	top:u5|q~4	LIT INDEX 0 FANOUTS 1
-		1: NONE
-
-	PARAMETER LIST:
-		sum_lutc_input                 = datac
-		lut_mask                       = 0088
-
-
-- ATOM ------------------------
 	ATOM_NAME: top:u5|Keyboard:u0|code[4] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 332
+	Atom Id: 329
 	Atom Type: cycloneii_lcell_ff
 
 	power up = low
@@ -9396,7 +9333,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: top:u5|Keyboard:u0|code[2] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 333
+	Atom Id: 330
 	Atom Type: cycloneii_lcell_ff
 
 	power up = low
@@ -9419,7 +9356,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: top:u5|Keyboard:u0|code[3] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 334
+	Atom Id: 331
 	Atom Type: cycloneii_lcell_ff
 
 	power up = low
@@ -9442,7 +9379,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: top:u5|Keyboard:u0|code[1] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 335
+	Atom Id: 332
 	Atom Type: cycloneii_lcell_ff
 
 	power up = low
@@ -9465,7 +9402,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: top:u5|Keyboard:u0|code[0] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 336
+	Atom Id: 333
 	Atom Type: cycloneii_lcell_ff
 
 	power up = low
@@ -9488,7 +9425,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: top:u5|Keyboard:u0|code[5] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 337
+	Atom Id: 334
 	Atom Type: cycloneii_lcell_ff
 
 	power up = low
@@ -9511,7 +9448,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: top:u5|Keyboard:u0|code[6] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 338
+	Atom Id: 335
 	Atom Type: cycloneii_lcell_ff
 
 	power up = low
@@ -9534,7 +9471,7 @@ Chip Device Options:
 - ATOM ------------------------
 	ATOM_NAME: top:u5|Keyboard:u0|code[7] -- NON-UNIQUE
 	Atom Hier Name: 
-	Atom Id: 339
+	Atom Id: 336
 	Atom Type: cycloneii_lcell_ff
 
 	power up = low
@@ -9552,6 +9489,69 @@ Chip Device Options:
 
 	PARAMETER LIST:
 		EMPTY!!
+
+
+- ATOM ------------------------
+	ATOM_NAME: top:u5|q~2 -- NON-UNIQUE
+	Atom Hier Name: 
+	Atom Id: 337
+	Atom Type: cycloneii_lcell_comb
+
+	INPUTS (Driven By):
+		0: [DATAA]	  top:u5|Keyboard:u0|scancode[4]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		1: [DATAB]	  top:u5|q	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		2: [DATAC]	  top:u5|Keyboard:u0|scancode[1]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		3: [DATAD]	  top:u5|Keyboard:u0|scancode[2]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		4: NO ITERM
+	OUTPUTS (Int. Connections):
+		0: [COMBOUT]	top:u5|q~2	LIT INDEX 0 FANOUTS 1
+		1: NONE
+
+	PARAMETER LIST:
+		sum_lutc_input                 = datac
+		lut_mask                       = 0002
+
+
+- ATOM ------------------------
+	ATOM_NAME: top:u5|q~3 -- NON-UNIQUE
+	Atom Hier Name: 
+	Atom Id: 338
+	Atom Type: cycloneii_lcell_comb
+
+	INPUTS (Driven By):
+		0: [DATAA]	  top:u5|Keyboard:u0|scancode[5]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		1: [DATAB]	  top:u5|Keyboard:u0|scancode[6]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		2: [DATAC]	  top:u5|Keyboard:u0|scancode[7]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		3: [DATAD]	  top:u5|Keyboard:u0|scancode[3]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		4: NO ITERM
+	OUTPUTS (Int. Connections):
+		0: [COMBOUT]	top:u5|q~3	LIT INDEX 0 FANOUTS 1
+		1: NONE
+
+	PARAMETER LIST:
+		sum_lutc_input                 = datac
+		lut_mask                       = 0080
+
+
+- ATOM ------------------------
+	ATOM_NAME: top:u5|q~4 -- NON-UNIQUE
+	Atom Hier Name: 
+	Atom Id: 339
+	Atom Type: cycloneii_lcell_comb
+
+	INPUTS (Driven By):
+		0: [DATAA]	  top:u5|q~2	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		1: [DATAB]	  top:u5|q~3	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		2: NO ITERM
+		3: [DATAD]	  top:u5|Keyboard:u0|scancode[0]	LIT INDEX 0	GLOBAL:DONT_CARE	DELAY_CHAIN:UNCONNECTED
+		4: NO ITERM
+	OUTPUTS (Int. Connections):
+		0: [COMBOUT]	top:u5|q~4	LIT INDEX 0 FANOUTS 1
+		1: NONE
+
+	PARAMETER LIST:
+		sum_lutc_input                 = datac
+		lut_mask                       = 0088
 
 
 - ATOM ------------------------

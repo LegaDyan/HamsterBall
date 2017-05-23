@@ -4106,72 +4106,6 @@ c:|altera|90|quartus|lmf|maxplus2.lmf
 
 # end
 # entity
-top
-# storage
-db|vga_rom.(29).cnf
-db|vga_rom.(29).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-top.vhd
-3a60ae793fbea4a685ed87cedca39e16
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# hierarchies {
-top:u5
-}
-# lmf
-c:|altera|90|quartus|lmf|maxplus2.lmf
-9a59d39b0706640b4b2718e8a1ff1f
-# macro_sequence
-
-# end
-# entity
-vga_rom
-# storage
-db|vga_rom.(0).cnf
-db|vga_rom.(0).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-vga_rom.vhd
-7451bcc523beeb498a9327e824f6cc3
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# hierarchies {
-|
-}
-# lmf
-c:|altera|90|quartus|lmf|maxplus2.lmf
-9a59d39b0706640b4b2718e8a1ff1f
-# macro_sequence
-
-# end
-# entity
 Keyboard
 # storage
 db|vga_rom.(30).cnf
@@ -4203,6 +4137,72 @@ USR
 }
 # hierarchies {
 top:u5|Keyboard:u0
+}
+# lmf
+c:|altera|90|quartus|lmf|maxplus2.lmf
+9a59d39b0706640b4b2718e8a1ff1f
+# macro_sequence
+
+# end
+# entity
+HamsterBall
+# storage
+db|vga_rom.(0).cnf
+db|vga_rom.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+vga_rom.vhd
+b86f2552c58899547aed3be19759298
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+|
+}
+# lmf
+c:|altera|90|quartus|lmf|maxplus2.lmf
+9a59d39b0706640b4b2718e8a1ff1f
+# macro_sequence
+
+# end
+# entity
+top
+# storage
+db|vga_rom.(29).cnf
+db|vga_rom.(29).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+top.vhd
+9948ec771bda727c03fb3235028d9d0
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+top:u5
 }
 # lmf
 c:|altera|90|quartus|lmf|maxplus2.lmf

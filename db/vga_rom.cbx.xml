@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="vga_rom">
-		<CBX_INST_ENTRY INSTANCE_NAME="|vga_rom|blue:u4|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_7o71.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|vga_rom|green:u3|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_gr71.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|vga_rom|red:u2|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_qk71.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|HamsterBall|blue:u4|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_7o71.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|HamsterBall|green:u3|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_gr71.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|HamsterBall|red:u2|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_qk71.tdf"/>
 	</PROJECT>
 </LOG_ROOT>
