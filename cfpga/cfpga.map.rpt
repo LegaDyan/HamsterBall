@@ -1,0 +1,747 @@
+Analysis & Synthesis report for cfpga
+Tue May 23 01:33:32 2017
+Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. State Machine - |cfpga|memory_1M:uut_memy|state
+  8. User-Specified and Inferred Latches
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++------------------------------------+------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue May 23 01:33:32 2017    ;
+; Quartus II Version                 ; 9.0 Build 132 02/25/2009 SJ Full Version ;
+; Revision Name                      ; cfpga                                    ;
+; Top-level Entity Name              ; cfpga                                    ;
+; Family                             ; Cyclone II                               ;
+; Total logic elements               ; 262                                      ;
+;     Total combinational functions  ; 166                                      ;
+;     Dedicated logic registers      ; 129                                      ;
+; Total registers                    ; 129                                      ;
+; Total pins                         ; 309                                      ;
+; Total virtual pins                 ; 0                                        ;
+; Total memory bits                  ; 0                                        ;
+; Embedded Multiplier 9-bit elements ; 0                                        ;
+; Total PLLs                         ; 0                                        ;
++------------------------------------+------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                            ;
++----------------------------------------------------------------+--------------------+--------------------+
+; Option                                                         ; Setting            ; Default Value      ;
++----------------------------------------------------------------+--------------------+--------------------+
+; Device                                                         ; EP2C70F672C8       ;                    ;
+; Top-level entity name                                          ; cfpga              ; cfpga              ;
+; Family name                                                    ; Cyclone II         ; Stratix II         ;
+; Use smart compilation                                          ; Off                ; Off                ;
+; Restructure Multiplexers                                       ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                            ; Off                ; Off                ;
+; Preserve fewer node names                                      ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                      ; Off                ; Off                ;
+; Verilog Version                                                ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                   ; VHDL93             ; VHDL93             ;
+; State Machine Processing                                       ; Auto               ; Auto               ;
+; Safe State Machine                                             ; Off                ; Off                ;
+; Extract Verilog State Machines                                 ; On                 ; On                 ;
+; Extract VHDL State Machines                                    ; On                 ; On                 ;
+; Ignore Verilog initial constructs                              ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                     ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                 ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                        ; On                 ; On                 ;
+; Parallel Synthesis                                             ; Off                ; Off                ;
+; DSP Block Balancing                                            ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                             ; On                 ; On                 ;
+; Power-Up Don't Care                                            ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                   ; Off                ; Off                ;
+; Remove Duplicate Registers                                     ; On                 ; On                 ;
+; Ignore CARRY Buffers                                           ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                         ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                          ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                      ; Off                ; Off                ;
+; Ignore LCELL Buffers                                           ; Off                ; Off                ;
+; Ignore SOFT Buffers                                            ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                 ; Off                ; Off                ;
+; Optimization Technique                                         ; Balanced           ; Balanced           ;
+; Carry Chain Length                                             ; 70                 ; 70                 ;
+; Auto Carry Chains                                              ; On                 ; On                 ;
+; Auto Open-Drain Pins                                           ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                          ; Off                ; Off                ;
+; Auto ROM Replacement                                           ; On                 ; On                 ;
+; Auto RAM Replacement                                           ; On                 ; On                 ;
+; Auto Shift Register Replacement                                ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                  ; On                 ; On                 ;
+; Strict RAM Replacement                                         ; Off                ; Off                ;
+; Allow Synchronous Control Signals                              ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                         ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                              ; Off                ; Off                ;
+; Auto Resource Sharing                                          ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                             ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                             ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                  ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing            ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives              ; Off                ; Off                ;
+; Timing-Driven Synthesis                                        ; Off                ; Off                ;
+; Show Parameter Settings Tables in Synthesis Report             ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                             ; Off                ; Off                ;
+; Synchronization Register Chain Length                          ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                              ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report       ; 100                ; 100                ;
+; Number of Inverted Registers Reported in Synthesis Report      ; 100                ; 100                ;
+; Clock MUX Protection                                           ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                    ; Off                ; Off                ;
+; Block Design Naming                                            ; Auto               ; Auto               ;
+; SDC constraint protection                                      ; Off                ; Off                ;
+; Synthesis Effort                                               ; Auto               ; Auto               ;
+; Allows Asynchronous Clear Usage For Shift Register Replacement ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                             ; Medium             ; Medium             ;
++----------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                           ;
++----------------------------------+-----------------+-----------------+-------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path              ;
++----------------------------------+-----------------+-----------------+-------------------------------------------+
+; cfpga.vhd                        ; yes             ; User VHDL File  ; E:/mycode/quartus/prj/cfpga/cfpga.vhd     ;
+; cmd_ctl.vhd                      ; yes             ; User VHDL File  ; E:/mycode/quartus/prj/cfpga/cmd_ctl.vhd   ;
+; cpu_ahb.vhd                      ; yes             ; User VHDL File  ; E:/mycode/quartus/prj/cfpga/cpu_ahb.vhd   ;
+; memory_1M.vhd                    ; yes             ; User VHDL File  ; E:/mycode/quartus/prj/cfpga/memory_1M.vhd ;
++----------------------------------+-----------------+-----------------+-------------------------------------------+
+
+
++---------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                   ;
++---------------------------------------------+-----------------+
+; Resource                                    ; Usage           ;
++---------------------------------------------+-----------------+
+; Estimated Total logic elements              ; 262             ;
+;                                             ;                 ;
+; Total combinational functions               ; 166             ;
+; Logic element usage by number of LUT inputs ;                 ;
+;     -- 4 input functions                    ; 92              ;
+;     -- 3 input functions                    ; 68              ;
+;     -- <=2 input functions                  ; 6               ;
+;                                             ;                 ;
+; Logic elements by mode                      ;                 ;
+;     -- normal mode                          ; 166             ;
+;     -- arithmetic mode                      ; 0               ;
+;                                             ;                 ;
+; Total registers                             ; 129             ;
+;     -- Dedicated logic registers            ; 129             ;
+;     -- I/O registers                        ; 0               ;
+;                                             ;                 ;
+; I/O pins                                    ; 309             ;
+; Maximum fan-out node                        ; CLOCK100M_FPGAC ;
+; Maximum fan-out                             ; 129             ;
+; Total fan-out                               ; 1316            ;
+; Average fan-out                             ; 2.18            ;
++---------------------------------------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                            ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name    ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------+--------------+
+; |cfpga                     ; 166 (0)           ; 129 (0)      ; 0           ; 0            ; 0       ; 0         ; 309  ; 0            ; |cfpga                 ; work         ;
+;    |cpu_ahb:uut_ahb|       ; 166 (166)         ; 129 (129)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |cfpga|cpu_ahb:uut_ahb ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------+
+; State Machine - |cfpga|memory_1M:uut_memy|state                                 ;
++-----------------+---------------+-----------------+----------------+------------+
+; Name            ; state.mem_end ; state.mem_write ; state.mem_read ; state.idle ;
++-----------------+---------------+-----------------+----------------+------------+
+; state.idle      ; 0             ; 0               ; 0              ; 0          ;
+; state.mem_read  ; 0             ; 0               ; 1              ; 1          ;
+; state.mem_write ; 0             ; 1               ; 0              ; 1          ;
+; state.mem_end   ; 1             ; 0               ; 0              ; 1          ;
++-----------------+---------------+-----------------+----------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                     ;
++-----------------------------------------------------+--------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal      ; Free of Timing Hazards ;
++-----------------------------------------------------+--------------------------+------------------------+
+; cpu_ahb:uut_ahb|efpga_dageH[0]                      ; cpu_ahb:uut_ahb|LDATA~80 ; yes                    ;
+; cpu_ahb:uut_ahb|efpga_dageH[1]                      ; cpu_ahb:uut_ahb|LDATA~80 ; yes                    ;
+; cpu_ahb:uut_ahb|efpga_dageH[2]                      ; cpu_ahb:uut_ahb|LDATA~80 ; yes                    ;
+; cpu_ahb:uut_ahb|efpga_dageH[3]                      ; cpu_ahb:uut_ahb|LDATA~80 ; yes                    ;
+; cpu_ahb:uut_ahb|efpga_dageH[4]                      ; cpu_ahb:uut_ahb|LDATA~80 ; yes                    ;
+; cpu_ahb:uut_ahb|efpga_dageH[5]                      ; cpu_ahb:uut_ahb|LDATA~80 ; yes                    ;
+; cpu_ahb:uut_ahb|efpga_dageH[6]                      ; cpu_ahb:uut_ahb|LDATA~80 ; yes                    ;
+; cpu_ahb:uut_ahb|efpga_dageH[7]                      ; cpu_ahb:uut_ahb|LDATA~80 ; yes                    ;
+; cpu_ahb:uut_ahb|efpga_dageH[8]                      ; cpu_ahb:uut_ahb|LDATA~80 ; yes                    ;
+; cpu_ahb:uut_ahb|efpga_dageH[9]                      ; cpu_ahb:uut_ahb|LDATA~80 ; yes                    ;
+; cpu_ahb:uut_ahb|efpga_dageH[10]                     ; cpu_ahb:uut_ahb|LDATA~80 ; yes                    ;
+; cpu_ahb:uut_ahb|efpga_dageH[11]                     ; cpu_ahb:uut_ahb|LDATA~80 ; yes                    ;
+; cpu_ahb:uut_ahb|efpga_dageH[12]                     ; cpu_ahb:uut_ahb|LDATA~80 ; yes                    ;
+; cpu_ahb:uut_ahb|efpga_dageH[13]                     ; cpu_ahb:uut_ahb|LDATA~80 ; yes                    ;
+; cpu_ahb:uut_ahb|efpga_dageH[14]                     ; cpu_ahb:uut_ahb|LDATA~80 ; yes                    ;
+; cpu_ahb:uut_ahb|efpga_dageH[15]                     ; cpu_ahb:uut_ahb|LDATA~80 ; yes                    ;
+; Number of user-specified and inferred latches = 16  ;                          ;                        ;
++-----------------------------------------------------+--------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                        ;
++---------------------------------------------+---------------------------------------------+
+; Register name                               ; Reason for Removal                          ;
++---------------------------------------------+---------------------------------------------+
+; memory_1M:uut_memy|BASERAMWE_tmp            ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMOE_tmp            ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMCE_tmp            ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[19]~reg0 ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[19]~en   ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[18]~reg0 ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[18]~en   ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[17]~reg0 ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[17]~en   ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[16]~reg0 ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[16]~en   ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[15]~reg0 ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[15]~en   ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[14]~reg0 ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[14]~en   ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[13]~reg0 ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[13]~en   ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[12]~reg0 ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[12]~en   ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[11]~reg0 ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[11]~en   ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[10]~reg0 ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[10]~en   ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[9]~reg0  ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[9]~en    ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[8]~reg0  ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[8]~en    ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[7]~reg0  ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[7]~en    ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[6]~reg0  ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[6]~en    ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[5]~reg0  ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[5]~en    ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[4]~reg0  ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[4]~en    ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[3]~reg0  ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[3]~en    ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[2]~reg0  ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[2]~en    ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[1]~reg0  ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[1]~en    ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[0]~reg0  ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMADDR_tmp[0]~en    ; Lost fanout                                 ;
+; cpu_ahb:uut_ahb|LDATA[31]~reg0              ; Stuck at GND due to stuck port data_in      ;
+; cpu_ahb:uut_ahb|LDATA[30]~reg0              ; Stuck at GND due to stuck port data_in      ;
+; cpu_ahb:uut_ahb|LDATA[29]~reg0              ; Stuck at GND due to stuck port data_in      ;
+; cpu_ahb:uut_ahb|LDATA[28]~reg0              ; Stuck at GND due to stuck port data_in      ;
+; cpu_ahb:uut_ahb|LDATA[27]~reg0              ; Stuck at GND due to stuck port data_in      ;
+; cpu_ahb:uut_ahb|LDATA[26]~reg0              ; Stuck at GND due to stuck port data_in      ;
+; cpu_ahb:uut_ahb|LDATA[25]~reg0              ; Stuck at GND due to stuck port data_in      ;
+; cpu_ahb:uut_ahb|LDATA[24]~reg0              ; Stuck at GND due to stuck port data_in      ;
+; cpu_ahb:uut_ahb|LDATA[23]~reg0              ; Stuck at GND due to stuck port data_in      ;
+; cpu_ahb:uut_ahb|LDATA[22]~reg0              ; Stuck at GND due to stuck port data_in      ;
+; cpu_ahb:uut_ahb|LDATA[21]~reg0              ; Stuck at GND due to stuck port data_in      ;
+; cpu_ahb:uut_ahb|LDATA[20]~reg0              ; Stuck at GND due to stuck port data_in      ;
+; cpu_ahb:uut_ahb|LDATA[19]~reg0              ; Stuck at GND due to stuck port data_in      ;
+; cpu_ahb:uut_ahb|LDATA[18]~reg0              ; Stuck at GND due to stuck port data_in      ;
+; cpu_ahb:uut_ahb|LDATA[17]~reg0              ; Stuck at GND due to stuck port data_in      ;
+; cpu_ahb:uut_ahb|LDATA[16]~reg0              ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|state.mem_read           ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|state.mem_write          ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|date_out[0..31]          ; Stuck at GND due to stuck port clock_enable ;
+; memory_1M:uut_memy|state.idle               ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|state.mem_end            ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|mem_cnt[0..2]            ; Stuck at GND due to stuck port clock_enable ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[0]~en    ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[1]~en    ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[2]~en    ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[3]~en    ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[4]~en    ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[5]~en    ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[6]~en    ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[7]~en    ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[8]~en    ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[9]~en    ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[10]~en   ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[11]~en   ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[12]~en   ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[13]~en   ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[14]~en   ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[15]~en   ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[16]~en   ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[17]~en   ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[18]~en   ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[19]~en   ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[20]~en   ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[21]~en   ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[22]~en   ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[23]~en   ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[24]~en   ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[25]~en   ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[26]~en   ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[27]~en   ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[28]~en   ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[29]~en   ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[30]~en   ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[31]~en   ; Stuck at GND due to stuck port data_in      ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[0]~reg0  ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[1]~reg0  ; Lost fanout                                 ;
+; memory_1M:uut_memy|BASERAMDATA_tmp[2]~reg0  ; Lost fanout                                 ;
+; Total Number of Removed Registers = 177     ;                                             ;
++---------------------------------------------+---------------------------------------------+
+* Table truncated at 100 items. To change the number of removed registers reported, set the "Number of Removed Registers Reported" option under Assignments->Settings->Analysis and Synthesis Settings->More Settings
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                              ;
++-----------------------------------+--------------------------------+-------------------------------------------------------------------------------------+
+; Register name                     ; Reason for Removal             ; Registers Removed due to This Register                                              ;
++-----------------------------------+--------------------------------+-------------------------------------------------------------------------------------+
+; memory_1M:uut_memy|state.mem_read ; Stuck at GND                   ; memory_1M:uut_memy|date_out[16], memory_1M:uut_memy|date_out[0],                    ;
+;                                   ; due to stuck port data_in      ; memory_1M:uut_memy|date_out[17], memory_1M:uut_memy|date_out[1],                    ;
+;                                   ;                                ; memory_1M:uut_memy|date_out[18], memory_1M:uut_memy|date_out[2],                    ;
+;                                   ;                                ; memory_1M:uut_memy|date_out[19], memory_1M:uut_memy|date_out[3],                    ;
+;                                   ;                                ; memory_1M:uut_memy|date_out[4], memory_1M:uut_memy|date_out[21],                    ;
+;                                   ;                                ; memory_1M:uut_memy|date_out[5], memory_1M:uut_memy|date_out[22],                    ;
+;                                   ;                                ; memory_1M:uut_memy|date_out[6], memory_1M:uut_memy|date_out[23],                    ;
+;                                   ;                                ; memory_1M:uut_memy|date_out[7], memory_1M:uut_memy|date_out[8],                     ;
+;                                   ;                                ; memory_1M:uut_memy|date_out[24], memory_1M:uut_memy|date_out[9],                    ;
+;                                   ;                                ; memory_1M:uut_memy|date_out[25], memory_1M:uut_memy|date_out[10],                   ;
+;                                   ;                                ; memory_1M:uut_memy|date_out[26], memory_1M:uut_memy|date_out[11],                   ;
+;                                   ;                                ; memory_1M:uut_memy|date_out[27], memory_1M:uut_memy|date_out[12],                   ;
+;                                   ;                                ; memory_1M:uut_memy|date_out[28], memory_1M:uut_memy|date_out[13],                   ;
+;                                   ;                                ; memory_1M:uut_memy|date_out[29], memory_1M:uut_memy|date_out[14],                   ;
+;                                   ;                                ; memory_1M:uut_memy|date_out[30], memory_1M:uut_memy|date_out[15],                   ;
+;                                   ;                                ; memory_1M:uut_memy|date_out[31], memory_1M:uut_memy|state.idle,                     ;
+;                                   ;                                ; memory_1M:uut_memy|mem_cnt[2], memory_1M:uut_memy|mem_cnt[1],                       ;
+;                                   ;                                ; memory_1M:uut_memy|mem_cnt[0], memory_1M:uut_memy|BASERAMDATA_tmp[0]~en,            ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[1]~en, memory_1M:uut_memy|BASERAMDATA_tmp[2]~en, ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[3]~en, memory_1M:uut_memy|BASERAMDATA_tmp[4]~en, ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[5]~en, memory_1M:uut_memy|BASERAMDATA_tmp[6]~en, ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[7]~en, memory_1M:uut_memy|BASERAMDATA_tmp[8]~en, ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[9]~en,                                           ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[10]~en,                                          ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[11]~en,                                          ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[12]~en,                                          ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[13]~en,                                          ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[14]~en,                                          ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[15]~en,                                          ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[16]~en,                                          ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[17]~en,                                          ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[18]~en,                                          ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[19]~en,                                          ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[20]~en,                                          ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[21]~en,                                          ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[22]~en,                                          ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[23]~en,                                          ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[24]~en,                                          ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[25]~en,                                          ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[26]~en,                                          ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[27]~en,                                          ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[28]~en,                                          ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[29]~en,                                          ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[30]~en,                                          ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[31]~en,                                          ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[0]~reg0,                                         ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[1]~reg0,                                         ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[2]~reg0,                                         ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[3]~reg0,                                         ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[4]~reg0,                                         ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[5]~reg0,                                         ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[6]~reg0,                                         ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[7]~reg0,                                         ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[8]~reg0,                                         ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[9]~reg0,                                         ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[10]~reg0,                                        ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[11]~reg0,                                        ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[12]~reg0,                                        ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[13]~reg0,                                        ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[14]~reg0,                                        ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[15]~reg0,                                        ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[16]~reg0,                                        ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[17]~reg0,                                        ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[18]~reg0,                                        ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[19]~reg0,                                        ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[21]~reg0,                                        ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[22]~reg0,                                        ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[23]~reg0,                                        ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[24]~reg0,                                        ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[25]~reg0,                                        ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[26]~reg0,                                        ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[27]~reg0,                                        ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[28]~reg0,                                        ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[29]~reg0,                                        ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[30]~reg0,                                        ;
+;                                   ;                                ; memory_1M:uut_memy|BASERAMDATA_tmp[31]~reg0                                         ;
+; memory_1M:uut_memy|date_out[20]   ; Stuck at GND                   ; memory_1M:uut_memy|BASERAMDATA_tmp[20]~reg0                                         ;
+;                                   ; due to stuck port clock_enable ;                                                                                     ;
++-----------------------------------+--------------------------------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 129   ;
+; Number of registers using Synchronous Clear  ; 8     ;
+; Number of registers using Synchronous Load   ; 8     ;
+; Number of registers using Asynchronous Clear ; 113   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 64    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |cfpga|memory_1M:uut_memy|mem_cnt[0] ;
+; 256:1              ; 8 bits    ; 1360 LEs      ; 56 LEs               ; 1304 LEs               ; Yes        ; |cfpga|cpu_ahb:uut_ahb|read_reg[8]   ;
+; 256:1              ; 8 bits    ; 1360 LEs      ; 88 LEs               ; 1272 LEs               ; Yes        ; |cfpga|cpu_ahb:uut_ahb|read_reg[1]   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
+    Info: Processing started: Tue May 23 01:33:29 2017
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cfpga -c cfpga
+Info: Found 2 design units, including 1 entities, in source file cfpga.vhd
+    Info: Found design unit 1: cfpga-logic_top
+    Info: Found entity 1: cfpga
+Info: Found 2 design units, including 1 entities, in source file cmd_ctl.vhd
+    Info: Found design unit 1: cmd_ctl-logic_cmd
+    Info: Found entity 1: cmd_ctl
+Info: Found 2 design units, including 1 entities, in source file cpu_ahb.vhd
+    Info: Found design unit 1: cpu_ahb-logic_ahb
+    Info: Found entity 1: cpu_ahb
+Info: Found 2 design units, including 1 entities, in source file external_ctl.vhd
+    Info: Found design unit 1: external_ctl-logic_external
+    Info: Found entity 1: external_ctl
+Info: Found 2 design units, including 1 entities, in source file memory_1M.vhd
+    Info: Found design unit 1: memory_1M-logic_memy
+    Info: Found entity 1: memory_1M
+Info: Found 2 design units, including 1 entities, in source file RAM_256.vhd
+    Info: Found design unit 1: ram_256-SYN
+    Info: Found entity 1: RAM_256
+Info: Found 2 design units, including 1 entities, in source file Reg.vhd
+    Info: Found design unit 1: reg-SYN
+    Info: Found entity 1: Reg
+Info: Elaborating entity "cfpga" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at cfpga.vhd(44): used implicit default value for signal "I2C_SCL" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at cfpga.vhd(46): used implicit default value for signal "RECIVE" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at cfpga.vhd(47): used implicit default value for signal "CE_INTERRUPT" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at cfpga.vhd(48): used implicit default value for signal "CE_BACKUP" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Info: Elaborating entity "cpu_ahb" for hierarchy "cpu_ahb:uut_ahb"
+Warning (10541): VHDL Signal Declaration warning at cpu_ahb.vhd(12): used implicit default value for signal "ARM_INT" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at cpu_ahb.vhd(82): used implicit default value for signal "EXTERNAL_DEVICE_BUS1_BUFF" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10631): VHDL Process Statement warning at cpu_ahb.vhd(125): inferring latch(es) for signal or variable "ahb_ver", which holds its previous value in one or more paths through the process
+Warning (10492): VHDL Process Statement warning at cpu_ahb.vhd(226): signal "CE_REG_DATA" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at cpu_ahb.vhd(223): inferring latch(es) for signal or variable "efpga_dageH", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "efpga_dageH[0]" at cpu_ahb.vhd(223)
+Info (10041): Inferred latch for "efpga_dageH[1]" at cpu_ahb.vhd(223)
+Info (10041): Inferred latch for "efpga_dageH[2]" at cpu_ahb.vhd(223)
+Info (10041): Inferred latch for "efpga_dageH[3]" at cpu_ahb.vhd(223)
+Info (10041): Inferred latch for "efpga_dageH[4]" at cpu_ahb.vhd(223)
+Info (10041): Inferred latch for "efpga_dageH[5]" at cpu_ahb.vhd(223)
+Info (10041): Inferred latch for "efpga_dageH[6]" at cpu_ahb.vhd(223)
+Info (10041): Inferred latch for "efpga_dageH[7]" at cpu_ahb.vhd(223)
+Info (10041): Inferred latch for "efpga_dageH[8]" at cpu_ahb.vhd(223)
+Info (10041): Inferred latch for "efpga_dageH[9]" at cpu_ahb.vhd(223)
+Info (10041): Inferred latch for "efpga_dageH[10]" at cpu_ahb.vhd(223)
+Info (10041): Inferred latch for "efpga_dageH[11]" at cpu_ahb.vhd(223)
+Info (10041): Inferred latch for "efpga_dageH[12]" at cpu_ahb.vhd(223)
+Info (10041): Inferred latch for "efpga_dageH[13]" at cpu_ahb.vhd(223)
+Info (10041): Inferred latch for "efpga_dageH[14]" at cpu_ahb.vhd(223)
+Info (10041): Inferred latch for "efpga_dageH[15]" at cpu_ahb.vhd(223)
+Info (10041): Inferred latch for "ahb_ver[0]" at cpu_ahb.vhd(125)
+Info (10041): Inferred latch for "ahb_ver[1]" at cpu_ahb.vhd(125)
+Info (10041): Inferred latch for "ahb_ver[2]" at cpu_ahb.vhd(125)
+Info (10041): Inferred latch for "ahb_ver[3]" at cpu_ahb.vhd(125)
+Info (10041): Inferred latch for "ahb_ver[4]" at cpu_ahb.vhd(125)
+Info (10041): Inferred latch for "ahb_ver[5]" at cpu_ahb.vhd(125)
+Info (10041): Inferred latch for "ahb_ver[6]" at cpu_ahb.vhd(125)
+Info (10041): Inferred latch for "ahb_ver[7]" at cpu_ahb.vhd(125)
+Info (10041): Inferred latch for "ahb_ver[8]" at cpu_ahb.vhd(125)
+Info (10041): Inferred latch for "ahb_ver[9]" at cpu_ahb.vhd(125)
+Info (10041): Inferred latch for "ahb_ver[10]" at cpu_ahb.vhd(125)
+Info (10041): Inferred latch for "ahb_ver[11]" at cpu_ahb.vhd(125)
+Info (10041): Inferred latch for "ahb_ver[12]" at cpu_ahb.vhd(125)
+Info (10041): Inferred latch for "ahb_ver[13]" at cpu_ahb.vhd(125)
+Info (10041): Inferred latch for "ahb_ver[14]" at cpu_ahb.vhd(125)
+Info (10041): Inferred latch for "ahb_ver[15]" at cpu_ahb.vhd(125)
+Info: Elaborating entity "cmd_ctl" for hierarchy "cmd_ctl:uut_cmd"
+Info: Elaborating entity "memory_1M" for hierarchy "memory_1M:uut_memy"
+Warning: The following bidir pins have no drivers
+    Warning: Bidir "I2C_SDA" has no driver
+Warning: Removed fan-outs from the following always-disabled I/O buffers
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[0]" to the node "BASERAMDATA[0]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[1]" to the node "BASERAMDATA[1]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[2]" to the node "BASERAMDATA[2]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[3]" to the node "BASERAMDATA[3]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[4]" to the node "BASERAMDATA[4]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[5]" to the node "BASERAMDATA[5]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[6]" to the node "BASERAMDATA[6]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[7]" to the node "BASERAMDATA[7]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[8]" to the node "BASERAMDATA[8]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[9]" to the node "BASERAMDATA[9]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[10]" to the node "BASERAMDATA[10]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[11]" to the node "BASERAMDATA[11]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[12]" to the node "BASERAMDATA[12]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[13]" to the node "BASERAMDATA[13]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[14]" to the node "BASERAMDATA[14]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[15]" to the node "BASERAMDATA[15]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[16]" to the node "BASERAMDATA[16]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[17]" to the node "BASERAMDATA[17]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[18]" to the node "BASERAMDATA[18]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[19]" to the node "BASERAMDATA[19]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[20]" to the node "BASERAMDATA[20]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[21]" to the node "BASERAMDATA[21]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[22]" to the node "BASERAMDATA[22]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[23]" to the node "BASERAMDATA[23]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[24]" to the node "BASERAMDATA[24]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[25]" to the node "BASERAMDATA[25]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[26]" to the node "BASERAMDATA[26]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[27]" to the node "BASERAMDATA[27]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[28]" to the node "BASERAMDATA[28]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[29]" to the node "BASERAMDATA[29]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[30]" to the node "BASERAMDATA[30]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA[31]" to the node "BASERAMDATA[31]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[0]" to the node "BASERAMDATA[0]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[1]" to the node "BASERAMDATA[1]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[2]" to the node "BASERAMDATA[2]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[3]" to the node "BASERAMDATA[3]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[4]" to the node "BASERAMDATA[4]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[5]" to the node "BASERAMDATA[5]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[6]" to the node "BASERAMDATA[6]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[7]" to the node "BASERAMDATA[7]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[8]" to the node "BASERAMDATA[8]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[9]" to the node "BASERAMDATA[9]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[10]" to the node "BASERAMDATA[10]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[11]" to the node "BASERAMDATA[11]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[12]" to the node "BASERAMDATA[12]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[13]" to the node "BASERAMDATA[13]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[14]" to the node "BASERAMDATA[14]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[15]" to the node "BASERAMDATA[15]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[16]" to the node "BASERAMDATA[16]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[17]" to the node "BASERAMDATA[17]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[18]" to the node "BASERAMDATA[18]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[19]" to the node "BASERAMDATA[19]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[20]" to the node "BASERAMDATA[20]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[21]" to the node "BASERAMDATA[21]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[22]" to the node "BASERAMDATA[22]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[23]" to the node "BASERAMDATA[23]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[24]" to the node "BASERAMDATA[24]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[25]" to the node "BASERAMDATA[25]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[26]" to the node "BASERAMDATA[26]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[27]" to the node "BASERAMDATA[27]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[28]" to the node "BASERAMDATA[28]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[29]" to the node "BASERAMDATA[29]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[30]" to the node "BASERAMDATA[30]"
+    Warning: Removed fan-out from the always-disabled I/O buffer "BASERAMDATA_tmp[31]" to the node "BASERAMDATA[31]"
+Warning: Output pins are stuck at VCC or GND
+    Warning (13410): Pin "WORK_LED" is stuck at GND
+    Warning (13410): Pin "I2C_SCL" is stuck at GND
+    Warning (13410): Pin "RECIVE[0]" is stuck at GND
+    Warning (13410): Pin "RECIVE[1]" is stuck at GND
+    Warning (13410): Pin "RECIVE[2]" is stuck at GND
+    Warning (13410): Pin "RECIVE[3]" is stuck at GND
+    Warning (13410): Pin "RECIVE[4]" is stuck at GND
+    Warning (13410): Pin "RECIVE[5]" is stuck at GND
+    Warning (13410): Pin "CE_INTERRUPT[0]" is stuck at GND
+    Warning (13410): Pin "CE_INTERRUPT[1]" is stuck at GND
+    Warning (13410): Pin "CE_INTERRUPT[2]" is stuck at GND
+    Warning (13410): Pin "CE_INTERRUPT[3]" is stuck at GND
+    Warning (13410): Pin "CE_BACKUP[0]" is stuck at GND
+    Warning (13410): Pin "CE_BACKUP[1]" is stuck at GND
+    Warning (13410): Pin "CE_BACKUP[2]" is stuck at GND
+    Warning (13410): Pin "CE_BACKUP[3]" is stuck at GND
+    Warning (13410): Pin "ARM_INT[0]" is stuck at GND
+    Warning (13410): Pin "ARM_INT[1]" is stuck at GND
+    Warning (13410): Pin "ARM_INT[2]" is stuck at GND
+    Warning (13410): Pin "ARM_INT[3]" is stuck at GND
+Info: 75 registers lost all their fanouts during netlist optimizations. The first 75 are displayed below.
+    Info: Register "memory_1M:uut_memy|BASERAMWE_tmp" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMOE_tmp" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMCE_tmp" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[19]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[19]~en" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[18]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[18]~en" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[17]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[17]~en" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[16]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[16]~en" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[15]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[15]~en" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[14]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[14]~en" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[13]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[13]~en" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[12]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[12]~en" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[11]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[11]~en" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[10]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[10]~en" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[9]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[9]~en" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[8]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[8]~en" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[7]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[7]~en" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[6]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[6]~en" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[5]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[5]~en" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[4]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[4]~en" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[3]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[3]~en" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[2]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[2]~en" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[1]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[1]~en" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[0]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMADDR_tmp[0]~en" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[0]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[1]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[2]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[3]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[4]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[5]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[6]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[7]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[8]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[9]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[10]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[11]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[12]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[13]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[14]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[15]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[16]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[17]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[18]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[19]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[20]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[21]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[22]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[23]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[24]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[25]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[26]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[27]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[28]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[29]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[30]~reg0" lost all its fanouts during netlist optimizations.
+    Info: Register "memory_1M:uut_memy|BASERAMDATA_tmp[31]~reg0" lost all its fanouts during netlist optimizations.
+Warning: Design contains 46 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "CLOCK110592"
+    Warning (15610): No output dependent on input pin "GPIO_RESET"
+    Warning (15610): No output dependent on input pin "GPIO_CLK"
+    Warning (15610): No output dependent on input pin "CLK_25M"
+    Warning (15610): No output dependent on input pin "E_FPGAC_SWITCH_OE0"
+    Warning (15610): No output dependent on input pin "EXTERNAL_DEVICE_BUS1[0]"
+    Warning (15610): No output dependent on input pin "EXTERNAL_DEVICE_BUS1[1]"
+    Warning (15610): No output dependent on input pin "EXTERNAL_DEVICE_BUS1[2]"
+    Warning (15610): No output dependent on input pin "EXTERNAL_DEVICE_BUS1[3]"
+    Warning (15610): No output dependent on input pin "EXTERNAL_DEVICE_BUS1[4]"
+    Warning (15610): No output dependent on input pin "EXTERNAL_DEVICE_BUS1[5]"
+    Warning (15610): No output dependent on input pin "EXTERNAL_DEVICE_BUS1[6]"
+    Warning (15610): No output dependent on input pin "EXTERNAL_DEVICE_BUS1[7]"
+    Warning (15610): No output dependent on input pin "EXTERNAL_DEVICE_BUS1[8]"
+    Warning (15610): No output dependent on input pin "EXTERNAL_DEVICE_BUS1[9]"
+    Warning (15610): No output dependent on input pin "EXTERNAL_DEVICE_BUS1[10]"
+    Warning (15610): No output dependent on input pin "EXTERNAL_DEVICE_BUS1[11]"
+    Warning (15610): No output dependent on input pin "EXTERNAL_DEVICE_BUS1[12]"
+    Warning (15610): No output dependent on input pin "EXTERNAL_DEVICE_BUS1[13]"
+    Warning (15610): No output dependent on input pin "EXTERNAL_DEVICE_BUS1[14]"
+    Warning (15610): No output dependent on input pin "EXTERNAL_DEVICE_BUS1[15]"
+    Warning (15610): No output dependent on input pin "BOARD_ID[0]"
+    Warning (15610): No output dependent on input pin "BOARD_ID[1]"
+    Warning (15610): No output dependent on input pin "BOARD_ID[2]"
+    Warning (15610): No output dependent on input pin "BOARD_ID[3]"
+    Warning (15610): No output dependent on input pin "BOARD_ID[4]"
+    Warning (15610): No output dependent on input pin "BOARD_ID[5]"
+    Warning (15610): No output dependent on input pin "NRESET"
+    Warning (15610): No output dependent on input pin "LNGCS3"
+    Warning (15610): No output dependent on input pin "LNGCS2"
+    Warning (15610): No output dependent on input pin "LNGCS1"
+    Warning (15610): No output dependent on input pin "LADDR[0]"
+    Warning (15610): No output dependent on input pin "LADDR[1]"
+    Warning (15610): No output dependent on input pin "LADDR[10]"
+    Warning (15610): No output dependent on input pin "LADDR[11]"
+    Warning (15610): No output dependent on input pin "LADDR[12]"
+    Warning (15610): No output dependent on input pin "LADDR[13]"
+    Warning (15610): No output dependent on input pin "LADDR[14]"
+    Warning (15610): No output dependent on input pin "LADDR[15]"
+    Warning (15610): No output dependent on input pin "LADDR[16]"
+    Warning (15610): No output dependent on input pin "LADDR[17]"
+    Warning (15610): No output dependent on input pin "LADDR[18]"
+    Warning (15610): No output dependent on input pin "LADDR[19]"
+    Warning (15610): No output dependent on input pin "LADDR[20]"
+    Warning (15610): No output dependent on input pin "LADDR[23]"
+    Warning (15610): No output dependent on input pin "LADDR[24]"
+Info: Implemented 572 device resources after synthesis - the final resource count might be different
+    Info: Implemented 124 input pins
+    Info: Implemented 56 output pins
+    Info: Implemented 129 bidirectional pins
+    Info: Implemented 263 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 144 warnings
+    Info: Peak virtual memory: 269 megabytes
+    Info: Processing ended: Tue May 23 01:33:32 2017
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:02
+
+

@@ -1,0 +1,66 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 11.690 ns
+From           : LNGCS5
+To             : cpu_ahb:uut_ahb|memin_Hdate[7]
+From Clock     : --
+To Clock       : CLOCK100M_FPGAC
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 14.947 ns
+From           : cpu_ahb:uut_ahb|efpga_regH[12]
+To             : CE_REG_DATA[28]
+From Clock     : CLOCK100M_FPGAC
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case tpd
+Slack          : N/A
+Required Time  : None
+Actual Time    : 20.501 ns
+From           : CE_REG_DATA[6]
+To             : LDATA[6]
+From Clock     : --
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : 0.805 ns
+From           : CE_REG_DATA[17]
+To             : cpu_ahb:uut_ahb|efpga_dageH[1]
+From Clock     : --
+To Clock       : LNOE
+Failed Paths   : 0
+
+Type           : Clock Setup: 'CLOCK100M_FPGAC'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 214.64 MHz ( period = 4.659 ns )
+From           : cpu_ahb:uut_ahb|efpga_regH[1]
+To             : cpu_ahb:uut_ahb|read_reg[1]
+From Clock     : CLOCK100M_FPGAC
+To Clock       : CLOCK100M_FPGAC
+Failed Paths   : 0
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+--------------------------------------------------------------------------------------
+
