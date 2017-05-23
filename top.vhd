@@ -52,31 +52,15 @@ begin
 			if scancode = "11110000" then
 				q <= s1;
 			elsif scancode = "00011101" then
-				wkey <= '0';
+				wkey <= '1';
 			end if;
 		else
 			q <= s0;
 			if scancode = "00011101" then
-				wkey <= '1';
+				wkey <= '0';
 			end if;
 		end if;
 	end if;
 end process;
-
---
--- 		if scancode = "11110000" then
--- 			q <= s1;
--- 		elsif scancode = "00011101" then
--- 			if q = s0 then
--- 				wkey <= '1';
--- 			else
--- 				wkey <= '0';
--- 			end if;
--- 			q <= s0;
--- 		else
--- 			q <= s0;
--- 		end if;
--- 	end if;
--- end process;
 
 end behave;

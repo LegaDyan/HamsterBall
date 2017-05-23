@@ -53,17 +53,11 @@ begin
 				q <= s1;
 			elsif scancode = "00011101" then
 				wkey <= '0';
-				q <= s0;
-			else
-				q <= s0;
-				wkey <= wkey;
 			end if;
 		else
 			q <= s0;
 			if scancode = "00011101" then
 				wkey <= '1';
-			else
-				wkey <= wkey;
 			end if;
 		end if;
 	end if;
