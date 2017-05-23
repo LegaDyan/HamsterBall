@@ -1,0 +1,71 @@
+# Copyright (C) 1991-2006 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+
+
+# The default values for assignments are stored in the file
+#		vga_rom_assignment_defaults.qdf
+# If this file doesn't exist, and for assignments not listed, see file
+#		assignment_defaults.qdf
+
+# Altera recommends that you do not modify this file. This
+# file is updated automatically by the Quartus II software
+# and any changes you make may be lost or overwritten.
+
+
+set_global_assignment -name DEVICE EP2C70F672C8
+set_global_assignment -name FAMILY "Cyclone II"
+set_global_assignment -name TOP_LEVEL_ENTITY vga_rom
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 6.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "08:54:45  JULY 30, 2008"
+set_global_assignment -name LAST_QUARTUS_VERSION 9.0
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS OUTPUT DRIVING GROUND"
+set_global_assignment -name SIMULATION_MODE TIMING
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_COLOR 14622752 -section_id Top
+set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
+set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name CYCLONEII_CONFIGURATION_SCHEME "PASSIVE SERIAL"
+set_global_assignment -name CYCLONEII_RESERVE_NCEO_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name RESERVE_ASDO_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name GENERATE_RBF_FILE ON
+set_location_assignment PIN_U3 -to hs
+set_location_assignment PIN_U4 -to vs
+set_location_assignment PIN_AF4 -to reset
+set_global_assignment -name MISC_FILE "F:/1.study/数设/2010/VGA2/vga_rom.dpf"
+set_location_assignment PIN_U1 -to b[2]
+set_location_assignment PIN_U2 -to b[1]
+set_location_assignment PIN_T4 -to b[0]
+set_location_assignment PIN_T3 -to g[2]
+set_location_assignment PIN_T2 -to g[1]
+set_location_assignment PIN_R5 -to g[0]
+set_location_assignment PIN_R4 -to r[2]
+set_location_assignment PIN_R3 -to r[1]
+set_location_assignment PIN_R2 -to r[0]
+set_location_assignment PIN_N2 -to clk_0
+set_global_assignment -name MIF_FILE digital.mif
+set_global_assignment -name VHDL_FILE digital_rom.vhd
+set_global_assignment -name VHDL_FILE VGA_640480.vhd
+set_global_assignment -name MIF_FILE vga_rom.mif
+set_global_assignment -name VHDL_FILE vga_rom.vhd
+set_global_assignment -name MISC_FILE "F:/1.study/数设/2010/VGA2_vhd/vga_rom.dpf"
+set_global_assignment -name MISC_FILE "\\\\Mac\\Home\\Desktop\\VGA_rom-1\\vga_rom.dpf"
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+set_global_assignment -name QIP_FILE red.qip
+set_global_assignment -name QIP_FILE green.qip
+set_global_assignment -name QIP_FILE blue.qip
+set_location_assignment PIN_AD6 -to clkin
+set_location_assignment PIN_AD7 -to datain
