@@ -1,0 +1,17 @@
+*.bak
+*.html
+*.cmp
+*.done
+*.dpf
+*.pin
+*.pof
+*.qip
+*.bsf
+*.qws
+*.rpt
+*.smsg
+*.sof
+*.summary
+./db/
+./incremental_db/
+
