@@ -1,0 +1,1085 @@
+Classic Timing Analyzer report for cfpga
+Tue May 23 01:33:48 2017
+Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Parallel Compilation
+  6. Clock Setup: 'CLOCK100M_FPGAC'
+  7. tsu
+  8. tco
+  9. tpd
+ 10. th
+ 11. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                                        ;
++--------------------------------+-------+---------------+----------------------------------+--------------------------------+--------------------------------+-----------------+-----------------+--------------+
+; Type                           ; Slack ; Required Time ; Actual Time                      ; From                           ; To                             ; From Clock      ; To Clock        ; Failed Paths ;
++--------------------------------+-------+---------------+----------------------------------+--------------------------------+--------------------------------+-----------------+-----------------+--------------+
+; Worst-case tsu                 ; N/A   ; None          ; 11.690 ns                        ; LNGCS5                         ; cpu_ahb:uut_ahb|memin_Hdate[7] ; --              ; CLOCK100M_FPGAC ; 0            ;
+; Worst-case tco                 ; N/A   ; None          ; 14.947 ns                        ; cpu_ahb:uut_ahb|efpga_regH[12] ; CE_REG_DATA[28]                ; CLOCK100M_FPGAC ; --              ; 0            ;
+; Worst-case tpd                 ; N/A   ; None          ; 20.501 ns                        ; CE_REG_DATA[6]                 ; LDATA[6]                       ; --              ; --              ; 0            ;
+; Worst-case th                  ; N/A   ; None          ; 0.805 ns                         ; CE_REG_DATA[17]                ; cpu_ahb:uut_ahb|efpga_dageH[1] ; --              ; LNOE            ; 0            ;
+; Clock Setup: 'CLOCK100M_FPGAC' ; N/A   ; None          ; 214.64 MHz ( period = 4.659 ns ) ; cpu_ahb:uut_ahb|efpga_regH[1]  ; cpu_ahb:uut_ahb|read_reg[1]    ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; 0            ;
+; Total number of failed paths   ;       ;               ;                                  ;                                ;                                ;                 ;                 ; 0            ;
++--------------------------------+-------+---------------+----------------------------------+--------------------------------+--------------------------------+-----------------+-----------------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                           ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                              ; Setting            ; From ; To ; Entity Name ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                         ; EP2C70F672C8       ;      ;    ;             ;
+; Timing Models                                                       ; Final              ;      ;    ;             ;
+; Default hold multicycle                                             ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                           ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                              ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                      ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                    ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                               ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                             ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                    ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                       ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                                   ; 0                  ;      ;    ;             ;
+; Maximum Core Junction Temperature                                   ; 85                 ;      ;    ;             ;
+; Number of source nodes to report per destination node               ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                               ; 10                 ;      ;    ;             ;
+; Number of paths to report                                           ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                        ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                              ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                          ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                        ; On                 ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis      ; Off                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                          ; Near End           ;      ;    ;             ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; CLOCK100M_FPGAC ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; LADDR[22]       ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; LNGCS5          ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; LADDR[21]       ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; LNOE            ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 2           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     1 processor            ; 100.0%      ;
+;     2 processors           ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'CLOCK100M_FPGAC'                                                                                                                                                                                                                     ;
++-------+------------------------------------------------+---------------------------------+---------------------------------+-----------------+-----------------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From                            ; To                              ; From Clock      ; To Clock        ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+---------------------------------+---------------------------------+-----------------+-----------------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 214.64 MHz ( period = 4.659 ns )               ; cpu_ahb:uut_ahb|efpga_regH[1]   ; cpu_ahb:uut_ahb|read_reg[1]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 4.392 ns                ;
+; N/A   ; 214.78 MHz ( period = 4.656 ns )               ; cpu_ahb:uut_ahb|efpga_regH[3]   ; cpu_ahb:uut_ahb|read_reg[3]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 4.390 ns                ;
+; N/A   ; 215.29 MHz ( period = 4.645 ns )               ; cpu_ahb:uut_ahb|efpga_regH[7]   ; cpu_ahb:uut_ahb|read_reg[7]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 4.382 ns                ;
+; N/A   ; 217.86 MHz ( period = 4.590 ns )               ; cpu_ahb:uut_ahb|efpga_regH[2]   ; cpu_ahb:uut_ahb|read_reg[2]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 4.324 ns                ;
+; N/A   ; 217.96 MHz ( period = 4.588 ns )               ; cpu_ahb:uut_ahb|efpga_regH[0]   ; cpu_ahb:uut_ahb|read_reg[0]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 4.322 ns                ;
+; N/A   ; 225.28 MHz ( period = 4.439 ns )               ; cpu_ahb:uut_ahb|test_reg[1]     ; cpu_ahb:uut_ahb|read_reg[1]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 4.171 ns                ;
+; N/A   ; 234.69 MHz ( period = 4.261 ns )               ; cpu_ahb:uut_ahb|test_reg[0]     ; cpu_ahb:uut_ahb|read_reg[0]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 3.994 ns                ;
+; N/A   ; 239.23 MHz ( period = 4.180 ns )               ; cpu_ahb:uut_ahb|efpga_regH[5]   ; cpu_ahb:uut_ahb|read_reg[5]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 3.916 ns                ;
+; N/A   ; 241.95 MHz ( period = 4.133 ns )               ; cpu_ahb:uut_ahb|efpga_regH[4]   ; cpu_ahb:uut_ahb|read_reg[4]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 3.869 ns                ;
+; N/A   ; 243.84 MHz ( period = 4.101 ns )               ; cpu_ahb:uut_ahb|test_reg[2]     ; cpu_ahb:uut_ahb|read_reg[2]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 3.834 ns                ;
+; N/A   ; 247.46 MHz ( period = 4.041 ns )               ; cpu_ahb:uut_ahb|efpga_regH[11]  ; cpu_ahb:uut_ahb|read_reg[11]    ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 3.774 ns                ;
+; N/A   ; 247.89 MHz ( period = 4.034 ns )               ; cpu_ahb:uut_ahb|test_reg[3]     ; cpu_ahb:uut_ahb|read_reg[3]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 3.767 ns                ;
+; N/A   ; 251.07 MHz ( period = 3.983 ns )               ; cpu_ahb:uut_ahb|efpga_regH[15]  ; cpu_ahb:uut_ahb|read_reg[15]    ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 3.687 ns                ;
+; N/A   ; 254.52 MHz ( period = 3.929 ns )               ; cpu_ahb:uut_ahb|efpga_regH[6]   ; cpu_ahb:uut_ahb|read_reg[6]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 3.662 ns                ;
+; N/A   ; 260.15 MHz ( period = 3.844 ns )               ; cpu_ahb:uut_ahb|test_reg[7]     ; cpu_ahb:uut_ahb|read_reg[7]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 3.581 ns                ;
+; N/A   ; 265.11 MHz ( period = 3.772 ns )               ; cpu_ahb:uut_ahb|test_reg[6]     ; cpu_ahb:uut_ahb|read_reg[6]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 3.508 ns                ;
+; N/A   ; 273.52 MHz ( period = 3.656 ns )               ; cpu_ahb:uut_ahb|memin_Hdate[15] ; cpu_ahb:uut_ahb|read_reg[15]    ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 3.358 ns                ;
+; N/A   ; 275.71 MHz ( period = 3.627 ns )               ; cpu_ahb:uut_ahb|cpu_cmdreg[1]   ; cpu_ahb:uut_ahb|read_reg[1]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 3.359 ns                ;
+; N/A   ; 284.01 MHz ( period = 3.521 ns )               ; cpu_ahb:uut_ahb|cpu_cmdreg[3]   ; cpu_ahb:uut_ahb|read_reg[3]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 3.254 ns                ;
+; N/A   ; 285.39 MHz ( period = 3.504 ns )               ; cpu_ahb:uut_ahb|test_reg[4]     ; cpu_ahb:uut_ahb|read_reg[4]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 3.240 ns                ;
+; N/A   ; 288.68 MHz ( period = 3.464 ns )               ; cpu_ahb:uut_ahb|cpu_cmdreg[0]   ; cpu_ahb:uut_ahb|read_reg[0]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 3.197 ns                ;
+; N/A   ; 290.02 MHz ( period = 3.448 ns )               ; cpu_ahb:uut_ahb|test_reg[5]     ; cpu_ahb:uut_ahb|read_reg[5]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 3.184 ns                ;
+; N/A   ; 290.36 MHz ( period = 3.444 ns )               ; cpu_ahb:uut_ahb|memin_Hdate[1]  ; cpu_ahb:uut_ahb|read_reg[1]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 3.176 ns                ;
+; N/A   ; 296.47 MHz ( period = 3.373 ns )               ; cpu_ahb:uut_ahb|efpga_regH[8]   ; cpu_ahb:uut_ahb|read_reg[8]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 3.077 ns                ;
+; N/A   ; 299.58 MHz ( period = 3.338 ns )               ; cpu_ahb:uut_ahb|efpga_regH[9]   ; cpu_ahb:uut_ahb|read_reg[9]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 3.042 ns                ;
+; N/A   ; 304.51 MHz ( period = 3.284 ns )               ; cpu_ahb:uut_ahb|cpu_cmdreg[2]   ; cpu_ahb:uut_ahb|read_reg[2]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 3.017 ns                ;
+; N/A   ; 310.85 MHz ( period = 3.217 ns )               ; cpu_ahb:uut_ahb|memin_Hdate[3]  ; cpu_ahb:uut_ahb|read_reg[3]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.950 ns                ;
+; N/A   ; 323.21 MHz ( period = 3.094 ns )               ; cpu_ahb:uut_ahb|cpu_cmdreg[7]   ; cpu_ahb:uut_ahb|read_reg[7]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.827 ns                ;
+; N/A   ; 324.25 MHz ( period = 3.084 ns )               ; cpu_ahb:uut_ahb|memin_Hdate[13] ; cpu_ahb:uut_ahb|read_reg[13]    ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.786 ns                ;
+; N/A   ; 326.69 MHz ( period = 3.061 ns )               ; cpu_ahb:uut_ahb|efpga_regH[10]  ; cpu_ahb:uut_ahb|read_reg[10]    ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.764 ns                ;
+; N/A   ; 338.41 MHz ( period = 2.955 ns )               ; cpu_ahb:uut_ahb|memin_Hdate[0]  ; cpu_ahb:uut_ahb|read_reg[0]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.688 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|efpga_regH[12]  ; cpu_ahb:uut_ahb|read_reg[12]    ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.662 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|efpga_regH[14]  ; cpu_ahb:uut_ahb|read_reg[14]    ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.645 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|efpga_regH[13]  ; cpu_ahb:uut_ahb|read_reg[13]    ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.584 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|read_reg[1]     ; cpu_ahb:uut_ahb|LDATA[1]~reg0   ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.571 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|memin_Hdate[2]  ; cpu_ahb:uut_ahb|read_reg[2]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.522 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[8]    ; cpu_ahb:uut_ahb|cpu_cmdreg[8]   ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.489 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|memin_Hdate[8]  ; cpu_ahb:uut_ahb|read_reg[8]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.445 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|memin_Hdate[12] ; cpu_ahb:uut_ahb|read_reg[12]    ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.436 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|memin_Hdate[11] ; cpu_ahb:uut_ahb|read_reg[11]    ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.429 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[1]    ; cpu_ahb:uut_ahb|efpga_regH[1]   ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.456 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[0]    ; cpu_ahb:uut_ahb|test_reg[0]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.442 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[0]    ; cpu_ahb:uut_ahb|memin_Hdate[0]  ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.441 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|memin_Hdate[10] ; cpu_ahb:uut_ahb|read_reg[10]    ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.394 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[4]    ; cpu_ahb:uut_ahb|memin_Hdate[4]  ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.409 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|memin_Hdate[9]  ; cpu_ahb:uut_ahb|read_reg[9]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.373 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[3]    ; cpu_ahb:uut_ahb|cpu_cmdreg[3]   ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.390 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[0]    ; cpu_ahb:uut_ahb|efpga_regH[0]   ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.373 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[4]    ; cpu_ahb:uut_ahb|cpu_cmdreg[4]   ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.370 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[6]    ; cpu_ahb:uut_ahb|efpga_regH[6]   ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.369 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[2]    ; cpu_ahb:uut_ahb|test_reg[2]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.366 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[2]    ; cpu_ahb:uut_ahb|memin_Hdate[2]  ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.365 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[0]    ; cpu_ahb:uut_ahb|cpu_cmdreg[0]   ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.359 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[2]    ; cpu_ahb:uut_ahb|cpu_cmdreg[2]   ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.359 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|cpu_cmdreg[5]   ; cpu_ahb:uut_ahb|read_reg[5]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.357 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[14]   ; cpu_ahb:uut_ahb|efpga_regH[14]  ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.360 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|cpu_cmdreg[6]   ; cpu_ahb:uut_ahb|read_reg[6]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.355 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|cpu_cmdreg[4]   ; cpu_ahb:uut_ahb|read_reg[4]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.342 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|memin_Hdate[7]  ; cpu_ahb:uut_ahb|read_reg[7]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.310 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[15]   ; cpu_ahb:uut_ahb|memin_Hdate[15] ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.308 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[1]    ; cpu_ahb:uut_ahb|memin_Hdate[1]  ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.187 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[1]    ; cpu_ahb:uut_ahb|test_reg[1]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.187 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|test_reg[15]    ; cpu_ahb:uut_ahb|read_reg[15]    ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.095 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|memin_Hdate[5]  ; cpu_ahb:uut_ahb|read_reg[5]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.115 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[6]    ; cpu_ahb:uut_ahb|cpu_cmdreg[6]   ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.106 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[3]    ; cpu_ahb:uut_ahb|efpga_regH[3]   ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.064 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|memin_Hdate[6]  ; cpu_ahb:uut_ahb|read_reg[6]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.059 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[6]    ; cpu_ahb:uut_ahb|test_reg[6]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.046 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[5]    ; cpu_ahb:uut_ahb|efpga_regH[5]   ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.034 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[5]    ; cpu_ahb:uut_ahb|memin_Hdate[5]  ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.034 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[5]    ; cpu_ahb:uut_ahb|test_reg[5]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.032 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[1]    ; cpu_ahb:uut_ahb|cpu_cmdreg[1]   ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.033 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[6]    ; cpu_ahb:uut_ahb|memin_Hdate[6]  ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.029 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|memin_Hdate[14] ; cpu_ahb:uut_ahb|read_reg[14]    ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.998 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[7]    ; cpu_ahb:uut_ahb|test_reg[7]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.023 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[7]    ; cpu_ahb:uut_ahb|efpga_regH[7]   ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.021 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[7]    ; cpu_ahb:uut_ahb|memin_Hdate[7]  ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.007 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[2]    ; cpu_ahb:uut_ahb|efpga_regH[2]   ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.996 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|read_reg[8]     ; cpu_ahb:uut_ahb|LDATA[8]~reg0   ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.028 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[7]    ; cpu_ahb:uut_ahb|cpu_cmdreg[7]   ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.986 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[4]    ; cpu_ahb:uut_ahb|efpga_regH[4]   ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.979 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[4]    ; cpu_ahb:uut_ahb|test_reg[4]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.979 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[3]    ; cpu_ahb:uut_ahb|test_reg[3]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.980 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|read_reg[10]    ; cpu_ahb:uut_ahb|LDATA[10]~reg0  ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 2.012 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[3]    ; cpu_ahb:uut_ahb|memin_Hdate[3]  ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.979 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|cpu_cmdreg[10]  ; cpu_ahb:uut_ahb|read_reg[10]    ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.947 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|cpu_cmdreg[8]   ; cpu_ahb:uut_ahb|read_reg[8]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.939 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[9]    ; cpu_ahb:uut_ahb|test_reg[9]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.997 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[9]    ; cpu_ahb:uut_ahb|memin_Hdate[9]  ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.995 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[15]   ; cpu_ahb:uut_ahb|test_reg[15]    ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.980 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[15]   ; cpu_ahb:uut_ahb|efpga_regH[15]  ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.978 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[8]    ; cpu_ahb:uut_ahb|efpga_regH[8]   ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.943 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[5]    ; cpu_ahb:uut_ahb|cpu_cmdreg[5]   ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.937 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[10]   ; cpu_ahb:uut_ahb|cpu_cmdreg[10]  ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.968 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|cpu_cmdreg[9]   ; cpu_ahb:uut_ahb|read_reg[9]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.903 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[11]   ; cpu_ahb:uut_ahb|cpu_cmdreg[11]  ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.965 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[10]   ; cpu_ahb:uut_ahb|efpga_regH[10]  ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.964 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|cpu_cmdreg[11]  ; cpu_ahb:uut_ahb|read_reg[11]    ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.896 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[9]    ; cpu_ahb:uut_ahb|efpga_regH[9]   ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.953 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[9]    ; cpu_ahb:uut_ahb|cpu_cmdreg[9]   ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.951 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|test_reg[9]     ; cpu_ahb:uut_ahb|read_reg[9]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.801 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|test_reg[13]    ; cpu_ahb:uut_ahb|read_reg[13]    ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.796 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|read_reg[15]    ; cpu_ahb:uut_ahb|LDATA[15]~reg0  ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.794 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|memin_Hdate[4]  ; cpu_ahb:uut_ahb|read_reg[4]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.798 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|read_reg[14]    ; cpu_ahb:uut_ahb|LDATA[14]~reg0  ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.765 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|read_reg[12]    ; cpu_ahb:uut_ahb|LDATA[12]~reg0  ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.759 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|read_reg[9]     ; cpu_ahb:uut_ahb|LDATA[9]~reg0   ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.766 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[11]   ; cpu_ahb:uut_ahb|memin_Hdate[11] ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.680 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[11]   ; cpu_ahb:uut_ahb|test_reg[11]    ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.679 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|read_reg[11]    ; cpu_ahb:uut_ahb|LDATA[11]~reg0  ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.623 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[11]   ; cpu_ahb:uut_ahb|efpga_regH[11]  ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.594 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[14]   ; cpu_ahb:uut_ahb|cpu_cmdreg[14]  ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.587 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[12]   ; cpu_ahb:uut_ahb|cpu_cmdreg[12]  ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.586 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[12]   ; cpu_ahb:uut_ahb|test_reg[12]    ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.617 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[12]   ; cpu_ahb:uut_ahb|memin_Hdate[12] ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.616 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[13]   ; cpu_ahb:uut_ahb|memin_Hdate[13] ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.613 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[14]   ; cpu_ahb:uut_ahb|test_reg[14]    ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.613 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[12]   ; cpu_ahb:uut_ahb|efpga_regH[12]  ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.580 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[13]   ; cpu_ahb:uut_ahb|test_reg[13]    ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.611 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[14]   ; cpu_ahb:uut_ahb|memin_Hdate[14] ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.611 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[13]   ; cpu_ahb:uut_ahb|cpu_cmdreg[13]  ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.576 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|read_reg[5]     ; cpu_ahb:uut_ahb|LDATA[5]~reg0   ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.576 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|read_reg[13]    ; cpu_ahb:uut_ahb|LDATA[13]~reg0  ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.561 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|read_reg[4]     ; cpu_ahb:uut_ahb|LDATA[4]~reg0   ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.565 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[10]   ; cpu_ahb:uut_ahb|test_reg[10]    ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.588 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[10]   ; cpu_ahb:uut_ahb|memin_Hdate[10] ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.588 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|cpu_cmdreg[13]  ; cpu_ahb:uut_ahb|read_reg[13]    ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.551 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|cpu_cmdreg[12]  ; cpu_ahb:uut_ahb|read_reg[12]    ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.547 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|cpu_cmdreg[14]  ; cpu_ahb:uut_ahb|read_reg[14]    ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.525 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|read_reg[6]     ; cpu_ahb:uut_ahb|LDATA[6]~reg0   ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.516 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|cpu_cmdreg[15]  ; cpu_ahb:uut_ahb|read_reg[15]    ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.445 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|test_reg[10]    ; cpu_ahb:uut_ahb|read_reg[10]    ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.405 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|test_reg[8]     ; cpu_ahb:uut_ahb|read_reg[8]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.403 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|test_reg[14]    ; cpu_ahb:uut_ahb|read_reg[14]    ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.401 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|test_reg[12]    ; cpu_ahb:uut_ahb|read_reg[12]    ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.399 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|test_reg[11]    ; cpu_ahb:uut_ahb|read_reg[11]    ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.387 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[8]    ; cpu_ahb:uut_ahb|test_reg[8]     ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.268 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[8]    ; cpu_ahb:uut_ahb|memin_Hdate[8]  ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.268 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[13]   ; cpu_ahb:uut_ahb|efpga_regH[13]  ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.220 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|write_reg[15]   ; cpu_ahb:uut_ahb|cpu_cmdreg[15]  ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 1.200 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|read_reg[2]     ; cpu_ahb:uut_ahb|LDATA[2]~reg0   ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 0.904 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|read_reg[7]     ; cpu_ahb:uut_ahb|LDATA[7]~reg0   ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 0.901 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|read_reg[0]     ; cpu_ahb:uut_ahb|LDATA[0]~reg0   ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 0.900 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; cpu_ahb:uut_ahb|read_reg[3]     ; cpu_ahb:uut_ahb|LDATA[3]~reg0   ; CLOCK100M_FPGAC ; CLOCK100M_FPGAC ; None                        ; None                      ; 0.900 ns                ;
++-------+------------------------------------------------+---------------------------------+---------------------------------+-----------------+-----------------+-----------------------------+---------------------------+-------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; tsu                                                                                                                                                                        ;
++-----------------------------------------+-----------------------------------------------------+------------+-----------+---------------------------------+-----------------+
+; Slack                                   ; Required tsu                                        ; Actual tsu ; From      ; To                              ; To Clock        ;
++-----------------------------------------+-----------------------------------------------------+------------+-----------+---------------------------------+-----------------+
+; N/A                                     ; None                                                ; 11.690 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|memin_Hdate[4]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.690 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|memin_Hdate[5]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.690 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|memin_Hdate[6]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.690 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|memin_Hdate[7]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.373 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|memin_Hdate[0]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.373 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|memin_Hdate[1]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.373 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|memin_Hdate[2]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.373 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|memin_Hdate[3]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.335 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|efpga_regH[11]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.335 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|efpga_regH[12]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.335 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|efpga_regH[13]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.335 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|efpga_regH[14]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.305 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|memin_Hdate[4]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.305 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|memin_Hdate[5]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.305 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|memin_Hdate[6]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.305 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|memin_Hdate[7]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.272 ns  ; LADDR[2]  ; cpu_ahb:uut_ahb|read_reg[1]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.271 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|memin_Hdate[8]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.271 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|memin_Hdate[9]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.271 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|memin_Hdate[10] ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.271 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|memin_Hdate[11] ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.271 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|memin_Hdate[12] ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.271 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|memin_Hdate[13] ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.271 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|memin_Hdate[14] ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.271 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|memin_Hdate[15] ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.254 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|cpu_cmdreg[12]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.254 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|cpu_cmdreg[13]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.254 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|cpu_cmdreg[14]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.254 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|cpu_cmdreg[15]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.252 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|test_reg[8]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.252 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|test_reg[9]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.252 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|test_reg[10]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.252 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|test_reg[11]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.252 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|test_reg[12]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.252 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|test_reg[13]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.252 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|test_reg[14]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.201 ns  ; LADDR[22] ; cpu_ahb:uut_ahb|memin_Hdate[4]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.201 ns  ; LADDR[22] ; cpu_ahb:uut_ahb|memin_Hdate[5]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.201 ns  ; LADDR[22] ; cpu_ahb:uut_ahb|memin_Hdate[6]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.201 ns  ; LADDR[22] ; cpu_ahb:uut_ahb|memin_Hdate[7]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.045 ns  ; LADDR[2]  ; cpu_ahb:uut_ahb|read_reg[3]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.007 ns  ; LADDR[21] ; cpu_ahb:uut_ahb|memin_Hdate[4]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.007 ns  ; LADDR[21] ; cpu_ahb:uut_ahb|memin_Hdate[5]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.007 ns  ; LADDR[21] ; cpu_ahb:uut_ahb|memin_Hdate[6]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.007 ns  ; LADDR[21] ; cpu_ahb:uut_ahb|memin_Hdate[7]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.006 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|cpu_cmdreg[8]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.006 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|cpu_cmdreg[9]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.006 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|cpu_cmdreg[10]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.006 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|cpu_cmdreg[11]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.006 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|cpu_cmdreg[0]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.006 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|cpu_cmdreg[1]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.006 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|cpu_cmdreg[2]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.006 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|cpu_cmdreg[3]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.006 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|cpu_cmdreg[4]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.006 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|cpu_cmdreg[5]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.006 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|cpu_cmdreg[6]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 11.006 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|cpu_cmdreg[7]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.988 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|memin_Hdate[0]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.988 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|memin_Hdate[1]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.988 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|memin_Hdate[2]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.988 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|memin_Hdate[3]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.970 ns  ; LADDR[9]  ; cpu_ahb:uut_ahb|memin_Hdate[4]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.970 ns  ; LADDR[9]  ; cpu_ahb:uut_ahb|memin_Hdate[5]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.970 ns  ; LADDR[9]  ; cpu_ahb:uut_ahb|memin_Hdate[6]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.970 ns  ; LADDR[9]  ; cpu_ahb:uut_ahb|memin_Hdate[7]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.950 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|efpga_regH[11]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.950 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|efpga_regH[12]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.950 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|efpga_regH[13]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.950 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|efpga_regH[14]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.937 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|test_reg[0]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.937 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|test_reg[1]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.937 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|test_reg[2]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.937 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|test_reg[3]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.899 ns  ; LADDR[6]  ; cpu_ahb:uut_ahb|memin_Hdate[4]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.899 ns  ; LADDR[6]  ; cpu_ahb:uut_ahb|memin_Hdate[5]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.899 ns  ; LADDR[6]  ; cpu_ahb:uut_ahb|memin_Hdate[6]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.899 ns  ; LADDR[6]  ; cpu_ahb:uut_ahb|memin_Hdate[7]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.886 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|memin_Hdate[8]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.886 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|memin_Hdate[9]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.886 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|memin_Hdate[10] ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.886 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|memin_Hdate[11] ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.886 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|memin_Hdate[12] ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.886 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|memin_Hdate[13] ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.886 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|memin_Hdate[14] ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.886 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|memin_Hdate[15] ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.884 ns  ; LADDR[22] ; cpu_ahb:uut_ahb|memin_Hdate[0]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.884 ns  ; LADDR[22] ; cpu_ahb:uut_ahb|memin_Hdate[1]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.884 ns  ; LADDR[22] ; cpu_ahb:uut_ahb|memin_Hdate[2]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.884 ns  ; LADDR[22] ; cpu_ahb:uut_ahb|memin_Hdate[3]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.869 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|cpu_cmdreg[12]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.869 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|cpu_cmdreg[13]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.869 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|cpu_cmdreg[14]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.869 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|cpu_cmdreg[15]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.867 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|test_reg[8]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.867 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|test_reg[9]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.867 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|test_reg[10]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.867 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|test_reg[11]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.867 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|test_reg[12]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.867 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|test_reg[13]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.867 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|test_reg[14]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.846 ns  ; LADDR[22] ; cpu_ahb:uut_ahb|efpga_regH[11]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.846 ns  ; LADDR[22] ; cpu_ahb:uut_ahb|efpga_regH[12]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.846 ns  ; LADDR[22] ; cpu_ahb:uut_ahb|efpga_regH[13]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.846 ns  ; LADDR[22] ; cpu_ahb:uut_ahb|efpga_regH[14]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.844 ns  ; LADDR[2]  ; cpu_ahb:uut_ahb|read_reg[7]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.807 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|read_reg[3]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.806 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|read_reg[0]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.785 ns  ; LADDR[2]  ; cpu_ahb:uut_ahb|read_reg[0]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.782 ns  ; LADDR[22] ; cpu_ahb:uut_ahb|memin_Hdate[8]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.782 ns  ; LADDR[22] ; cpu_ahb:uut_ahb|memin_Hdate[9]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.782 ns  ; LADDR[22] ; cpu_ahb:uut_ahb|memin_Hdate[10] ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.782 ns  ; LADDR[22] ; cpu_ahb:uut_ahb|memin_Hdate[11] ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.782 ns  ; LADDR[22] ; cpu_ahb:uut_ahb|memin_Hdate[12] ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.782 ns  ; LADDR[22] ; cpu_ahb:uut_ahb|memin_Hdate[13] ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.782 ns  ; LADDR[22] ; cpu_ahb:uut_ahb|memin_Hdate[14] ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.782 ns  ; LADDR[22] ; cpu_ahb:uut_ahb|memin_Hdate[15] ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.774 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|read_reg[2]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.774 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|read_reg[7]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.765 ns  ; LADDR[22] ; cpu_ahb:uut_ahb|cpu_cmdreg[12]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.765 ns  ; LADDR[22] ; cpu_ahb:uut_ahb|cpu_cmdreg[13]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.765 ns  ; LADDR[22] ; cpu_ahb:uut_ahb|cpu_cmdreg[14]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.765 ns  ; LADDR[22] ; cpu_ahb:uut_ahb|cpu_cmdreg[15]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.763 ns  ; LADDR[22] ; cpu_ahb:uut_ahb|test_reg[8]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.763 ns  ; LADDR[22] ; cpu_ahb:uut_ahb|test_reg[9]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.763 ns  ; LADDR[22] ; cpu_ahb:uut_ahb|test_reg[10]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.763 ns  ; LADDR[22] ; cpu_ahb:uut_ahb|test_reg[11]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.763 ns  ; LADDR[22] ; cpu_ahb:uut_ahb|test_reg[12]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.763 ns  ; LADDR[22] ; cpu_ahb:uut_ahb|test_reg[13]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.763 ns  ; LADDR[22] ; cpu_ahb:uut_ahb|test_reg[14]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.752 ns  ; LADDR[8]  ; cpu_ahb:uut_ahb|memin_Hdate[4]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.752 ns  ; LADDR[8]  ; cpu_ahb:uut_ahb|memin_Hdate[5]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.752 ns  ; LADDR[8]  ; cpu_ahb:uut_ahb|memin_Hdate[6]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.752 ns  ; LADDR[8]  ; cpu_ahb:uut_ahb|memin_Hdate[7]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.726 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|read_reg[4]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.725 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|read_reg[5]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.722 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|read_reg[1]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.722 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|read_reg[6]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.690 ns  ; LADDR[21] ; cpu_ahb:uut_ahb|memin_Hdate[0]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.690 ns  ; LADDR[21] ; cpu_ahb:uut_ahb|memin_Hdate[1]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.690 ns  ; LADDR[21] ; cpu_ahb:uut_ahb|memin_Hdate[2]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.690 ns  ; LADDR[21] ; cpu_ahb:uut_ahb|memin_Hdate[3]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.653 ns  ; LADDR[9]  ; cpu_ahb:uut_ahb|memin_Hdate[0]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.653 ns  ; LADDR[9]  ; cpu_ahb:uut_ahb|memin_Hdate[1]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.653 ns  ; LADDR[9]  ; cpu_ahb:uut_ahb|memin_Hdate[2]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.653 ns  ; LADDR[9]  ; cpu_ahb:uut_ahb|memin_Hdate[3]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.652 ns  ; LADDR[21] ; cpu_ahb:uut_ahb|efpga_regH[11]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.652 ns  ; LADDR[21] ; cpu_ahb:uut_ahb|efpga_regH[12]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.652 ns  ; LADDR[21] ; cpu_ahb:uut_ahb|efpga_regH[13]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.652 ns  ; LADDR[21] ; cpu_ahb:uut_ahb|efpga_regH[14]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.649 ns  ; LADDR[2]  ; cpu_ahb:uut_ahb|read_reg[5]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.621 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|efpga_regH[8]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.621 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|efpga_regH[9]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.621 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|efpga_regH[15]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.621 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|efpga_regH[0]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.621 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|efpga_regH[1]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.621 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|efpga_regH[2]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.621 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|efpga_regH[3]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.621 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|efpga_regH[6]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.621 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|cpu_cmdreg[8]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.621 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|cpu_cmdreg[9]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.621 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|cpu_cmdreg[10]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.621 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|cpu_cmdreg[11]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.621 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|cpu_cmdreg[0]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.621 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|cpu_cmdreg[1]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.621 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|cpu_cmdreg[2]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.621 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|cpu_cmdreg[3]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.621 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|cpu_cmdreg[4]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.621 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|cpu_cmdreg[5]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.621 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|cpu_cmdreg[6]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.621 ns  ; LADDR[7]  ; cpu_ahb:uut_ahb|cpu_cmdreg[7]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.618 ns  ; LADDR[2]  ; cpu_ahb:uut_ahb|read_reg[2]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.615 ns  ; LADDR[9]  ; cpu_ahb:uut_ahb|efpga_regH[11]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.615 ns  ; LADDR[9]  ; cpu_ahb:uut_ahb|efpga_regH[12]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.615 ns  ; LADDR[9]  ; cpu_ahb:uut_ahb|efpga_regH[13]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.615 ns  ; LADDR[9]  ; cpu_ahb:uut_ahb|efpga_regH[14]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.598 ns  ; LADDR[2]  ; cpu_ahb:uut_ahb|read_reg[6]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.588 ns  ; LADDR[21] ; cpu_ahb:uut_ahb|memin_Hdate[8]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.588 ns  ; LADDR[21] ; cpu_ahb:uut_ahb|memin_Hdate[9]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.588 ns  ; LADDR[21] ; cpu_ahb:uut_ahb|memin_Hdate[10] ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.588 ns  ; LADDR[21] ; cpu_ahb:uut_ahb|memin_Hdate[11] ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.588 ns  ; LADDR[21] ; cpu_ahb:uut_ahb|memin_Hdate[12] ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.588 ns  ; LADDR[21] ; cpu_ahb:uut_ahb|memin_Hdate[13] ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.588 ns  ; LADDR[21] ; cpu_ahb:uut_ahb|memin_Hdate[14] ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.588 ns  ; LADDR[21] ; cpu_ahb:uut_ahb|memin_Hdate[15] ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.582 ns  ; LADDR[6]  ; cpu_ahb:uut_ahb|memin_Hdate[0]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.582 ns  ; LADDR[6]  ; cpu_ahb:uut_ahb|memin_Hdate[1]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.582 ns  ; LADDR[6]  ; cpu_ahb:uut_ahb|memin_Hdate[2]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.582 ns  ; LADDR[6]  ; cpu_ahb:uut_ahb|memin_Hdate[3]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.575 ns  ; LNGCS5    ; cpu_ahb:uut_ahb|efpga_regH[10]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.571 ns  ; LADDR[21] ; cpu_ahb:uut_ahb|cpu_cmdreg[12]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.571 ns  ; LADDR[21] ; cpu_ahb:uut_ahb|cpu_cmdreg[13]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.571 ns  ; LADDR[21] ; cpu_ahb:uut_ahb|cpu_cmdreg[14]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.571 ns  ; LADDR[21] ; cpu_ahb:uut_ahb|cpu_cmdreg[15]  ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.569 ns  ; LADDR[21] ; cpu_ahb:uut_ahb|test_reg[8]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.569 ns  ; LADDR[21] ; cpu_ahb:uut_ahb|test_reg[9]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.569 ns  ; LADDR[21] ; cpu_ahb:uut_ahb|test_reg[10]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.569 ns  ; LADDR[21] ; cpu_ahb:uut_ahb|test_reg[11]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.569 ns  ; LADDR[21] ; cpu_ahb:uut_ahb|test_reg[12]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.569 ns  ; LADDR[21] ; cpu_ahb:uut_ahb|test_reg[13]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; 10.569 ns  ; LADDR[21] ; cpu_ahb:uut_ahb|test_reg[14]    ; CLOCK100M_FPGAC ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;            ;           ;                                 ;                 ;
++-----------------------------------------+-----------------------------------------------------+------------+-----------+---------------------------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; tco                                                                                                    ;
++-------+--------------+------------+--------------------------------+-----------------+-----------------+
+; Slack ; Required tco ; Actual tco ; From                           ; To              ; From Clock      ;
++-------+--------------+------------+--------------------------------+-----------------+-----------------+
+; N/A   ; None         ; 14.947 ns  ; cpu_ahb:uut_ahb|efpga_regH[12] ; CE_REG_DATA[28] ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 14.536 ns  ; cpu_ahb:uut_ahb|efpga_regH[14] ; CE_REG_DATA[30] ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 14.381 ns  ; cpu_ahb:uut_ahb|LDATA[0]~en    ; LDATA[6]        ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 14.185 ns  ; cpu_ahb:uut_ahb|efpga_regH[15] ; CE_REG_DATA[31] ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 14.092 ns  ; cpu_ahb:uut_ahb|LDATA[0]~en    ; LDATA[8]        ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 14.051 ns  ; cpu_ahb:uut_ahb|LDATA[6]~reg0  ; LDATA[6]        ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 13.908 ns  ; cpu_ahb:uut_ahb|efpga_regH[13] ; CE_REG_DATA[29] ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 13.764 ns  ; cpu_ahb:uut_ahb|LDATA[8]~reg0  ; LDATA[8]        ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 13.645 ns  ; cpu_ahb:uut_ahb|LDATA[0]~en    ; LDATA[4]        ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 13.565 ns  ; cpu_ahb:uut_ahb|LDATA[0]~en    ; LDATA[10]       ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 13.548 ns  ; cpu_ahb:uut_ahb|LDATA[0]~en    ; LDATA[3]        ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 13.460 ns  ; cpu_ahb:uut_ahb|LDATA[0]~en    ; LDATA[15]       ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 13.327 ns  ; cpu_ahb:uut_ahb|efpga_regH[3]  ; CE_REG_DATA[19] ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 13.308 ns  ; cpu_ahb:uut_ahb|LDATA[4]~reg0  ; LDATA[4]        ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 13.269 ns  ; cpu_ahb:uut_ahb|efpga_regH[9]  ; CE_REG_DATA[25] ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 13.235 ns  ; cpu_ahb:uut_ahb|LDATA[10]~reg0 ; LDATA[10]       ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 13.215 ns  ; cpu_ahb:uut_ahb|LDATA[3]~reg0  ; LDATA[3]        ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 13.094 ns  ; cpu_ahb:uut_ahb|LDATA[0]~en    ; LDATA[5]        ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 13.043 ns  ; cpu_ahb:uut_ahb|LDATA[0]~en    ; LDATA[1]        ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 13.028 ns  ; cpu_ahb:uut_ahb|LDATA[0]~en    ; LDATA[0]        ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 12.985 ns  ; cpu_ahb:uut_ahb|LDATA[0]~en    ; LDATA[14]       ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 12.802 ns  ; cpu_ahb:uut_ahb|LDATA[15]~reg0 ; LDATA[15]       ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 12.795 ns  ; cpu_ahb:uut_ahb|LDATA[16]~en   ; LDATA[16]       ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 12.766 ns  ; cpu_ahb:uut_ahb|LDATA[5]~reg0  ; LDATA[5]        ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 12.705 ns  ; cpu_ahb:uut_ahb|LDATA[1]~reg0  ; LDATA[1]        ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 12.668 ns  ; cpu_ahb:uut_ahb|efpga_regH[8]  ; CE_REG_DATA[24] ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 12.554 ns  ; cpu_ahb:uut_ahb|LDATA[0]~en    ; LDATA[12]       ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 12.543 ns  ; cpu_ahb:uut_ahb|LDATA[0]~en    ; LDATA[9]        ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 12.265 ns  ; cpu_ahb:uut_ahb|LDATA[0]~reg0  ; LDATA[0]        ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 12.253 ns  ; cpu_ahb:uut_ahb|efpga_regH[2]  ; CE_REG_DATA[18] ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 12.231 ns  ; cpu_ahb:uut_ahb|efpga_regH[6]  ; CE_REG_DATA[22] ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 12.079 ns  ; cpu_ahb:uut_ahb|LDATA[0]~en    ; LDATA[7]        ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 12.075 ns  ; cpu_ahb:uut_ahb|LDATA[0]~en    ; LDATA[13]       ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 12.071 ns  ; cpu_ahb:uut_ahb|efpga_regH[5]  ; CE_REG_DATA[21] ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 12.002 ns  ; cpu_ahb:uut_ahb|LDATA[0]~en    ; LDATA[11]       ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 11.977 ns  ; cpu_ahb:uut_ahb|efpga_regH[0]  ; CE_REG_DATA[16] ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 11.794 ns  ; cpu_ahb:uut_ahb|efpga_regH[11] ; CE_REG_DATA[27] ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 11.769 ns  ; cpu_ahb:uut_ahb|efpga_regH[10] ; CE_REG_DATA[26] ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 11.744 ns  ; cpu_ahb:uut_ahb|LDATA[7]~reg0  ; LDATA[7]        ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 11.570 ns  ; cpu_ahb:uut_ahb|LDATA[17]~en   ; LDATA[17]       ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 11.374 ns  ; cpu_ahb:uut_ahb|LDATA[24]~en   ; LDATA[24]       ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 11.363 ns  ; cpu_ahb:uut_ahb|LDATA[0]~en    ; LDATA[2]        ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 11.347 ns  ; cpu_ahb:uut_ahb|LDATA[11]~reg0 ; LDATA[11]       ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 11.105 ns  ; cpu_ahb:uut_ahb|efpga_regH[4]  ; CE_REG_DATA[20] ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 10.970 ns  ; cpu_ahb:uut_ahb|LDATA[13]~reg0 ; LDATA[13]       ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 10.711 ns  ; cpu_ahb:uut_ahb|LDATA[14]~reg0 ; LDATA[14]       ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 10.650 ns  ; cpu_ahb:uut_ahb|LDATA[9]~reg0  ; LDATA[9]        ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 10.524 ns  ; cpu_ahb:uut_ahb|LDATA[2]~reg0  ; LDATA[2]        ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 10.174 ns  ; cpu_ahb:uut_ahb|LDATA[12]~reg0 ; LDATA[12]       ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 10.041 ns  ; cpu_ahb:uut_ahb|efpga_regH[7]  ; CE_REG_DATA[23] ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 10.005 ns  ; cpu_ahb:uut_ahb|efpga_regH[1]  ; CE_REG_DATA[17] ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 8.134 ns   ; cpu_ahb:uut_ahb|LDATA[18]~en   ; LDATA[18]       ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 7.851 ns   ; cpu_ahb:uut_ahb|LDATA[31]~en   ; LDATA[31]       ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 7.838 ns   ; cpu_ahb:uut_ahb|LDATA[22]~en   ; LDATA[22]       ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 7.821 ns   ; cpu_ahb:uut_ahb|LDATA[30]~en   ; LDATA[30]       ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 7.819 ns   ; cpu_ahb:uut_ahb|LDATA[20]~en   ; LDATA[20]       ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 7.808 ns   ; cpu_ahb:uut_ahb|LDATA[19]~en   ; LDATA[19]       ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 7.797 ns   ; cpu_ahb:uut_ahb|LDATA[23]~en   ; LDATA[23]       ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 7.790 ns   ; cpu_ahb:uut_ahb|LDATA[29]~en   ; LDATA[29]       ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 7.785 ns   ; cpu_ahb:uut_ahb|LDATA[25]~en   ; LDATA[25]       ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 7.778 ns   ; cpu_ahb:uut_ahb|LDATA[28]~en   ; LDATA[28]       ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 7.423 ns   ; cpu_ahb:uut_ahb|LDATA[27]~en   ; LDATA[27]       ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 7.351 ns   ; cpu_ahb:uut_ahb|LDATA[26]~en   ; LDATA[26]       ; CLOCK100M_FPGAC ;
+; N/A   ; None         ; 7.347 ns   ; cpu_ahb:uut_ahb|LDATA[21]~en   ; LDATA[21]       ; CLOCK100M_FPGAC ;
++-------+--------------+------------+--------------------------------+-----------------+-----------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; tpd                                                                                                                                                 ;
++-----------------------------------------+-----------------------------------------------------+-----------------+-----------------+-----------------+
+; Slack                                   ; Required P2P Time                                   ; Actual P2P Time ; From            ; To              ;
++-----------------------------------------+-----------------------------------------------------+-----------------+-----------------+-----------------+
+; N/A                                     ; None                                                ; 20.501 ns       ; CE_REG_DATA[6]  ; LDATA[6]        ;
+; N/A                                     ; None                                                ; 19.852 ns       ; LNGCS5          ; CE_REG_DATA[27] ;
+; N/A                                     ; None                                                ; 19.852 ns       ; LNGCS5          ; CE_REG_DATA[26] ;
+; N/A                                     ; None                                                ; 19.568 ns       ; CE_REG_DATA[3]  ; LDATA[3]        ;
+; N/A                                     ; None                                                ; 19.461 ns       ; CE_REG_DATA[4]  ; LDATA[4]        ;
+; N/A                                     ; None                                                ; 19.439 ns       ; LNGCS5          ; CE_REG_DATA[23] ;
+; N/A                                     ; None                                                ; 19.432 ns       ; LNGCS5          ; CE_REG_DATA[18] ;
+; N/A                                     ; None                                                ; 19.429 ns       ; LNGCS5          ; CE_REG_DATA[25] ;
+; N/A                                     ; None                                                ; 19.429 ns       ; LNGCS5          ; CE_REG_DATA[24] ;
+; N/A                                     ; None                                                ; 19.426 ns       ; LNGCS5          ; CE_REG_DATA[17] ;
+; N/A                                     ; None                                                ; 19.426 ns       ; LNGCS5          ; CE_REG_DATA[14] ;
+; N/A                                     ; None                                                ; 19.422 ns       ; LNGCS5          ; CE_REG_DATA[22] ;
+; N/A                                     ; None                                                ; 19.422 ns       ; LNGCS5          ; CE_REG_DATA[21] ;
+; N/A                                     ; None                                                ; 19.422 ns       ; LNGCS5          ; CE_REG_DATA[20] ;
+; N/A                                     ; None                                                ; 19.416 ns       ; LNGCS5          ; CE_REG_DATA[16] ;
+; N/A                                     ; None                                                ; 19.416 ns       ; LNGCS5          ; CE_REG_DATA[15] ;
+; N/A                                     ; None                                                ; 19.412 ns       ; LNGCS5          ; CE_REG_DATA[19] ;
+; N/A                                     ; None                                                ; 19.359 ns       ; CE_REG_DATA[8]  ; LDATA[8]        ;
+; N/A                                     ; None                                                ; 19.176 ns       ; LADDR[22]       ; CE_REG_DATA[27] ;
+; N/A                                     ; None                                                ; 19.176 ns       ; LADDR[22]       ; CE_REG_DATA[26] ;
+; N/A                                     ; None                                                ; 19.094 ns       ; CE_REG_DATA[1]  ; LDATA[1]        ;
+; N/A                                     ; None                                                ; 19.018 ns       ; CE_REG_DATA[15] ; LDATA[15]       ;
+; N/A                                     ; None                                                ; 19.016 ns       ; LNGCS5          ; CE_REG_DATA[13] ;
+; N/A                                     ; None                                                ; 19.006 ns       ; LNGCS5          ; CE_REG_DATA[12] ;
+; N/A                                     ; None                                                ; 19.006 ns       ; LNGCS5          ; CE_REG_DATA[11] ;
+; N/A                                     ; None                                                ; 18.999 ns       ; CE_REG_DATA[5]  ; LDATA[5]        ;
+; N/A                                     ; None                                                ; 18.999 ns       ; LNGCS5          ; CE_REG_DATA[10] ;
+; N/A                                     ; None                                                ; 18.999 ns       ; LNGCS5          ; CE_REG_DATA[9]  ;
+; N/A                                     ; None                                                ; 18.988 ns       ; LNGCS5          ; CE_REG_DATA[29] ;
+; N/A                                     ; None                                                ; 18.988 ns       ; LNGCS5          ; CE_REG_DATA[28] ;
+; N/A                                     ; None                                                ; 18.985 ns       ; LNGCS5          ; CE_REG_DATA[7]  ;
+; N/A                                     ; None                                                ; 18.985 ns       ; LNGCS5          ; CE_REG_DATA[8]  ;
+; N/A                                     ; None                                                ; 18.965 ns       ; LNGCS5          ; CE_REG_DATA[5]  ;
+; N/A                                     ; None                                                ; 18.965 ns       ; LNGCS5          ; CE_REG_DATA[4]  ;
+; N/A                                     ; None                                                ; 18.956 ns       ; LNGCS5          ; CE_REG_DATA[2]  ;
+; N/A                                     ; None                                                ; 18.956 ns       ; LNGCS5          ; CE_REG_DATA[1]  ;
+; N/A                                     ; None                                                ; 18.943 ns       ; LNGCS5          ; CE_REG_DATA[0]  ;
+; N/A                                     ; None                                                ; 18.943 ns       ; LNGCS5          ; CE_REG_DATA[31] ;
+; N/A                                     ; None                                                ; 18.943 ns       ; LNGCS5          ; CE_REG_DATA[30] ;
+; N/A                                     ; None                                                ; 18.925 ns       ; LNGCS5          ; CE_REG_DATA[6]  ;
+; N/A                                     ; None                                                ; 18.925 ns       ; LNGCS5          ; CE_REG_DATA[3]  ;
+; N/A                                     ; None                                                ; 18.875 ns       ; CE_REG_DATA[10] ; LDATA[10]       ;
+; N/A                                     ; None                                                ; 18.763 ns       ; LADDR[22]       ; CE_REG_DATA[23] ;
+; N/A                                     ; None                                                ; 18.756 ns       ; LADDR[22]       ; CE_REG_DATA[18] ;
+; N/A                                     ; None                                                ; 18.753 ns       ; LADDR[22]       ; CE_REG_DATA[25] ;
+; N/A                                     ; None                                                ; 18.753 ns       ; LADDR[22]       ; CE_REG_DATA[24] ;
+; N/A                                     ; None                                                ; 18.750 ns       ; LADDR[22]       ; CE_REG_DATA[17] ;
+; N/A                                     ; None                                                ; 18.750 ns       ; LADDR[22]       ; CE_REG_DATA[14] ;
+; N/A                                     ; None                                                ; 18.746 ns       ; LADDR[22]       ; CE_REG_DATA[22] ;
+; N/A                                     ; None                                                ; 18.746 ns       ; LADDR[22]       ; CE_REG_DATA[21] ;
+; N/A                                     ; None                                                ; 18.746 ns       ; LADDR[22]       ; CE_REG_DATA[20] ;
+; N/A                                     ; None                                                ; 18.740 ns       ; LADDR[22]       ; CE_REG_DATA[16] ;
+; N/A                                     ; None                                                ; 18.740 ns       ; LADDR[22]       ; CE_REG_DATA[15] ;
+; N/A                                     ; None                                                ; 18.736 ns       ; LADDR[22]       ; CE_REG_DATA[19] ;
+; N/A                                     ; None                                                ; 18.719 ns       ; LNOE            ; CE_REG_DATA[27] ;
+; N/A                                     ; None                                                ; 18.719 ns       ; LNOE            ; CE_REG_DATA[26] ;
+; N/A                                     ; None                                                ; 18.659 ns       ; LNGCS5          ; CE_REG_CS       ;
+; N/A                                     ; None                                                ; 18.340 ns       ; LADDR[22]       ; CE_REG_DATA[13] ;
+; N/A                                     ; None                                                ; 18.330 ns       ; LADDR[22]       ; CE_REG_DATA[12] ;
+; N/A                                     ; None                                                ; 18.330 ns       ; LADDR[22]       ; CE_REG_DATA[11] ;
+; N/A                                     ; None                                                ; 18.323 ns       ; LADDR[22]       ; CE_REG_DATA[10] ;
+; N/A                                     ; None                                                ; 18.323 ns       ; LADDR[22]       ; CE_REG_DATA[9]  ;
+; N/A                                     ; None                                                ; 18.312 ns       ; LADDR[22]       ; CE_REG_DATA[29] ;
+; N/A                                     ; None                                                ; 18.312 ns       ; LADDR[22]       ; CE_REG_DATA[28] ;
+; N/A                                     ; None                                                ; 18.309 ns       ; LADDR[22]       ; CE_REG_DATA[7]  ;
+; N/A                                     ; None                                                ; 18.309 ns       ; LADDR[22]       ; CE_REG_DATA[8]  ;
+; N/A                                     ; None                                                ; 18.306 ns       ; LNOE            ; CE_REG_DATA[23] ;
+; N/A                                     ; None                                                ; 18.299 ns       ; LNOE            ; CE_REG_DATA[18] ;
+; N/A                                     ; None                                                ; 18.296 ns       ; LNOE            ; CE_REG_DATA[25] ;
+; N/A                                     ; None                                                ; 18.296 ns       ; LNOE            ; CE_REG_DATA[24] ;
+; N/A                                     ; None                                                ; 18.293 ns       ; LNOE            ; CE_REG_DATA[17] ;
+; N/A                                     ; None                                                ; 18.293 ns       ; LNOE            ; CE_REG_DATA[14] ;
+; N/A                                     ; None                                                ; 18.289 ns       ; LNOE            ; CE_REG_DATA[22] ;
+; N/A                                     ; None                                                ; 18.289 ns       ; LNOE            ; CE_REG_DATA[21] ;
+; N/A                                     ; None                                                ; 18.289 ns       ; LADDR[22]       ; CE_REG_DATA[5]  ;
+; N/A                                     ; None                                                ; 18.289 ns       ; LNOE            ; CE_REG_DATA[20] ;
+; N/A                                     ; None                                                ; 18.289 ns       ; LADDR[22]       ; CE_REG_DATA[4]  ;
+; N/A                                     ; None                                                ; 18.283 ns       ; LNOE            ; CE_REG_DATA[16] ;
+; N/A                                     ; None                                                ; 18.283 ns       ; LNOE            ; CE_REG_DATA[15] ;
+; N/A                                     ; None                                                ; 18.280 ns       ; LADDR[22]       ; CE_REG_DATA[2]  ;
+; N/A                                     ; None                                                ; 18.280 ns       ; LADDR[22]       ; CE_REG_DATA[1]  ;
+; N/A                                     ; None                                                ; 18.279 ns       ; LNOE            ; CE_REG_DATA[19] ;
+; N/A                                     ; None                                                ; 18.267 ns       ; LADDR[22]       ; CE_REG_DATA[0]  ;
+; N/A                                     ; None                                                ; 18.267 ns       ; LADDR[22]       ; CE_REG_DATA[31] ;
+; N/A                                     ; None                                                ; 18.267 ns       ; LADDR[22]       ; CE_REG_DATA[30] ;
+; N/A                                     ; None                                                ; 18.249 ns       ; LADDR[22]       ; CE_REG_DATA[6]  ;
+; N/A                                     ; None                                                ; 18.249 ns       ; LADDR[22]       ; CE_REG_DATA[3]  ;
+; N/A                                     ; None                                                ; 18.099 ns       ; CE_REG_DATA[0]  ; LDATA[0]        ;
+; N/A                                     ; None                                                ; 18.014 ns       ; LADDR[21]       ; CE_REG_DATA[27] ;
+; N/A                                     ; None                                                ; 18.014 ns       ; LADDR[21]       ; CE_REG_DATA[26] ;
+; N/A                                     ; None                                                ; 17.988 ns       ; LNWE            ; CE_REG_DATA[27] ;
+; N/A                                     ; None                                                ; 17.988 ns       ; LNWE            ; CE_REG_DATA[26] ;
+; N/A                                     ; None                                                ; 17.983 ns       ; LADDR[22]       ; CE_REG_CS       ;
+; N/A                                     ; None                                                ; 17.883 ns       ; LNOE            ; CE_REG_DATA[13] ;
+; N/A                                     ; None                                                ; 17.873 ns       ; LNOE            ; CE_REG_DATA[12] ;
+; N/A                                     ; None                                                ; 17.873 ns       ; LNOE            ; CE_REG_DATA[11] ;
+; N/A                                     ; None                                                ; 17.866 ns       ; LNOE            ; CE_REG_DATA[10] ;
+; N/A                                     ; None                                                ; 17.866 ns       ; LNOE            ; CE_REG_DATA[9]  ;
+; N/A                                     ; None                                                ; 17.855 ns       ; LNOE            ; CE_REG_DATA[29] ;
+; N/A                                     ; None                                                ; 17.855 ns       ; LNOE            ; CE_REG_DATA[28] ;
+; N/A                                     ; None                                                ; 17.852 ns       ; LNOE            ; CE_REG_DATA[7]  ;
+; N/A                                     ; None                                                ; 17.852 ns       ; LNOE            ; CE_REG_DATA[8]  ;
+; N/A                                     ; None                                                ; 17.832 ns       ; LNOE            ; CE_REG_DATA[5]  ;
+; N/A                                     ; None                                                ; 17.832 ns       ; LNOE            ; CE_REG_DATA[4]  ;
+; N/A                                     ; None                                                ; 17.823 ns       ; LNOE            ; CE_REG_DATA[2]  ;
+; N/A                                     ; None                                                ; 17.823 ns       ; LNOE            ; CE_REG_DATA[1]  ;
+; N/A                                     ; None                                                ; 17.810 ns       ; LNOE            ; CE_REG_DATA[0]  ;
+; N/A                                     ; None                                                ; 17.810 ns       ; LNOE            ; CE_REG_DATA[31] ;
+; N/A                                     ; None                                                ; 17.810 ns       ; LNOE            ; CE_REG_DATA[30] ;
+; N/A                                     ; None                                                ; 17.792 ns       ; LNOE            ; CE_REG_DATA[6]  ;
+; N/A                                     ; None                                                ; 17.792 ns       ; LNOE            ; CE_REG_DATA[3]  ;
+; N/A                                     ; None                                                ; 17.644 ns       ; CE_REG_DATA[7]  ; LDATA[7]        ;
+; N/A                                     ; None                                                ; 17.601 ns       ; LADDR[21]       ; CE_REG_DATA[23] ;
+; N/A                                     ; None                                                ; 17.594 ns       ; LADDR[21]       ; CE_REG_DATA[18] ;
+; N/A                                     ; None                                                ; 17.591 ns       ; LADDR[21]       ; CE_REG_DATA[25] ;
+; N/A                                     ; None                                                ; 17.591 ns       ; LADDR[21]       ; CE_REG_DATA[24] ;
+; N/A                                     ; None                                                ; 17.588 ns       ; LADDR[21]       ; CE_REG_DATA[17] ;
+; N/A                                     ; None                                                ; 17.588 ns       ; LADDR[21]       ; CE_REG_DATA[14] ;
+; N/A                                     ; None                                                ; 17.584 ns       ; LADDR[21]       ; CE_REG_DATA[22] ;
+; N/A                                     ; None                                                ; 17.584 ns       ; LADDR[21]       ; CE_REG_DATA[21] ;
+; N/A                                     ; None                                                ; 17.584 ns       ; LADDR[21]       ; CE_REG_DATA[20] ;
+; N/A                                     ; None                                                ; 17.578 ns       ; LADDR[21]       ; CE_REG_DATA[16] ;
+; N/A                                     ; None                                                ; 17.578 ns       ; LADDR[21]       ; CE_REG_DATA[15] ;
+; N/A                                     ; None                                                ; 17.575 ns       ; LNWE            ; CE_REG_DATA[23] ;
+; N/A                                     ; None                                                ; 17.574 ns       ; LADDR[21]       ; CE_REG_DATA[19] ;
+; N/A                                     ; None                                                ; 17.568 ns       ; LNWE            ; CE_REG_DATA[18] ;
+; N/A                                     ; None                                                ; 17.565 ns       ; LNWE            ; CE_REG_DATA[25] ;
+; N/A                                     ; None                                                ; 17.565 ns       ; LNWE            ; CE_REG_DATA[24] ;
+; N/A                                     ; None                                                ; 17.562 ns       ; LNWE            ; CE_REG_DATA[17] ;
+; N/A                                     ; None                                                ; 17.562 ns       ; LNWE            ; CE_REG_DATA[14] ;
+; N/A                                     ; None                                                ; 17.558 ns       ; LNWE            ; CE_REG_DATA[22] ;
+; N/A                                     ; None                                                ; 17.558 ns       ; LNWE            ; CE_REG_DATA[21] ;
+; N/A                                     ; None                                                ; 17.558 ns       ; LNWE            ; CE_REG_DATA[20] ;
+; N/A                                     ; None                                                ; 17.552 ns       ; LNWE            ; CE_REG_DATA[16] ;
+; N/A                                     ; None                                                ; 17.552 ns       ; LNWE            ; CE_REG_DATA[15] ;
+; N/A                                     ; None                                                ; 17.548 ns       ; LNWE            ; CE_REG_DATA[19] ;
+; N/A                                     ; None                                                ; 17.519 ns       ; LNOE            ; CE_REG_CS       ;
+; N/A                                     ; None                                                ; 17.178 ns       ; LADDR[21]       ; CE_REG_DATA[13] ;
+; N/A                                     ; None                                                ; 17.168 ns       ; LADDR[21]       ; CE_REG_DATA[12] ;
+; N/A                                     ; None                                                ; 17.168 ns       ; LADDR[21]       ; CE_REG_DATA[11] ;
+; N/A                                     ; None                                                ; 17.161 ns       ; LADDR[21]       ; CE_REG_DATA[10] ;
+; N/A                                     ; None                                                ; 17.161 ns       ; LADDR[21]       ; CE_REG_DATA[9]  ;
+; N/A                                     ; None                                                ; 17.153 ns       ; LNOE            ; LDATA[6]        ;
+; N/A                                     ; None                                                ; 17.152 ns       ; LNWE            ; CE_REG_DATA[13] ;
+; N/A                                     ; None                                                ; 17.150 ns       ; LADDR[21]       ; CE_REG_DATA[29] ;
+; N/A                                     ; None                                                ; 17.150 ns       ; LADDR[21]       ; CE_REG_DATA[28] ;
+; N/A                                     ; None                                                ; 17.147 ns       ; LADDR[21]       ; CE_REG_DATA[7]  ;
+; N/A                                     ; None                                                ; 17.147 ns       ; LADDR[21]       ; CE_REG_DATA[8]  ;
+; N/A                                     ; None                                                ; 17.142 ns       ; LNWE            ; CE_REG_DATA[12] ;
+; N/A                                     ; None                                                ; 17.142 ns       ; LNWE            ; CE_REG_DATA[11] ;
+; N/A                                     ; None                                                ; 17.135 ns       ; LNWE            ; CE_REG_DATA[10] ;
+; N/A                                     ; None                                                ; 17.135 ns       ; LNWE            ; CE_REG_DATA[9]  ;
+; N/A                                     ; None                                                ; 17.127 ns       ; LADDR[21]       ; CE_REG_DATA[5]  ;
+; N/A                                     ; None                                                ; 17.127 ns       ; LADDR[21]       ; CE_REG_DATA[4]  ;
+; N/A                                     ; None                                                ; 17.124 ns       ; LNWE            ; CE_REG_DATA[29] ;
+; N/A                                     ; None                                                ; 17.124 ns       ; LNWE            ; CE_REG_DATA[28] ;
+; N/A                                     ; None                                                ; 17.121 ns       ; LNWE            ; CE_REG_DATA[7]  ;
+; N/A                                     ; None                                                ; 17.121 ns       ; LNWE            ; CE_REG_DATA[8]  ;
+; N/A                                     ; None                                                ; 17.119 ns       ; LNOE            ; CE_REG_OP       ;
+; N/A                                     ; None                                                ; 17.118 ns       ; LADDR[21]       ; CE_REG_DATA[2]  ;
+; N/A                                     ; None                                                ; 17.118 ns       ; LADDR[21]       ; CE_REG_DATA[1]  ;
+; N/A                                     ; None                                                ; 17.114 ns       ; CE_REG_DATA[11] ; LDATA[11]       ;
+; N/A                                     ; None                                                ; 17.105 ns       ; LADDR[21]       ; CE_REG_DATA[0]  ;
+; N/A                                     ; None                                                ; 17.105 ns       ; LADDR[21]       ; CE_REG_DATA[31] ;
+; N/A                                     ; None                                                ; 17.105 ns       ; LADDR[21]       ; CE_REG_DATA[30] ;
+; N/A                                     ; None                                                ; 17.101 ns       ; LNWE            ; CE_REG_DATA[5]  ;
+; N/A                                     ; None                                                ; 17.101 ns       ; LNWE            ; CE_REG_DATA[4]  ;
+; N/A                                     ; None                                                ; 17.092 ns       ; LNWE            ; CE_REG_DATA[2]  ;
+; N/A                                     ; None                                                ; 17.092 ns       ; LNWE            ; CE_REG_DATA[1]  ;
+; N/A                                     ; None                                                ; 17.087 ns       ; LADDR[21]       ; CE_REG_DATA[6]  ;
+; N/A                                     ; None                                                ; 17.087 ns       ; LADDR[21]       ; CE_REG_DATA[3]  ;
+; N/A                                     ; None                                                ; 17.079 ns       ; LNWE            ; CE_REG_DATA[0]  ;
+; N/A                                     ; None                                                ; 17.079 ns       ; LNWE            ; CE_REG_DATA[31] ;
+; N/A                                     ; None                                                ; 17.079 ns       ; LNWE            ; CE_REG_DATA[30] ;
+; N/A                                     ; None                                                ; 17.061 ns       ; LNWE            ; CE_REG_DATA[6]  ;
+; N/A                                     ; None                                                ; 17.061 ns       ; LNWE            ; CE_REG_DATA[3]  ;
+; N/A                                     ; None                                                ; 17.021 ns       ; CE_REG_DATA[13] ; LDATA[13]       ;
+; N/A                                     ; None                                                ; 16.860 ns       ; LNOE            ; LDATA[8]        ;
+; N/A                                     ; None                                                ; 16.818 ns       ; LADDR[21]       ; CE_REG_CS       ;
+; N/A                                     ; None                                                ; 16.807 ns       ; LNGCS5          ; LDATA[6]        ;
+; N/A                                     ; None                                                ; 16.793 ns       ; LNWE            ; CE_REG_CS       ;
+; N/A                                     ; None                                                ; 16.763 ns       ; CE_REG_DATA[9]  ; LDATA[9]        ;
+; N/A                                     ; None                                                ; 16.514 ns       ; LNGCS5          ; LDATA[8]        ;
+; N/A                                     ; None                                                ; 16.469 ns       ; CE_REG_DATA[14] ; LDATA[14]       ;
+; N/A                                     ; None                                                ; 16.418 ns       ; CE_REG_DATA[2]  ; LDATA[2]        ;
+; N/A                                     ; None                                                ; 16.416 ns       ; LNOE            ; LDATA[4]        ;
+; N/A                                     ; None                                                ; 16.400 ns       ; LADDR[22]       ; LDATA[6]        ;
+; N/A                                     ; None                                                ; 16.386 ns       ; LNWE            ; CE_REG_OP       ;
+; N/A                                     ; None                                                ; 16.365 ns       ; LADDR[21]       ; LDATA[6]        ;
+; N/A                                     ; None                                                ; 16.337 ns       ; LNOE            ; LDATA[10]       ;
+; N/A                                     ; None                                                ; 16.320 ns       ; LNOE            ; LDATA[3]        ;
+; N/A                                     ; None                                                ; 16.191 ns       ; CE_REG_DATA[12] ; LDATA[12]       ;
+; N/A                                     ; None                                                ; 16.107 ns       ; LADDR[22]       ; LDATA[8]        ;
+; N/A                                     ; None                                                ; 16.072 ns       ; LADDR[21]       ; LDATA[8]        ;
+; N/A                                     ; None                                                ; 16.070 ns       ; LNGCS5          ; LDATA[4]        ;
+; N/A                                     ; None                                                ; 15.991 ns       ; LNGCS5          ; LDATA[10]       ;
+; N/A                                     ; None                                                ; 15.974 ns       ; LNGCS5          ; LDATA[3]        ;
+; N/A                                     ; None                                                ; 15.943 ns       ; LNOE            ; LDATA[1]        ;
+; N/A                                     ; None                                                ; 15.873 ns       ; LNOE            ; LDATA[15]       ;
+; N/A                                     ; None                                                ; 15.862 ns       ; LNOE            ; LDATA[5]        ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                 ;                 ;                 ;
++-----------------------------------------+-----------------------------------------------------+-----------------+-----------------+-----------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; th                                                                                                                                                                                       ;
++-----------------------------------------+-----------------------------------------------------+-----------+--------------------------+---------------------------------+-----------------+
+; Minimum Slack                           ; Required th                                         ; Actual th ; From                     ; To                              ; To Clock        ;
++-----------------------------------------+-----------------------------------------------------+-----------+--------------------------+---------------------------------+-----------------+
+; N/A                                     ; None                                                ; 0.805 ns  ; CE_REG_DATA[17]          ; cpu_ahb:uut_ahb|efpga_dageH[1]  ; LNOE            ;
+; N/A                                     ; None                                                ; 0.758 ns  ; CE_REG_DATA[19]          ; cpu_ahb:uut_ahb|efpga_dageH[3]  ; LNOE            ;
+; N/A                                     ; None                                                ; 0.741 ns  ; CE_REG_DATA[25]          ; cpu_ahb:uut_ahb|efpga_dageH[9]  ; LNOE            ;
+; N/A                                     ; None                                                ; 0.509 ns  ; CE_REG_DATA[26]          ; cpu_ahb:uut_ahb|efpga_dageH[10] ; LNOE            ;
+; N/A                                     ; None                                                ; 0.465 ns  ; CE_REG_DATA[22]          ; cpu_ahb:uut_ahb|efpga_dageH[6]  ; LNOE            ;
+; N/A                                     ; None                                                ; 0.464 ns  ; CE_REG_DATA[16]          ; cpu_ahb:uut_ahb|efpga_dageH[0]  ; LNOE            ;
+; N/A                                     ; None                                                ; 0.459 ns  ; CE_REG_DATA[17]          ; cpu_ahb:uut_ahb|efpga_dageH[1]  ; LNGCS5          ;
+; N/A                                     ; None                                                ; 0.412 ns  ; CE_REG_DATA[19]          ; cpu_ahb:uut_ahb|efpga_dageH[3]  ; LNGCS5          ;
+; N/A                                     ; None                                                ; 0.395 ns  ; CE_REG_DATA[25]          ; cpu_ahb:uut_ahb|efpga_dageH[9]  ; LNGCS5          ;
+; N/A                                     ; None                                                ; 0.373 ns  ; CE_REG_DATA[21]          ; cpu_ahb:uut_ahb|efpga_dageH[5]  ; LNOE            ;
+; N/A                                     ; None                                                ; 0.311 ns  ; CE_REG_DATA[20]          ; cpu_ahb:uut_ahb|efpga_dageH[4]  ; LNOE            ;
+; N/A                                     ; None                                                ; 0.292 ns  ; CE_REG_DATA[23]          ; cpu_ahb:uut_ahb|efpga_dageH[7]  ; LNOE            ;
+; N/A                                     ; None                                                ; 0.197 ns  ; CE_REG_DATA[27]          ; cpu_ahb:uut_ahb|efpga_dageH[11] ; LNOE            ;
+; N/A                                     ; None                                                ; 0.181 ns  ; CE_REG_DATA[24]          ; cpu_ahb:uut_ahb|efpga_dageH[8]  ; LNOE            ;
+; N/A                                     ; None                                                ; 0.163 ns  ; CE_REG_DATA[26]          ; cpu_ahb:uut_ahb|efpga_dageH[10] ; LNGCS5          ;
+; N/A                                     ; None                                                ; 0.119 ns  ; CE_REG_DATA[22]          ; cpu_ahb:uut_ahb|efpga_dageH[6]  ; LNGCS5          ;
+; N/A                                     ; None                                                ; 0.118 ns  ; CE_REG_DATA[16]          ; cpu_ahb:uut_ahb|efpga_dageH[0]  ; LNGCS5          ;
+; N/A                                     ; None                                                ; 0.052 ns  ; CE_REG_DATA[17]          ; cpu_ahb:uut_ahb|efpga_dageH[1]  ; LADDR[22]       ;
+; N/A                                     ; None                                                ; 0.027 ns  ; CE_REG_DATA[21]          ; cpu_ahb:uut_ahb|efpga_dageH[5]  ; LNGCS5          ;
+; N/A                                     ; None                                                ; 0.017 ns  ; CE_REG_DATA[17]          ; cpu_ahb:uut_ahb|efpga_dageH[1]  ; LADDR[21]       ;
+; N/A                                     ; None                                                ; 0.005 ns  ; CE_REG_DATA[19]          ; cpu_ahb:uut_ahb|efpga_dageH[3]  ; LADDR[22]       ;
+; N/A                                     ; None                                                ; -0.012 ns ; CE_REG_DATA[25]          ; cpu_ahb:uut_ahb|efpga_dageH[9]  ; LADDR[22]       ;
+; N/A                                     ; None                                                ; -0.030 ns ; CE_REG_DATA[19]          ; cpu_ahb:uut_ahb|efpga_dageH[3]  ; LADDR[21]       ;
+; N/A                                     ; None                                                ; -0.035 ns ; CE_REG_DATA[20]          ; cpu_ahb:uut_ahb|efpga_dageH[4]  ; LNGCS5          ;
+; N/A                                     ; None                                                ; -0.047 ns ; CE_REG_DATA[25]          ; cpu_ahb:uut_ahb|efpga_dageH[9]  ; LADDR[21]       ;
+; N/A                                     ; None                                                ; -0.054 ns ; CE_REG_DATA[23]          ; cpu_ahb:uut_ahb|efpga_dageH[7]  ; LNGCS5          ;
+; N/A                                     ; None                                                ; -0.083 ns ; CE_REG_DATA[31]          ; cpu_ahb:uut_ahb|efpga_dageH[15] ; LNOE            ;
+; N/A                                     ; None                                                ; -0.127 ns ; CE_REG_DATA[18]          ; cpu_ahb:uut_ahb|efpga_dageH[2]  ; LNOE            ;
+; N/A                                     ; None                                                ; -0.149 ns ; CE_REG_DATA[27]          ; cpu_ahb:uut_ahb|efpga_dageH[11] ; LNGCS5          ;
+; N/A                                     ; None                                                ; -0.165 ns ; CE_REG_DATA[24]          ; cpu_ahb:uut_ahb|efpga_dageH[8]  ; LNGCS5          ;
+; N/A                                     ; None                                                ; -0.244 ns ; CE_REG_DATA[26]          ; cpu_ahb:uut_ahb|efpga_dageH[10] ; LADDR[22]       ;
+; N/A                                     ; None                                                ; -0.258 ns ; CE_REG_DATA[30]          ; cpu_ahb:uut_ahb|efpga_dageH[14] ; LNOE            ;
+; N/A                                     ; None                                                ; -0.279 ns ; CE_REG_DATA[26]          ; cpu_ahb:uut_ahb|efpga_dageH[10] ; LADDR[21]       ;
+; N/A                                     ; None                                                ; -0.288 ns ; CE_REG_DATA[22]          ; cpu_ahb:uut_ahb|efpga_dageH[6]  ; LADDR[22]       ;
+; N/A                                     ; None                                                ; -0.289 ns ; CE_REG_DATA[16]          ; cpu_ahb:uut_ahb|efpga_dageH[0]  ; LADDR[22]       ;
+; N/A                                     ; None                                                ; -0.323 ns ; CE_REG_DATA[22]          ; cpu_ahb:uut_ahb|efpga_dageH[6]  ; LADDR[21]       ;
+; N/A                                     ; None                                                ; -0.324 ns ; CE_REG_DATA[16]          ; cpu_ahb:uut_ahb|efpga_dageH[0]  ; LADDR[21]       ;
+; N/A                                     ; None                                                ; -0.380 ns ; CE_REG_DATA[21]          ; cpu_ahb:uut_ahb|efpga_dageH[5]  ; LADDR[22]       ;
+; N/A                                     ; None                                                ; -0.415 ns ; CE_REG_DATA[21]          ; cpu_ahb:uut_ahb|efpga_dageH[5]  ; LADDR[21]       ;
+; N/A                                     ; None                                                ; -0.429 ns ; CE_REG_DATA[31]          ; cpu_ahb:uut_ahb|efpga_dageH[15] ; LNGCS5          ;
+; N/A                                     ; None                                                ; -0.442 ns ; CE_REG_DATA[20]          ; cpu_ahb:uut_ahb|efpga_dageH[4]  ; LADDR[22]       ;
+; N/A                                     ; None                                                ; -0.461 ns ; CE_REG_DATA[23]          ; cpu_ahb:uut_ahb|efpga_dageH[7]  ; LADDR[22]       ;
+; N/A                                     ; None                                                ; -0.473 ns ; CE_REG_DATA[18]          ; cpu_ahb:uut_ahb|efpga_dageH[2]  ; LNGCS5          ;
+; N/A                                     ; None                                                ; -0.477 ns ; CE_REG_DATA[20]          ; cpu_ahb:uut_ahb|efpga_dageH[4]  ; LADDR[21]       ;
+; N/A                                     ; None                                                ; -0.496 ns ; CE_REG_DATA[23]          ; cpu_ahb:uut_ahb|efpga_dageH[7]  ; LADDR[21]       ;
+; N/A                                     ; None                                                ; -0.556 ns ; CE_REG_DATA[27]          ; cpu_ahb:uut_ahb|efpga_dageH[11] ; LADDR[22]       ;
+; N/A                                     ; None                                                ; -0.572 ns ; CE_REG_DATA[24]          ; cpu_ahb:uut_ahb|efpga_dageH[8]  ; LADDR[22]       ;
+; N/A                                     ; None                                                ; -0.591 ns ; CE_REG_DATA[27]          ; cpu_ahb:uut_ahb|efpga_dageH[11] ; LADDR[21]       ;
+; N/A                                     ; None                                                ; -0.604 ns ; CE_REG_DATA[30]          ; cpu_ahb:uut_ahb|efpga_dageH[14] ; LNGCS5          ;
+; N/A                                     ; None                                                ; -0.607 ns ; CE_REG_DATA[24]          ; cpu_ahb:uut_ahb|efpga_dageH[8]  ; LADDR[21]       ;
+; N/A                                     ; None                                                ; -0.615 ns ; CE_REG_DATA[28]          ; cpu_ahb:uut_ahb|efpga_dageH[12] ; LNOE            ;
+; N/A                                     ; None                                                ; -0.617 ns ; CE_REG_DATA[29]          ; cpu_ahb:uut_ahb|efpga_dageH[13] ; LNOE            ;
+; N/A                                     ; None                                                ; -0.836 ns ; CE_REG_DATA[31]          ; cpu_ahb:uut_ahb|efpga_dageH[15] ; LADDR[22]       ;
+; N/A                                     ; None                                                ; -0.871 ns ; CE_REG_DATA[31]          ; cpu_ahb:uut_ahb|efpga_dageH[15] ; LADDR[21]       ;
+; N/A                                     ; None                                                ; -0.880 ns ; CE_REG_DATA[18]          ; cpu_ahb:uut_ahb|efpga_dageH[2]  ; LADDR[22]       ;
+; N/A                                     ; None                                                ; -0.915 ns ; CE_REG_DATA[18]          ; cpu_ahb:uut_ahb|efpga_dageH[2]  ; LADDR[21]       ;
+; N/A                                     ; None                                                ; -0.961 ns ; CE_REG_DATA[28]          ; cpu_ahb:uut_ahb|efpga_dageH[12] ; LNGCS5          ;
+; N/A                                     ; None                                                ; -0.963 ns ; CE_REG_DATA[29]          ; cpu_ahb:uut_ahb|efpga_dageH[13] ; LNGCS5          ;
+; N/A                                     ; None                                                ; -1.011 ns ; CE_REG_DATA[30]          ; cpu_ahb:uut_ahb|efpga_dageH[14] ; LADDR[22]       ;
+; N/A                                     ; None                                                ; -1.046 ns ; CE_REG_DATA[30]          ; cpu_ahb:uut_ahb|efpga_dageH[14] ; LADDR[21]       ;
+; N/A                                     ; None                                                ; -1.368 ns ; CE_REG_DATA[28]          ; cpu_ahb:uut_ahb|efpga_dageH[12] ; LADDR[22]       ;
+; N/A                                     ; None                                                ; -1.370 ns ; CE_REG_DATA[29]          ; cpu_ahb:uut_ahb|efpga_dageH[13] ; LADDR[22]       ;
+; N/A                                     ; None                                                ; -1.403 ns ; CE_REG_DATA[28]          ; cpu_ahb:uut_ahb|efpga_dageH[12] ; LADDR[21]       ;
+; N/A                                     ; None                                                ; -1.405 ns ; CE_REG_DATA[29]          ; cpu_ahb:uut_ahb|efpga_dageH[13] ; LADDR[21]       ;
+; N/A                                     ; None                                                ; -4.841 ns ; EXTERNAL_DEVICE_BUS3[13] ; cpu_ahb:uut_ahb|read_reg[13]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.123 ns ; LDATA[14]                ; cpu_ahb:uut_ahb|write_reg[14]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.154 ns ; LADDR[22]                ; cpu_ahb:uut_ahb|LDATA[24]~en    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.265 ns ; LADDR[5]                 ; cpu_ahb:uut_ahb|read_reg[3]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.324 ns ; EXTERNAL_DEVICE_BUS3[9]  ; cpu_ahb:uut_ahb|read_reg[9]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.331 ns ; EXTERNAL_DEVICE_BUS3[10] ; cpu_ahb:uut_ahb|read_reg[10]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.332 ns ; LNWE                     ; cpu_ahb:uut_ahb|write_reg[14]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.333 ns ; LADDR[21]                ; cpu_ahb:uut_ahb|LDATA[24]~en    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.333 ns ; LNWE                     ; cpu_ahb:uut_ahb|write_reg[15]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.342 ns ; LDATA[1]                 ; cpu_ahb:uut_ahb|write_reg[1]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.417 ns ; LNWE                     ; cpu_ahb:uut_ahb|write_reg[5]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.419 ns ; LNWE                     ; cpu_ahb:uut_ahb|write_reg[2]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.420 ns ; LNWE                     ; cpu_ahb:uut_ahb|write_reg[8]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.420 ns ; LNWE                     ; cpu_ahb:uut_ahb|write_reg[0]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.420 ns ; LNWE                     ; cpu_ahb:uut_ahb|write_reg[3]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.420 ns ; LNWE                     ; cpu_ahb:uut_ahb|write_reg[6]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.420 ns ; LNWE                     ; cpu_ahb:uut_ahb|write_reg[7]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.422 ns ; LNWE                     ; cpu_ahb:uut_ahb|write_reg[1]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.422 ns ; LNWE                     ; cpu_ahb:uut_ahb|write_reg[4]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.470 ns ; LADDR[4]                 ; cpu_ahb:uut_ahb|read_reg[7]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.471 ns ; LADDR[4]                 ; cpu_ahb:uut_ahb|read_reg[2]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.501 ns ; EXTERNAL_DEVICE_BUS3[6]  ; cpu_ahb:uut_ahb|read_reg[6]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.502 ns ; EXTERNAL_DEVICE_BUS2[8]  ; cpu_ahb:uut_ahb|read_reg[8]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.627 ns ; LDATA[4]                 ; cpu_ahb:uut_ahb|write_reg[4]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.642 ns ; LADDR[5]                 ; cpu_ahb:uut_ahb|read_reg[2]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.642 ns ; LADDR[5]                 ; cpu_ahb:uut_ahb|read_reg[7]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.644 ns ; LADDR[4]                 ; cpu_ahb:uut_ahb|read_reg[0]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.690 ns ; LADDR[5]                 ; cpu_ahb:uut_ahb|read_reg[0]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.690 ns ; EXTERNAL_DEVICE_BUS3[8]  ; cpu_ahb:uut_ahb|read_reg[8]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.692 ns ; LDATA[5]                 ; cpu_ahb:uut_ahb|write_reg[5]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.693 ns ; LDATA[3]                 ; cpu_ahb:uut_ahb|write_reg[3]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.699 ns ; LDATA[2]                 ; cpu_ahb:uut_ahb|write_reg[2]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.706 ns ; EXTERNAL_DEVICE_BUS3[14] ; cpu_ahb:uut_ahb|read_reg[14]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.719 ns ; LADDR[4]                 ; cpu_ahb:uut_ahb|read_reg[3]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.759 ns ; LDATA[15]                ; cpu_ahb:uut_ahb|write_reg[15]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.806 ns ; EXTERNAL_DEVICE_BUS3[4]  ; cpu_ahb:uut_ahb|read_reg[4]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.829 ns ; LNGCS5                   ; cpu_ahb:uut_ahb|LDATA[24]~en    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.838 ns ; LADDR[4]                 ; cpu_ahb:uut_ahb|read_reg[8]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.838 ns ; LADDR[4]                 ; cpu_ahb:uut_ahb|read_reg[9]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.838 ns ; LADDR[4]                 ; cpu_ahb:uut_ahb|read_reg[10]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.838 ns ; LADDR[4]                 ; cpu_ahb:uut_ahb|read_reg[11]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.838 ns ; LADDR[4]                 ; cpu_ahb:uut_ahb|read_reg[12]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.838 ns ; LADDR[4]                 ; cpu_ahb:uut_ahb|read_reg[13]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.838 ns ; LADDR[4]                 ; cpu_ahb:uut_ahb|read_reg[14]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.838 ns ; LADDR[4]                 ; cpu_ahb:uut_ahb|read_reg[15]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -5.997 ns ; EXTERNAL_DEVICE_BUS2[11] ; cpu_ahb:uut_ahb|read_reg[11]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.010 ns ; LDATA[8]                 ; cpu_ahb:uut_ahb|write_reg[8]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.025 ns ; EXTERNAL_DEVICE_BUS3[11] ; cpu_ahb:uut_ahb|read_reg[11]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.029 ns ; LDATA[6]                 ; cpu_ahb:uut_ahb|write_reg[6]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.058 ns ; LNOE                     ; cpu_ahb:uut_ahb|LDATA[24]~en    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.065 ns ; LNWE                     ; cpu_ahb:uut_ahb|write_reg[13]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.140 ns ; LDATA[0]                 ; cpu_ahb:uut_ahb|write_reg[0]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.169 ns ; EXTERNAL_DEVICE_BUS3[15] ; cpu_ahb:uut_ahb|read_reg[15]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.193 ns ; LDATA[7]                 ; cpu_ahb:uut_ahb|write_reg[7]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.200 ns ; LADDR[21]                ; cpu_ahb:uut_ahb|write_reg[1]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.202 ns ; EXTERNAL_DEVICE_BUS3[12] ; cpu_ahb:uut_ahb|read_reg[12]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.205 ns ; LADDR[21]                ; cpu_ahb:uut_ahb|write_reg[3]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.207 ns ; LADDR[21]                ; cpu_ahb:uut_ahb|write_reg[0]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.209 ns ; LADDR[21]                ; cpu_ahb:uut_ahb|write_reg[5]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.210 ns ; LADDR[21]                ; cpu_ahb:uut_ahb|write_reg[2]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.211 ns ; LADDR[21]                ; cpu_ahb:uut_ahb|write_reg[8]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.211 ns ; LADDR[21]                ; cpu_ahb:uut_ahb|write_reg[6]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.211 ns ; LADDR[21]                ; cpu_ahb:uut_ahb|write_reg[7]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.224 ns ; LDATA[11]                ; cpu_ahb:uut_ahb|write_reg[11]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.244 ns ; LADDR[21]                ; cpu_ahb:uut_ahb|write_reg[4]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.274 ns ; EXTERNAL_DEVICE_BUS4[5]  ; cpu_ahb:uut_ahb|read_reg[5]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.346 ns ; EXTERNAL_DEVICE_BUS2[10] ; cpu_ahb:uut_ahb|read_reg[10]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.354 ns ; EXTERNAL_DEVICE_BUS2[14] ; cpu_ahb:uut_ahb|read_reg[14]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.361 ns ; LNWE                     ; cpu_ahb:uut_ahb|write_reg[9]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.364 ns ; LNWE                     ; cpu_ahb:uut_ahb|write_reg[10]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.371 ns ; LNWE                     ; cpu_ahb:uut_ahb|write_reg[12]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.394 ns ; LADDR[22]                ; cpu_ahb:uut_ahb|write_reg[1]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.399 ns ; LADDR[22]                ; cpu_ahb:uut_ahb|write_reg[3]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.401 ns ; LADDR[22]                ; cpu_ahb:uut_ahb|write_reg[0]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.403 ns ; LADDR[22]                ; cpu_ahb:uut_ahb|write_reg[5]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.403 ns ; EXTERNAL_DEVICE_BUS3[5]  ; cpu_ahb:uut_ahb|read_reg[5]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.404 ns ; LADDR[22]                ; cpu_ahb:uut_ahb|write_reg[2]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.405 ns ; LADDR[22]                ; cpu_ahb:uut_ahb|write_reg[8]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.405 ns ; LADDR[22]                ; cpu_ahb:uut_ahb|write_reg[6]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.405 ns ; LADDR[22]                ; cpu_ahb:uut_ahb|write_reg[7]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.438 ns ; LADDR[22]                ; cpu_ahb:uut_ahb|write_reg[4]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.493 ns ; EXTERNAL_DEVICE_BUS2[12] ; cpu_ahb:uut_ahb|read_reg[12]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.514 ns ; LADDR[5]                 ; cpu_ahb:uut_ahb|read_reg[8]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.514 ns ; LADDR[5]                 ; cpu_ahb:uut_ahb|read_reg[9]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.514 ns ; LADDR[5]                 ; cpu_ahb:uut_ahb|read_reg[10]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.514 ns ; LADDR[5]                 ; cpu_ahb:uut_ahb|read_reg[11]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.514 ns ; LADDR[5]                 ; cpu_ahb:uut_ahb|read_reg[12]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.514 ns ; LADDR[5]                 ; cpu_ahb:uut_ahb|read_reg[13]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.514 ns ; LADDR[5]                 ; cpu_ahb:uut_ahb|read_reg[14]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.514 ns ; LADDR[5]                 ; cpu_ahb:uut_ahb|read_reg[15]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.528 ns ; LDATA[13]                ; cpu_ahb:uut_ahb|write_reg[13]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.550 ns ; EXTERNAL_DEVICE_BUS4[4]  ; cpu_ahb:uut_ahb|read_reg[4]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.668 ns ; LADDR[22]                ; cpu_ahb:uut_ahb|LDATA[17]~en    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.672 ns ; LADDR[22]                ; cpu_ahb:uut_ahb|LDATA[16]~en    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.701 ns ; LNWE                     ; cpu_ahb:uut_ahb|write_reg[11]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.764 ns ; LDATA[9]                 ; cpu_ahb:uut_ahb|write_reg[9]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.770 ns ; EXTERNAL_DEVICE_BUS4[6]  ; cpu_ahb:uut_ahb|read_reg[6]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.779 ns ; LADDR[22]                ; cpu_ahb:uut_ahb|LDATA[0]~en     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.847 ns ; LADDR[21]                ; cpu_ahb:uut_ahb|LDATA[17]~en    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.847 ns ; LDATA[12]                ; cpu_ahb:uut_ahb|write_reg[12]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.851 ns ; LADDR[21]                ; cpu_ahb:uut_ahb|LDATA[16]~en    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.882 ns ; LNOE                     ; cpu_ahb:uut_ahb|read_reg[4]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.882 ns ; LNOE                     ; cpu_ahb:uut_ahb|read_reg[5]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.883 ns ; LNGCS5                   ; cpu_ahb:uut_ahb|write_reg[1]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.885 ns ; LNOE                     ; cpu_ahb:uut_ahb|read_reg[6]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.886 ns ; LNOE                     ; cpu_ahb:uut_ahb|read_reg[1]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.888 ns ; LNGCS5                   ; cpu_ahb:uut_ahb|write_reg[3]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.890 ns ; LNGCS5                   ; cpu_ahb:uut_ahb|write_reg[0]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.892 ns ; LNGCS5                   ; cpu_ahb:uut_ahb|write_reg[5]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.893 ns ; LNGCS5                   ; cpu_ahb:uut_ahb|write_reg[2]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.894 ns ; LNGCS5                   ; cpu_ahb:uut_ahb|write_reg[8]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.894 ns ; LNGCS5                   ; cpu_ahb:uut_ahb|write_reg[6]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.894 ns ; LNGCS5                   ; cpu_ahb:uut_ahb|write_reg[7]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.894 ns ; EXTERNAL_DEVICE_BUS3[2]  ; cpu_ahb:uut_ahb|read_reg[2]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.913 ns ; EXTERNAL_DEVICE_BUS3[7]  ; cpu_ahb:uut_ahb|read_reg[7]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.919 ns ; LDATA[10]                ; cpu_ahb:uut_ahb|write_reg[10]   ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.927 ns ; LNGCS5                   ; cpu_ahb:uut_ahb|write_reg[4]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -6.958 ns ; LADDR[21]                ; cpu_ahb:uut_ahb|LDATA[0]~en     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -7.097 ns ; EXTERNAL_DEVICE_BUS3[0]  ; cpu_ahb:uut_ahb|read_reg[0]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -7.120 ns ; LADDR[3]                 ; cpu_ahb:uut_ahb|read_reg[15]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -7.128 ns ; LADDR[5]                 ; cpu_ahb:uut_ahb|read_reg[5]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -7.156 ns ; EXTERNAL_DEVICE_BUS2[13] ; cpu_ahb:uut_ahb|read_reg[13]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -7.156 ns ; LADDR[3]                 ; cpu_ahb:uut_ahb|read_reg[9]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -7.165 ns ; LADDR[3]                 ; cpu_ahb:uut_ahb|read_reg[13]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -7.191 ns ; LADDR[3]                 ; cpu_ahb:uut_ahb|read_reg[11]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -7.193 ns ; LADDR[3]                 ; cpu_ahb:uut_ahb|read_reg[8]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -7.198 ns ; LADDR[3]                 ; cpu_ahb:uut_ahb|read_reg[14]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -7.200 ns ; LADDR[3]                 ; cpu_ahb:uut_ahb|read_reg[10]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -7.200 ns ; LADDR[3]                 ; cpu_ahb:uut_ahb|read_reg[12]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -7.241 ns ; LADDR[2]                 ; cpu_ahb:uut_ahb|read_reg[9]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -7.250 ns ; LADDR[2]                 ; cpu_ahb:uut_ahb|read_reg[13]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -7.276 ns ; LADDR[2]                 ; cpu_ahb:uut_ahb|read_reg[11]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -7.278 ns ; LADDR[2]                 ; cpu_ahb:uut_ahb|read_reg[8]     ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -7.280 ns ; LADDR[2]                 ; cpu_ahb:uut_ahb|read_reg[15]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -7.283 ns ; LADDR[2]                 ; cpu_ahb:uut_ahb|read_reg[14]    ; CLOCK100M_FPGAC ;
+; N/A                                     ; None                                                ; -7.285 ns ; LADDR[2]                 ; cpu_ahb:uut_ahb|read_reg[10]    ; CLOCK100M_FPGAC ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;           ;                          ;                                 ;                 ;
++-----------------------------------------+-----------------------------------------------------+-----------+--------------------------+---------------------------------+-----------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
+    Info: Processing started: Tue May 23 01:33:48 2017
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off cfpga -c cfpga --timing_analysis_only
+Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
+Warning: Timing Analysis is analyzing one or more combinational loops as latches
+    Warning: Node "cpu_ahb:uut_ahb|efpga_dageH[8]" is a latch
+    Warning: Node "cpu_ahb:uut_ahb|efpga_dageH[9]" is a latch
+    Warning: Node "cpu_ahb:uut_ahb|efpga_dageH[10]" is a latch
+    Warning: Node "cpu_ahb:uut_ahb|efpga_dageH[11]" is a latch
+    Warning: Node "cpu_ahb:uut_ahb|efpga_dageH[12]" is a latch
+    Warning: Node "cpu_ahb:uut_ahb|efpga_dageH[13]" is a latch
+    Warning: Node "cpu_ahb:uut_ahb|efpga_dageH[14]" is a latch
+    Warning: Node "cpu_ahb:uut_ahb|efpga_dageH[15]" is a latch
+    Warning: Node "cpu_ahb:uut_ahb|efpga_dageH[0]" is a latch
+    Warning: Node "cpu_ahb:uut_ahb|efpga_dageH[1]" is a latch
+    Warning: Node "cpu_ahb:uut_ahb|efpga_dageH[2]" is a latch
+    Warning: Node "cpu_ahb:uut_ahb|efpga_dageH[3]" is a latch
+    Warning: Node "cpu_ahb:uut_ahb|efpga_dageH[4]" is a latch
+    Warning: Node "cpu_ahb:uut_ahb|efpga_dageH[5]" is a latch
+    Warning: Node "cpu_ahb:uut_ahb|efpga_dageH[6]" is a latch
+    Warning: Node "cpu_ahb:uut_ahb|efpga_dageH[7]" is a latch
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "CLOCK100M_FPGAC" is an undefined clock
+    Info: Assuming node "LADDR[22]" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+    Info: Assuming node "LNGCS5" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+    Info: Assuming node "LADDR[21]" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+    Info: Assuming node "LNOE" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+Warning: Found 1 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected gated clock "cpu_ahb:uut_ahb|LDATA~80" as buffer
+Info: Clock "CLOCK100M_FPGAC" has Internal fmax of 214.64 MHz between source register "cpu_ahb:uut_ahb|efpga_regH[1]" and destination register "cpu_ahb:uut_ahb|read_reg[1]" (period= 4.659 ns)
+    Info: + Longest register to register delay is 4.392 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X44_Y23_N3; Fanout = 2; REG Node = 'cpu_ahb:uut_ahb|efpga_regH[1]'
+        Info: 2: + IC(0.433 ns) + CELL(0.206 ns) = 0.639 ns; Loc. = LCCOMB_X44_Y23_N14; Fanout = 1; COMB Node = 'cpu_ahb:uut_ahb|read_reg~46'
+        Info: 3: + IC(0.581 ns) + CELL(0.206 ns) = 1.426 ns; Loc. = LCCOMB_X45_Y23_N28; Fanout = 1; COMB Node = 'cpu_ahb:uut_ahb|read_reg~47'
+        Info: 4: + IC(1.018 ns) + CELL(0.206 ns) = 2.650 ns; Loc. = LCCOMB_X47_Y23_N14; Fanout = 1; COMB Node = 'cpu_ahb:uut_ahb|read_reg~48'
+        Info: 5: + IC(1.428 ns) + CELL(0.206 ns) = 4.284 ns; Loc. = LCCOMB_X45_Y22_N8; Fanout = 1; COMB Node = 'cpu_ahb:uut_ahb|read_reg~49'
+        Info: 6: + IC(0.000 ns) + CELL(0.108 ns) = 4.392 ns; Loc. = LCFF_X45_Y22_N9; Fanout = 1; REG Node = 'cpu_ahb:uut_ahb|read_reg[1]'
+        Info: Total cell delay = 0.932 ns ( 21.22 % )
+        Info: Total interconnect delay = 3.460 ns ( 78.78 % )
+    Info: - Smallest clock skew is -0.003 ns
+        Info: + Shortest clock path from clock "CLOCK100M_FPGAC" to destination register is 3.354 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.100 ns) = 1.100 ns; Loc. = PIN_N2; Fanout = 1; CLK Node = 'CLOCK100M_FPGAC'
+            Info: 2: + IC(0.135 ns) + CELL(0.000 ns) = 1.235 ns; Loc. = CLKCTRL_G2; Fanout = 129; COMB Node = 'CLOCK100M_FPGAC~clkctrl'
+            Info: 3: + IC(1.453 ns) + CELL(0.666 ns) = 3.354 ns; Loc. = LCFF_X45_Y22_N9; Fanout = 1; REG Node = 'cpu_ahb:uut_ahb|read_reg[1]'
+            Info: Total cell delay = 1.766 ns ( 52.65 % )
+            Info: Total interconnect delay = 1.588 ns ( 47.35 % )
+        Info: - Longest clock path from clock "CLOCK100M_FPGAC" to source register is 3.357 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.100 ns) = 1.100 ns; Loc. = PIN_N2; Fanout = 1; CLK Node = 'CLOCK100M_FPGAC'
+            Info: 2: + IC(0.135 ns) + CELL(0.000 ns) = 1.235 ns; Loc. = CLKCTRL_G2; Fanout = 129; COMB Node = 'CLOCK100M_FPGAC~clkctrl'
+            Info: 3: + IC(1.456 ns) + CELL(0.666 ns) = 3.357 ns; Loc. = LCFF_X44_Y23_N3; Fanout = 2; REG Node = 'cpu_ahb:uut_ahb|efpga_regH[1]'
+            Info: Total cell delay = 1.766 ns ( 52.61 % )
+            Info: Total interconnect delay = 1.591 ns ( 47.39 % )
+    Info: + Micro clock to output delay of source is 0.304 ns
+    Info: + Micro setup delay of destination is -0.040 ns
+Info: tsu for register "cpu_ahb:uut_ahb|memin_Hdate[4]" (data pin = "LNGCS5", clock pin = "CLOCK100M_FPGAC") is 11.690 ns
+    Info: + Longest pin to register delay is 15.084 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.925 ns) = 0.925 ns; Loc. = PIN_H24; Fanout = 4; CLK Node = 'LNGCS5'
+        Info: 2: + IC(8.262 ns) + CELL(0.202 ns) = 9.389 ns; Loc. = LCCOMB_X48_Y24_N2; Fanout = 18; COMB Node = 'cpu_ahb:uut_ahb|process_1~2'
+        Info: 3: + IC(1.441 ns) + CELL(0.616 ns) = 11.446 ns; Loc. = LCCOMB_X44_Y22_N6; Fanout = 4; COMB Node = 'cpu_ahb:uut_ahb|cpu_cmdreg[0]~3'
+        Info: 4: + IC(0.395 ns) + CELL(0.206 ns) = 12.047 ns; Loc. = LCCOMB_X44_Y22_N26; Fanout = 16; COMB Node = 'cpu_ahb:uut_ahb|memin_Hdate[0]~0'
+        Info: 5: + IC(2.182 ns) + CELL(0.855 ns) = 15.084 ns; Loc. = LCFF_X45_Y22_N5; Fanout = 1; REG Node = 'cpu_ahb:uut_ahb|memin_Hdate[4]'
+        Info: Total cell delay = 2.804 ns ( 18.59 % )
+        Info: Total interconnect delay = 12.280 ns ( 81.41 % )
+    Info: + Micro setup delay of destination is -0.040 ns
+    Info: - Shortest clock path from clock "CLOCK100M_FPGAC" to destination register is 3.354 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.100 ns) = 1.100 ns; Loc. = PIN_N2; Fanout = 1; CLK Node = 'CLOCK100M_FPGAC'
+        Info: 2: + IC(0.135 ns) + CELL(0.000 ns) = 1.235 ns; Loc. = CLKCTRL_G2; Fanout = 129; COMB Node = 'CLOCK100M_FPGAC~clkctrl'
+        Info: 3: + IC(1.453 ns) + CELL(0.666 ns) = 3.354 ns; Loc. = LCFF_X45_Y22_N5; Fanout = 1; REG Node = 'cpu_ahb:uut_ahb|memin_Hdate[4]'
+        Info: Total cell delay = 1.766 ns ( 52.65 % )
+        Info: Total interconnect delay = 1.588 ns ( 47.35 % )
+Info: tco from clock "CLOCK100M_FPGAC" to destination pin "CE_REG_DATA[28]" through register "cpu_ahb:uut_ahb|efpga_regH[12]" is 14.947 ns
+    Info: + Longest clock path from clock "CLOCK100M_FPGAC" to source register is 3.328 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.100 ns) = 1.100 ns; Loc. = PIN_N2; Fanout = 1; CLK Node = 'CLOCK100M_FPGAC'
+        Info: 2: + IC(0.135 ns) + CELL(0.000 ns) = 1.235 ns; Loc. = CLKCTRL_G2; Fanout = 129; COMB Node = 'CLOCK100M_FPGAC~clkctrl'
+        Info: 3: + IC(1.427 ns) + CELL(0.666 ns) = 3.328 ns; Loc. = LCFF_X51_Y23_N3; Fanout = 2; REG Node = 'cpu_ahb:uut_ahb|efpga_regH[12]'
+        Info: Total cell delay = 1.766 ns ( 53.06 % )
+        Info: Total interconnect delay = 1.562 ns ( 46.94 % )
+    Info: + Micro clock to output delay of source is 0.304 ns
+    Info: + Longest register to pin delay is 11.315 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X51_Y23_N3; Fanout = 2; REG Node = 'cpu_ahb:uut_ahb|efpga_regH[12]'
+        Info: 2: + IC(8.249 ns) + CELL(3.066 ns) = 11.315 ns; Loc. = PIN_C2; Fanout = 0; PIN Node = 'CE_REG_DATA[28]'
+        Info: Total cell delay = 3.066 ns ( 27.10 % )
+        Info: Total interconnect delay = 8.249 ns ( 72.90 % )
+Info: Longest tpd from source pin "CE_REG_DATA[6]" to destination pin "LDATA[6]" is 20.501 ns
+    Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = PIN_K5; Fanout = 1; PIN Node = 'CE_REG_DATA[6]'
+    Info: 2: + IC(0.000 ns) + CELL(0.905 ns) = 0.905 ns; Loc. = IOC_X0_Y43_N4; Fanout = 1; COMB Node = 'CE_REG_DATA[6]~25'
+    Info: 3: + IC(8.946 ns) + CELL(0.651 ns) = 10.502 ns; Loc. = LCCOMB_X48_Y22_N26; Fanout = 1; COMB Node = 'cpu_ahb:uut_ahb|LDATA[6]~154'
+    Info: 4: + IC(6.943 ns) + CELL(3.056 ns) = 20.501 ns; Loc. = PIN_AA25; Fanout = 0; PIN Node = 'LDATA[6]'
+    Info: Total cell delay = 4.612 ns ( 22.50 % )
+    Info: Total interconnect delay = 15.889 ns ( 77.50 % )
+Info: th for register "cpu_ahb:uut_ahb|efpga_dageH[1]" (data pin = "CE_REG_DATA[17]", clock pin = "LNOE") is 0.805 ns
+    Info: + Longest clock path from clock "LNOE" to destination register is 9.968 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.925 ns) = 0.925 ns; Loc. = PIN_H23; Fanout = 6; CLK Node = 'LNOE'
+        Info: 2: + IC(3.668 ns) + CELL(0.534 ns) = 5.127 ns; Loc. = LCCOMB_X48_Y24_N14; Fanout = 18; COMB Node = 'cpu_ahb:uut_ahb|LDATA~80'
+        Info: 3: + IC(2.644 ns) + CELL(0.000 ns) = 7.771 ns; Loc. = CLKCTRL_G15; Fanout = 16; COMB Node = 'cpu_ahb:uut_ahb|LDATA~80clkctrl'
+        Info: 4: + IC(1.991 ns) + CELL(0.206 ns) = 9.968 ns; Loc. = LCCOMB_X44_Y23_N20; Fanout = 1; REG Node = 'cpu_ahb:uut_ahb|efpga_dageH[1]'
+        Info: Total cell delay = 1.665 ns ( 16.70 % )
+        Info: Total interconnect delay = 8.303 ns ( 83.30 % )
+    Info: + Micro hold delay of destination is 0.000 ns
+    Info: - Shortest pin to register delay is 9.163 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = PIN_H2; Fanout = 1; PIN Node = 'CE_REG_DATA[17]'
+        Info: 2: + IC(0.000 ns) + CELL(0.955 ns) = 0.955 ns; Loc. = IOC_X0_Y39_N3; Fanout = 1; COMB Node = 'CE_REG_DATA[17]~14'
+        Info: 3: + IC(7.584 ns) + CELL(0.624 ns) = 9.163 ns; Loc. = LCCOMB_X44_Y23_N20; Fanout = 1; REG Node = 'cpu_ahb:uut_ahb|efpga_dageH[1]'
+        Info: Total cell delay = 1.579 ns ( 17.23 % )
+        Info: Total interconnect delay = 7.584 ns ( 82.77 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 19 warnings
+    Info: Peak virtual memory: 214 megabytes
+    Info: Processing ended: Tue May 23 01:33:48 2017
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
+
+

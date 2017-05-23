@@ -1,0 +1,34 @@
+cd home/plg/
+insmod fpga_download.ko
+insmod mini2440_ahb.ko
+
+./fpga-download
+
+[root@FriendlyARM plg]# dmesg | tail -8
+VFS: Mounted root (yaffs filesystem) on device 31:3.
+Freeing init memory: 152K
+eth0: link down
+fpga_download   initialized
+rtl8188eu driver version=v4.1.2_4787.20120803
+build time: Mar 14 2013 00:03:55
+usbcore: registered new interface driver rtl8188eu
+scull:fpga_ahb  initialized   --- 驱动安装成功
+
+
+下载fpga 
+
+./main
+
+读控制FPGA版本号
+cfpga_read(0x0)
+read date = 472
+
+读实验FPGA版本号
+efpga_read(0x0)
+read date = 20150121
+efpga_read(0x1)
+
+
+
+efpga_write(0x1,0x12345678)  写实验FPGA 0x1地址 写入0x12345678
+efpga_read(0x1)              读实验FPGA 0x1地址
