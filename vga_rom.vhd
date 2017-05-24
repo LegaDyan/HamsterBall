@@ -21,7 +21,9 @@ component vga640480 is
 			clk_0       :         in  STD_LOGIC; --100M时钟输入
 			hs,vs       :         out STD_LOGIC; --行同步、场同步信号
 			r,g,b       :         out STD_LOGIC_vector(2 downto 0);
-			wkey		:		  in STD_LOGIC
+			vX, vY		:         in STD_LOGIC_VECTOR(2 downto 0);
+			mX, mY		:		  in STD_LOGIC;
+			clk_v	    :         out std_logic
 	  );
 end component;
 
@@ -50,18 +52,21 @@ component blue IS
 	);
 end component;
 
-component top is
+component controller is
 port(
 	datain,clkin,fclk,rst_in: in std_logic;
-	wkey,fok,breako,f0o,do:out std_logic;
-	seg0,seg1:out std_logic_vector(6 downto 0)
+	clk_v: in std_logic;
+	vXout, vYout: out std_logic_vector(2 downto 0);
+	mX, mY: out std_logic
 );
 END component;
 
 signal address_tmp: std_logic_vector(15 downto 0);
 signal clk50, clkf: std_logic;
 signal q_red, q_green, q_blue: std_logic_vector(2 downto 0);
-signal wkey, fok, segff: std_logic;
+signal vx, vy: std_logic_vector(2 downto 0);
+signal mx, my: std_logic;
+signal clkv: std_logic;
 signal count: integer range 0 to 10000 := 0;
 
 
@@ -93,7 +98,9 @@ u1: vga640480 port map(
 						clk_0=>clk_0, 
 						hs=>hs, vs=>vs, 
 						r=>r, g=>g, b=>b,
-						wkey => wkey
+						vX=>vx, vY=>vy,
+						mX=>mx, mY=>my,
+						clk_v=>clkv
 					);
 u2: red port map(	
 						address=>address_tmp, 
@@ -110,20 +117,6 @@ u4: blue port map(
 						clock=>clk50, 
 						q=>q_blue
 					);
-u5: top port map(datain,clkin,clkf,reset,wkey,fok, breako,f0o,do,seg0,seg1);
-
-seg <= wkey;
-
-process (fok)
-begin
-	if (fok'event and fok = '1') then
-		if (segff = '1') then
-			segff <= '0';
-		else segff <= '1';
-		end if;
-	end if;
-end process;
-
-segf <= segff;
+u5: controller port map(datain,clkin,clkf,reset,clkv,vx,vy,mx,my);
 
 end arc;

@@ -86,7 +86,6 @@ set_global_assignment -name VHDL_FILE Key.vhd
 set_global_assignment -name SOURCE_FILE blue.cmp
 set_global_assignment -name QIP_FILE blue.qip
 set_global_assignment -name VHDL_FILE blue.vhd
-set_global_assignment -name VHDL_FILE controller.vhd
 set_global_assignment -name VHDL_FILE digital_rom.vhd
 set_global_assignment -name SOURCE_FILE green.cmp
 set_global_assignment -name QIP_FILE green.qip

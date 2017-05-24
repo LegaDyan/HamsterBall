@@ -1,5 +1,5 @@
 Analysis & Synthesis report for HamsterBall
-Tue May 23 21:51:49 2017
+Wed May 24 17:03:17 2017
 Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
 
 
@@ -13,11 +13,11 @@ Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
   5. Analysis & Synthesis Resource Usage Summary
   6. Analysis & Synthesis Resource Utilization by Entity
   7. Analysis & Synthesis RAM Summary
-  8. State Machine - |HamsterBall|top:u5|Keyboard:u0|state
-  9. User-Specified and Inferred Latches
- 10. Registers Removed During Synthesis
- 11. General Register Statistics
- 12. Inverted Register Statistics
+  8. State Machine - |HamsterBall|controller:u5|Keyboard:u0|state
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
  13. Source assignments for red:u2|altsyncram:altsyncram_component|altsyncram_qk71:auto_generated
  14. Source assignments for green:u3|altsyncram:altsyncram_component|altsyncram_gr71:auto_generated
  15. Source assignments for blue:u4|altsyncram:altsyncram_component|altsyncram_7o71:auto_generated
@@ -25,7 +25,8 @@ Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
  17. Parameter Settings for User Entity Instance: green:u3|altsyncram:altsyncram_component
  18. Parameter Settings for User Entity Instance: blue:u4|altsyncram:altsyncram_component
  19. altsyncram Parameter Settings by Entity Instance
- 20. Analysis & Synthesis Messages
+ 20. Port Connectivity Checks: "controller:u5|Keyboard:u0"
+ 21. Analysis & Synthesis Messages
 
 
 
@@ -51,15 +52,15 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +------------------------------------+------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue May 23 21:51:49 2017    ;
+; Analysis & Synthesis Status        ; Successful - Wed May 24 17:03:17 2017    ;
 ; Quartus II Version                 ; 9.0 Build 132 02/25/2009 SJ Full Version ;
 ; Revision Name                      ; HamsterBall                              ;
 ; Top-level Entity Name              ; HamsterBall                              ;
 ; Family                             ; Cyclone II                               ;
-; Total logic elements               ; 282                                      ;
-;     Total combinational functions  ; 246                                      ;
-;     Dedicated logic registers      ; 136                                      ;
-; Total registers                    ; 136                                      ;
+; Total logic elements               ; 378                                      ;
+;     Total combinational functions  ; 338                                      ;
+;     Dedicated logic registers      ; 156                                      ;
+; Total registers                    ; 156                                      ;
 ; Total pins                         ; 34                                       ;
 ; Total virtual pins                 ; 0                                        ;
 ; Total memory bits                  ; 196,608                                  ;
@@ -152,7 +153,6 @@ applicable agreement for further details.
 ; blue.vhd                         ; yes             ; User Wizard-Generated File   ; //Mac/Home/Desktop/HamsterBall/blue.vhd                            ;
 ; green.vhd                        ; yes             ; User Wizard-Generated File   ; //Mac/Home/Desktop/HamsterBall/green.vhd                           ;
 ; red.vhd                          ; yes             ; User Wizard-Generated File   ; //Mac/Home/Desktop/HamsterBall/red.vhd                             ;
-; seg7.vhd                         ; yes             ; User VHDL File               ; //Mac/Home/Desktop/HamsterBall/seg7.vhd                            ;
 ; top.vhd                          ; yes             ; User VHDL File               ; //Mac/Home/Desktop/HamsterBall/top.vhd                             ;
 ; VGA_640480.vhd                   ; yes             ; User VHDL File               ; //Mac/Home/Desktop/HamsterBall/VGA_640480.vhd                      ;
 ; vga_rom.vhd                      ; yes             ; User VHDL File               ; //Mac/Home/Desktop/HamsterBall/vga_rom.vhd                         ;
@@ -179,28 +179,28 @@ applicable agreement for further details.
 +---------------------------------------------+------------------+
 ; Resource                                    ; Usage            ;
 +---------------------------------------------+------------------+
-; Estimated Total logic elements              ; 282              ;
+; Estimated Total logic elements              ; 378              ;
 ;                                             ;                  ;
-; Total combinational functions               ; 246              ;
+; Total combinational functions               ; 338              ;
 ; Logic element usage by number of LUT inputs ;                  ;
-;     -- 4 input functions                    ; 127              ;
-;     -- 3 input functions                    ; 47               ;
-;     -- <=2 input functions                  ; 72               ;
+;     -- 4 input functions                    ; 147              ;
+;     -- 3 input functions                    ; 77               ;
+;     -- <=2 input functions                  ; 114              ;
 ;                                             ;                  ;
 ; Logic elements by mode                      ;                  ;
-;     -- normal mode                          ; 166              ;
-;     -- arithmetic mode                      ; 80               ;
+;     -- normal mode                          ; 207              ;
+;     -- arithmetic mode                      ; 131              ;
 ;                                             ;                  ;
-; Total registers                             ; 136              ;
-;     -- Dedicated logic registers            ; 136              ;
+; Total registers                             ; 156              ;
+;     -- Dedicated logic registers            ; 156              ;
 ;     -- I/O registers                        ; 0                ;
 ;                                             ;                  ;
 ; I/O pins                                    ; 34               ;
 ; Total memory bits                           ; 196608           ;
 ; Maximum fan-out node                        ; vga640480:u1|clk ;
-; Maximum fan-out                             ; 141              ;
-; Total fan-out                               ; 1904             ;
-; Average fan-out                             ; 4.10             ;
+; Maximum fan-out                             ; 140              ;
+; Total fan-out                               ; 2185             ;
+; Average fan-out                             ; 3.79             ;
 +---------------------------------------------+------------------+
 
 
@@ -209,11 +209,13 @@ applicable agreement for further details.
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                       ; Library Name ;
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------+--------------+
-; |HamsterBall                              ; 246 (27)          ; 136 (15)     ; 196608      ; 0            ; 0       ; 0         ; 34   ; 0            ; |HamsterBall                                                                                              ; work         ;
+; |HamsterBall                              ; 338 (27)          ; 156 (15)     ; 196608      ; 0            ; 0       ; 0         ; 34   ; 0            ; |HamsterBall                                                                                              ; work         ;
 ;    |blue:u4|                              ; 10 (0)            ; 8 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |HamsterBall|blue:u4                                                                                      ; work         ;
 ;       |altsyncram:altsyncram_component|   ; 10 (0)            ; 8 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |HamsterBall|blue:u4|altsyncram:altsyncram_component                                                      ; work         ;
 ;          |altsyncram_7o71:auto_generated| ; 10 (0)            ; 8 (8)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |HamsterBall|blue:u4|altsyncram:altsyncram_component|altsyncram_7o71:auto_generated                       ; work         ;
 ;             |mux_4kb:mux2|                ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |HamsterBall|blue:u4|altsyncram:altsyncram_component|altsyncram_7o71:auto_generated|mux_4kb:mux2          ; work         ;
+;    |controller:u5|                        ; 71 (40)           ; 48 (18)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |HamsterBall|controller:u5                                                                                ; work         ;
+;       |Keyboard:u0|                       ; 31 (31)           ; 30 (30)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |HamsterBall|controller:u5|Keyboard:u0                                                                    ; work         ;
 ;    |green:u3|                             ; 10 (0)            ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |HamsterBall|green:u3                                                                                     ; work         ;
 ;       |altsyncram:altsyncram_component|   ; 10 (0)            ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |HamsterBall|green:u3|altsyncram:altsyncram_component                                                     ; work         ;
 ;          |altsyncram_gr71:auto_generated| ; 10 (0)            ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |HamsterBall|green:u3|altsyncram:altsyncram_component|altsyncram_gr71:auto_generated                      ; work         ;
@@ -223,11 +225,7 @@ applicable agreement for further details.
 ;          |altsyncram_qk71:auto_generated| ; 20 (0)            ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |HamsterBall|red:u2|altsyncram:altsyncram_component|altsyncram_qk71:auto_generated                        ; work         ;
 ;             |decode_ppa:deep_decode|      ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |HamsterBall|red:u2|altsyncram:altsyncram_component|altsyncram_qk71:auto_generated|decode_ppa:deep_decode ; work         ;
 ;             |mux_4kb:mux2|                ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |HamsterBall|red:u2|altsyncram:altsyncram_component|altsyncram_qk71:auto_generated|mux_4kb:mux2           ; work         ;
-;    |top:u5|                               ; 47 (0)            ; 27 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |HamsterBall|top:u5                                                                                       ; work         ;
-;       |Keyboard:u0|                       ; 33 (33)           ; 27 (27)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |HamsterBall|top:u5|Keyboard:u0                                                                           ; work         ;
-;       |seg7:u1|                           ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |HamsterBall|top:u5|seg7:u1                                                                               ; work         ;
-;       |seg7:u2|                           ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |HamsterBall|top:u5|seg7:u2                                                                               ; work         ;
-;    |vga640480:u1|                         ; 132 (132)         ; 86 (86)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |HamsterBall|vga640480:u1                                                                                 ; work         ;
+;    |vga640480:u1|                         ; 200 (200)         ; 85 (85)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |HamsterBall|vga640480:u1                                                                                 ; work         ;
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -245,7 +243,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 Encoding Type:  One-Hot
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |HamsterBall|top:u5|Keyboard:u0|state                                                                                                                       ;
+; State Machine - |HamsterBall|controller:u5|Keyboard:u0|state                                                                                                                ;
 +--------------+--------------+------------+--------------+----------+----------+----------+----------+----------+----------+----------+----------+-------------+-------------+
 ; Name         ; state.finish ; state.stop ; state.parity ; state.d7 ; state.d6 ; state.d5 ; state.d4 ; state.d3 ; state.d2 ; state.d1 ; state.d0 ; state.start ; state.delay ;
 +--------------+--------------+------------+--------------+----------+----------+----------+----------+----------+----------+----------+----------+-------------+-------------+
@@ -263,24 +261,6 @@ Encoding Type:  One-Hot
 ; state.stop   ; 0            ; 1          ; 0            ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0           ; 1           ;
 ; state.finish ; 1            ; 0          ; 0            ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0           ; 1           ;
 +--------------+--------------+------------+--------------+----------+----------+----------+----------+----------+----------+----------+----------+-------------+-------------+
-
-
-+------------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                  ;
-+----------------------------------------------------+------------------------+------------------------+
-; Latch Name                                         ; Latch Enable Signal    ; Free of Timing Hazards ;
-+----------------------------------------------------+------------------------+------------------------+
-; top:u5|Keyboard:u0|scancode[0]                     ; top:u5|Keyboard:u0|fok ; yes                    ;
-; top:u5|Keyboard:u0|scancode[1]                     ; top:u5|Keyboard:u0|fok ; yes                    ;
-; top:u5|Keyboard:u0|scancode[2]                     ; top:u5|Keyboard:u0|fok ; yes                    ;
-; top:u5|Keyboard:u0|scancode[3]                     ; top:u5|Keyboard:u0|fok ; yes                    ;
-; top:u5|Keyboard:u0|scancode[4]                     ; top:u5|Keyboard:u0|fok ; yes                    ;
-; top:u5|Keyboard:u0|scancode[5]                     ; top:u5|Keyboard:u0|fok ; yes                    ;
-; top:u5|Keyboard:u0|scancode[6]                     ; top:u5|Keyboard:u0|fok ; yes                    ;
-; top:u5|Keyboard:u0|scancode[7]                     ; top:u5|Keyboard:u0|fok ; yes                    ;
-; Number of user-specified and inferred latches = 8  ;                        ;                        ;
-+----------------------------------------------------+------------------------+------------------------+
-Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -307,8 +287,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; vga640480:u1|r1[0..1]                                                                        ; Merged with vga640480:u1|r1[2]                                                                          ;
 ; vga640480:u1|g1[0]                                                                           ; Merged with vga640480:u1|g1[1]                                                                          ;
 ; vga640480:u1|b1[0]                                                                           ; Merged with vga640480:u1|b1[1]                                                                          ;
-; segff                                                                                        ; Stuck at GND due to stuck port clock                                                                    ;
-; Total Number of Removed Registers = 21                                                       ;                                                                                                         ;
+; Total Number of Removed Registers = 20                                                       ;                                                                                                         ;
 +----------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------+
 
 
@@ -317,12 +296,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 136   ;
-; Number of registers using Synchronous Clear  ; 8     ;
+; Total registers                              ; 156   ;
+; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 74    ;
+; Number of registers using Asynchronous Clear ; 82    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 71    ;
+; Number of registers using Clock Enable       ; 78    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -334,9 +313,21 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------+---------+
 ; vga640480:u1|hs1                       ; 1       ;
 ; vga640480:u1|vs1                       ; 1       ;
-; top:u5|Keyboard:u0|break               ; 1       ;
+; controller:u5|Keyboard:u0|break        ; 4       ;
 ; Total number of inverted registers = 3 ;         ;
 +----------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |HamsterBall|controller:u5|vY[2]     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |HamsterBall|controller:u5|vX[2]     ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |HamsterBall|vga640480:u1|starty[10] ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |HamsterBall|vga640480:u1|startx[9]  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------+
@@ -585,13 +576,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------+------------------------------------------+
 
 
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "controller:u5|Keyboard:u0"                                                                                   ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                                  ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; scancode ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
-    Info: Processing started: Tue May 23 21:51:44 2017
+    Info: Processing started: Wed May 24 17:03:12 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off HamsterBall -c HamsterBall
 Info: Found 2 design units, including 1 entities, in source file Keyboard.vhd
     Info: Found design unit 1: Keyboard-rtl
@@ -600,9 +600,6 @@ Warning: Can't analyze file -- file //Mac/Home/Desktop/HamsterBall/Key.vhd is mi
 Info: Found 2 design units, including 1 entities, in source file blue.vhd
     Info: Found design unit 1: blue-SYN
     Info: Found entity 1: blue
-Info: Found 2 design units, including 1 entities, in source file controller.vhd
-    Info: Found design unit 1: Controller-arch
-    Info: Found entity 1: Controller
 Info: Found 2 design units, including 1 entities, in source file digital_rom.vhd
     Info: Found design unit 1: digital_rom-SYN
     Info: Found entity 1: digital_rom
@@ -619,8 +616,8 @@ Info: Found 2 design units, including 1 entities, in source file seg7.vhd
     Info: Found design unit 1: seg7-behave
     Info: Found entity 1: seg7
 Info: Found 2 design units, including 1 entities, in source file top.vhd
-    Info: Found design unit 1: top-behave
-    Info: Found entity 1: top
+    Info: Found design unit 1: controller-behave
+    Info: Found entity 1: controller
 Info: Found 2 design units, including 1 entities, in source file VGA_640480.vhd
     Info: Found design unit 1: vga640480-behavior
     Info: Found entity 1: vga640480
@@ -628,9 +625,16 @@ Info: Found 2 design units, including 1 entities, in source file vga_rom.vhd
     Info: Found design unit 1: HamsterBall-arc
     Info: Found entity 1: HamsterBall
 Info: Elaborating entity "HamsterBall" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at vga_rom.vhd(7): used implicit default value for signal "seg" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at vga_rom.vhd(7): used implicit default value for signal "segf" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at vga_rom.vhd(7): used implicit default value for signal "breako" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at vga_rom.vhd(7): used implicit default value for signal "f0o" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at vga_rom.vhd(7): used implicit default value for signal "do" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at vga_rom.vhd(8): used implicit default value for signal "seg0" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at vga_rom.vhd(8): used implicit default value for signal "seg1" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Info: Elaborating entity "vga640480" for hierarchy "vga640480:u1"
-Warning (10492): VHDL Process Statement warning at VGA_640480.vhd(196): signal "vector_x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at VGA_640480.vhd(196): signal "vector_y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at VGA_640480.vhd(216): signal "vector_x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at VGA_640480.vhd(216): signal "vector_y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Info: Elaborating entity "red" for hierarchy "red:u2"
 Info: Elaborating entity "altsyncram" for hierarchy "red:u2|altsyncram:altsyncram_component"
 Info: Elaborated megafunction instantiation "red:u2|altsyncram:altsyncram_component"
@@ -697,12 +701,8 @@ Info: Instantiated megafunction "blue:u4|altsyncram:altsyncram_component" with t
 Info: Found 1 design units, including 1 entities, in source file db/altsyncram_7o71.tdf
     Info: Found entity 1: altsyncram_7o71
 Info: Elaborating entity "altsyncram_7o71" for hierarchy "blue:u4|altsyncram:altsyncram_component|altsyncram_7o71:auto_generated"
-Info: Elaborating entity "top" for hierarchy "top:u5"
-Warning (10541): VHDL Signal Declaration warning at top.vhd(10): used implicit default value for signal "fok" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at top.vhd(10): used implicit default value for signal "breako" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at top.vhd(10): used implicit default value for signal "f0o" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at top.vhd(10): used implicit default value for signal "do" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Info: Elaborating entity "Keyboard" for hierarchy "top:u5|Keyboard:u0"
+Info: Elaborating entity "controller" for hierarchy "controller:u5"
+Info: Elaborating entity "Keyboard" for hierarchy "controller:u5|Keyboard:u0"
 Info (10041): Inferred latch for "scancode[0]" at Keyboard.vhd(31)
 Info (10041): Inferred latch for "scancode[1]" at Keyboard.vhd(31)
 Info (10041): Inferred latch for "scancode[2]" at Keyboard.vhd(31)
@@ -711,7 +711,6 @@ Info (10041): Inferred latch for "scancode[4]" at Keyboard.vhd(31)
 Info (10041): Inferred latch for "scancode[5]" at Keyboard.vhd(31)
 Info (10041): Inferred latch for "scancode[6]" at Keyboard.vhd(31)
 Info (10041): Inferred latch for "scancode[7]" at Keyboard.vhd(31)
-Info: Elaborating entity "seg7" for hierarchy "top:u5|seg7:u1"
 Warning: Synthesized away the following node(s):
     Warning: Synthesized away the following RAM node(s):
         Warning (14320): Synthesized away node "blue:u4|altsyncram:altsyncram_component|altsyncram_7o71:auto_generated|ram_block1a1"
@@ -810,22 +809,55 @@ Warning: Synthesized away the following node(s):
         Warning (14320): Synthesized away node "red:u2|altsyncram:altsyncram_component|altsyncram_qk71:auto_generated|ram_block1a44"
         Warning (14320): Synthesized away node "red:u2|altsyncram:altsyncram_component|altsyncram_qk71:auto_generated|ram_block1a46"
         Warning (14320): Synthesized away node "red:u2|altsyncram:altsyncram_component|altsyncram_qk71:auto_generated|ram_block1a47"
+Warning: 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info: Registers with preset signals will power-up high
 Info: DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning: Output pins are stuck at VCC or GND
+    Warning (13410): Pin "seg" is stuck at GND
     Warning (13410): Pin "segf" is stuck at GND
     Warning (13410): Pin "breako" is stuck at GND
     Warning (13410): Pin "f0o" is stuck at GND
     Warning (13410): Pin "do" is stuck at GND
-Info: Implemented 364 device resources after synthesis - the final resource count might be different
+    Warning (13410): Pin "seg0[0]" is stuck at GND
+    Warning (13410): Pin "seg0[1]" is stuck at GND
+    Warning (13410): Pin "seg0[2]" is stuck at GND
+    Warning (13410): Pin "seg0[3]" is stuck at GND
+    Warning (13410): Pin "seg0[4]" is stuck at GND
+    Warning (13410): Pin "seg0[5]" is stuck at GND
+    Warning (13410): Pin "seg0[6]" is stuck at GND
+    Warning (13410): Pin "seg1[0]" is stuck at GND
+    Warning (13410): Pin "seg1[1]" is stuck at GND
+    Warning (13410): Pin "seg1[2]" is stuck at GND
+    Warning (13410): Pin "seg1[3]" is stuck at GND
+    Warning (13410): Pin "seg1[4]" is stuck at GND
+    Warning (13410): Pin "seg1[5]" is stuck at GND
+    Warning (13410): Pin "seg1[6]" is stuck at GND
+Critical Warning: Ignored Power-Up Level option on the following registers
+    Critical Warning: Register vga640480:u1|startx[10] will power up to Low
+    Critical Warning: Register vga640480:u1|startx[9] will power up to Low
+    Critical Warning: Register vga640480:u1|startx[8] will power up to Low
+    Critical Warning: Register vga640480:u1|startx[7] will power up to Low
+    Critical Warning: Register vga640480:u1|startx[6] will power up to Low
+    Critical Warning: Register vga640480:u1|startx[5] will power up to Low
+    Critical Warning: Register vga640480:u1|startx[3] will power up to Low
+    Critical Warning: Register vga640480:u1|startx[2] will power up to Low
+    Critical Warning: Register vga640480:u1|starty[8] will power up to Low
+    Critical Warning: Register vga640480:u1|starty[7] will power up to Low
+    Critical Warning: Register vga640480:u1|starty[6] will power up to Low
+    Critical Warning: Register vga640480:u1|starty[5] will power up to Low
+    Critical Warning: Register vga640480:u1|starty[3] will power up to Low
+    Critical Warning: Register vga640480:u1|starty[2] will power up to Low
+    Critical Warning: Register vga640480:u1|starty[9] will power up to Low
+    Critical Warning: Register vga640480:u1|starty[10] will power up to Low
+Info: Implemented 460 device resources after synthesis - the final resource count might be different
     Info: Implemented 4 input pins
     Info: Implemented 30 output pins
-    Info: Implemented 282 logic cells
+    Info: Implemented 378 logic cells
     Info: Implemented 48 RAM segments
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 110 warnings
-    Info: Peak virtual memory: 270 megabytes
-    Info: Processing ended: Tue May 23 21:51:49 2017
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 146 warnings
+    Info: Peak virtual memory: 271 megabytes
+    Info: Processing ended: Wed May 24 17:03:17 2017
     Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:04
+    Info: Total CPU time (on all processors): 00:00:03
 
 
