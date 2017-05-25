@@ -12,7 +12,7 @@ entity Controller is
 end Controller;
 
 architecture arch of Controller is
-    signal accX, accY: in std_logic;
+    signal accX, accY: std_logic;
 begin
 --    V : process(clk, rst)
 --    begin

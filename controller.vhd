@@ -14,24 +14,24 @@ end Controller;
 architecture arch of Controller is
     signal accX, accY: std_logic;
 begin
---    V : process(clk, rst)
---    begin
---        if (rst) then
---            vX <= others => '0';
---            vY <= others => '0';
---        elsif (clk'event and clk = '1') then
---            if (vX + accX < 5) then
---                vX <= vX + accX - accXm;
---            else
---                vX <= 5;
---            end if;
---            if (vY + accY < 5) then
---                vY <= vY + accY - accYm;
---            else
---                vY <= 5;
---            end if;
---        end if;
---    end process;
+    V : process(clk, rst)
+    begin
+        if (rst) then
+            vX <= others => '0';
+            vY <= others => '0';
+        elsif (clk'event and clk = '1') then
+            if (vX + accX < 5) then
+                vX <= vX + accX - accXm;
+            else
+                vX <= 5;
+            end if;
+            if (vY + accY < 5) then
+                vY <= vY + accY - accYm;
+            else
+                vY <= 5;
+            end if;
+        end if;
+    end process;
 --
 --    accX <= skey;
 --    accY <= dkey;

@@ -7,7 +7,7 @@ entity Keyboard is
 port (
 	datain, clkin : in std_logic ; -- PS2 clk and data
 	fclk, rst : in std_logic ;  -- filter clock
-	wkey : out std_logic ;  -- data output enable signal
+	key : out std_logic_vector(3 downto 0) ;  -- data output enable signal
 	scancode : out std_logic_vector(7 downto 0) -- scan code signal output
 	) ;
 end Keyboard ;
@@ -36,8 +36,17 @@ begin
 			case code is
 				when x"F0" =>
 					break <= '0';
-				when x"1D" =>
-					wkey <= break;
+				when x"1D" => --W
+					key(0) <= break;
+					break <= '1';
+				when x"1B" => --S
+					key(1) <= break;
+					break <= '1';
+				when x"1C" => --A
+					key(2) <= break;
+					break <= '1';
+				when x"23" => --D
+					key(3) <= break;
 					break <= '1';
 				when others => break <= '1';
 			end case;

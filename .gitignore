@@ -12,6 +12,8 @@
 *.smsg
 *.sof
 *.summary
-./db/
-./incremental_db/
+*.cdb
+*.hdb
+db/
+incremental_db/
 
