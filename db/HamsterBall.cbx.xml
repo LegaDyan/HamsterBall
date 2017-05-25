@@ -1,9 +1,7 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="HamsterBall">
-		<CBX_INST_ENTRY INSTANCE_NAME="|HamsterBall|ball:u5|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_nf71.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|HamsterBall|blue:u4|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_7o71.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|HamsterBall|green:u3|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_gr71.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|HamsterBall|red:u2|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_qk71.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|HamsterBall|ball:u5|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_ef81.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|HamsterBall|mymap:u2|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_k681.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

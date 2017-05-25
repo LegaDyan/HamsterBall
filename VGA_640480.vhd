@@ -6,7 +6,7 @@ use 	ieee.numeric_std;
 
 entity vga640480 is
 	 port(
-			address		:		  out STD_LOGIC_VECTOR(15 DOWNTO 0);
+			address		:		  out STD_LOGIC_VECTOR(19 DOWNTO 0);
 			addressBall :         out STD_LOGIC_VECTOR(11 downto 0);
 			reset       :         in  STD_LOGIC;
 			clk50       :		  out std_logic; 
@@ -203,7 +203,7 @@ begin
 					addressBall <= posy(5 downto 0) & posx(5 downto 0);
 					posyy <= vector_y - starty;
 					posxx <= vector_x - startx;
-					address <= posyy(7 downto 0) & posxx(7 downto 0);
+					address <= "0000" & posyy(7 downto 0) & posxx(7 downto 0);
 					if not (qball = "000") then
 						r1 <= (others => qball(2));
 						g1 <= (others => qball(1));
@@ -217,7 +217,7 @@ begin
 				else
 					posy <= vector_y - starty;
 					posx <= vector_x - startx;
-					address <= posy(7 downto 0) & posx(7 downto 0);
+					address <= "0000" & posy(7 downto 0) & posx(7 downto 0);
 					r1 <= (others => qr(0));
 					b1 <= (others => qb(0));
 					g1 <= (others => qg(0));

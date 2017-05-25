@@ -1,5 +1,5 @@
 Assembler report for HamsterBall
-Thu May 25 18:23:41 2017
+Thu May 25 21:01:45 2017
 Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
 
 
@@ -10,8 +10,8 @@ Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
-  5. Assembler Device Options: //Mac/Home/Desktop/HamsterBall/HamsterBall.sof
-  6. Assembler Device Options: //Mac/Home/Desktop/HamsterBall/HamsterBall.pof
+  5. Assembler Device Options: E:/mycode/quartus/prj/HamsterBall/HamsterBall/HamsterBall.sof
+  6. Assembler Device Options: E:/mycode/quartus/prj/HamsterBall/HamsterBall/HamsterBall.pof
   7. Assembler Messages
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Thu May 25 18:23:41 2017 ;
+; Assembler Status      ; Successful - Thu May 25 21:01:45 2017 ;
 ; Revision Name         ; HamsterBall                           ;
 ; Top-level Entity Name ; HamsterBall                           ;
 ; Family                ; Cyclone II                            ;
@@ -76,37 +76,37 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------+----------+---------------+
 
 
-+------------------------------------------------+
-; Assembler Generated Files                      ;
-+------------------------------------------------+
-; File Name                                      ;
-+------------------------------------------------+
-; //Mac/Home/Desktop/HamsterBall/HamsterBall.sof ;
-; //Mac/Home/Desktop/HamsterBall/HamsterBall.pof ;
-+------------------------------------------------+
++---------------------------------------------------------------+
+; Assembler Generated Files                                     ;
++---------------------------------------------------------------+
+; File Name                                                     ;
++---------------------------------------------------------------+
+; E:/mycode/quartus/prj/HamsterBall/HamsterBall/HamsterBall.sof ;
+; E:/mycode/quartus/prj/HamsterBall/HamsterBall/HamsterBall.pof ;
++---------------------------------------------------------------+
 
 
-+--------------------------------------------------------------------------+
-; Assembler Device Options: //Mac/Home/Desktop/HamsterBall/HamsterBall.sof ;
-+----------------+---------------------------------------------------------+
-; Option         ; Setting                                                 ;
-+----------------+---------------------------------------------------------+
-; Device         ; EP2C70F672C8                                            ;
-; JTAG usercode  ; 0xFFFFFFFF                                              ;
-; Checksum       ; 0x00BFA559                                              ;
-+----------------+---------------------------------------------------------+
++-----------------------------------------------------------------------------------------+
+; Assembler Device Options: E:/mycode/quartus/prj/HamsterBall/HamsterBall/HamsterBall.sof ;
++----------------+------------------------------------------------------------------------+
+; Option         ; Setting                                                                ;
++----------------+------------------------------------------------------------------------+
+; Device         ; EP2C70F672C8                                                           ;
+; JTAG usercode  ; 0xFFFFFFFF                                                             ;
+; Checksum       ; 0x00C54C72                                                             ;
++----------------+------------------------------------------------------------------------+
 
 
-+--------------------------------------------------------------------------+
-; Assembler Device Options: //Mac/Home/Desktop/HamsterBall/HamsterBall.pof ;
-+--------------------+-----------------------------------------------------+
-; Option             ; Setting                                             ;
-+--------------------+-----------------------------------------------------+
-; Device             ; EPCS16                                              ;
-; JTAG usercode      ; 0x00000000                                          ;
-; Checksum           ; 0x17D913F2                                          ;
-; Compression Ratio  ; 2                                                   ;
-+--------------------+-----------------------------------------------------+
++-----------------------------------------------------------------------------------------+
+; Assembler Device Options: E:/mycode/quartus/prj/HamsterBall/HamsterBall/HamsterBall.pof ;
++--------------------+--------------------------------------------------------------------+
+; Option             ; Setting                                                            ;
++--------------------+--------------------------------------------------------------------+
+; Device             ; EPCS16                                                             ;
+; JTAG usercode      ; 0x00000000                                                         ;
+; Checksum           ; 0x17D7554A                                                         ;
+; Compression Ratio  ; 2                                                                  ;
++--------------------+--------------------------------------------------------------------+
 
 
 +--------------------+
@@ -115,14 +115,14 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II Assembler
     Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
-    Info: Processing started: Thu May 25 18:23:35 2017
+    Info: Processing started: Thu May 25 21:01:41 2017
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off HamsterBall -c HamsterBall
 Info: Writing out detailed assembly data for power analysis
 Info: Assembler is generating device programming files
 Info: Quartus II Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 360 megabytes
-    Info: Processing ended: Thu May 25 18:23:41 2017
-    Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:05
+    Info: Peak virtual memory: 364 megabytes
+    Info: Processing ended: Thu May 25 21:01:45 2017
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:04
 
 
