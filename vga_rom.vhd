@@ -4,7 +4,8 @@ use ieee.std_logic_1164.all;
 entity HamsterBall is
 port(
 	clk_0,reset,datain,clkin: in std_logic;
-	hs,vs: out STD_LOGIC; 
+	hs,vs, seg, segf, breako, f0o, do: out STD_LOGIC; 
+	seg0,seg1:out std_logic_vector(6 downto 0);
 	r,g,b: out STD_LOGIC_vector(2 downto 0)
 );
 end HamsterBall;
@@ -27,14 +28,30 @@ component vga640480 is
 	  );
 end component;
 
-COMPONENT mymap IS
+component red IS
 	PORT
 	(
 		address		: IN STD_LOGIC_VECTOR (15 DOWNTO 0);
 		clock		: IN STD_LOGIC ;
-		q		: OUT STD_LOGIC_VECTOR (8 DOWNTO 0)
+		q		: OUT STD_LOGIC_VECTOR (2 DOWNTO 0)
 	);
-END COMPONENT mymap;
+END component;
+component green IS
+	PORT
+	(
+		address		: IN STD_LOGIC_VECTOR (15 DOWNTO 0);
+		clock		: IN STD_LOGIC ;
+		q		: OUT STD_LOGIC_VECTOR (2 DOWNTO 0)
+	);
+END component;
+component blue IS
+	PORT
+	(
+		address		: IN STD_LOGIC_VECTOR (15 DOWNTO 0);
+		clock		: IN STD_LOGIC ;
+		q		: OUT STD_LOGIC_VECTOR (2 DOWNTO 0)
+	);
+end component;
 component ball IS
 	PORT
 	(
@@ -65,12 +82,30 @@ signal count: integer range 0 to 10000 := 0;
 
 begin
 
+process (clk_0)
+begin
+	if (clk_0'event and clk_0 = '1') then
+		count <= count + 1;
+		if (count = 750) then
+			if clkf = '0' then
+				clkf <= '1';
+			else
+				clkf <= '0';
+			end if;
+			count <= 0;
+		end if;
+	end if;
+	
+end process;
+
 u1: vga640480 port map(
 						address=>address_tmp, 
 						addressBall=>address_ball,
 						reset=>reset, 
 						clk50=>clk50, 
-						qRGB=>q_rgb,
+						qr=>q_red,
+						qg=>q_green,
+						qb=>q_blue,
 						qball=>q_ball,
 						clk_0=>clk_0, 
 						hs=>hs, vs=>vs, 
@@ -79,11 +114,21 @@ u1: vga640480 port map(
 						mX=>mx, mY=>my,
 						clk_v=>clkv
 					);
-u6: mymap port map(
+u2: red port map(	
 						address=>address_tmp, 
 						clock=>clk50, 
-						q=>q_rgb
-				  );
+						q=>q_red
+					);
+u3: green port map(	
+						address=>address_tmp, 
+						clock=>clk50, 
+						q=>q_green
+					);
+u4: blue port map(	
+						address=>address_tmp, 
+						clock=>clk50, 
+						q=>q_blue
+					);
 u5: ball port map(	
 						address=>address_ball, 
 						clock=>clk50, 

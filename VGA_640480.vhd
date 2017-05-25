@@ -10,8 +10,7 @@ entity vga640480 is
 			addressBall :         out STD_LOGIC_VECTOR(11 downto 0);
 			reset       :         in  STD_LOGIC;
 			clk50       :		  out std_logic; 
-			qRGB		:		  in STD_LOGIC_VECTOR(8 downto 0);
-			qball	:		  in STD_LOGIC_VECTOR(2 downto 0);
+			qr, qg, qb, qball	:		  in STD_LOGIC_VECTOR(2 downto 0);
 			clk_0       :         in  STD_LOGIC; --50M时钟输入
 			hs,vs       :         out STD_LOGIC; --行同步、场同步信号
 			r,g,b       :         out STD_LOGIC_vector(2 downto 0);
@@ -210,18 +209,18 @@ begin
 						g1 <= (others => qball(1));
 						b1 <= (others => qball(0));
 					else
-                        r1 <= (qRGB(8) & qRGB(7) & qRGB(6));
-			        	b1 <= (qRGB(5) & qRGB(4) & qRGB(3));
-				        g1 <= (qRGB(2) & qRGB(1) & qRGB(0));
+						r1 <= (others => qr(0));
+						b1 <= (others => qb(0));
+						g1 <= (others => qg(0));
 					end if;
 				
 				else
 					posy <= vector_y - starty;
 					posx <= vector_x - startx;
 					address <= posy(7 downto 0) & posx(7 downto 0);
-                        r1 <= (qRGB(8) & qRGB(7) & qRGB(6));
-			        	b1 <= (qRGB(5) & qRGB(4) & qRGB(3));
-				        g1 <= (qRGB(2) & qRGB(1) & qRGB(0));
+					r1 <= (others => qr(0));
+					b1 <= (others => qb(0));
+					g1 <= (others => qg(0));
 				end if;
 			else
 				if (vector_x < 352) and (vector_y < 272) and (vector_x >= 288) and (vector_y >= 208) then
