@@ -1,5 +1,5 @@
 Fitter report for HamsterBall
-Sat May 27 10:50:40 2017
+Sat May 27 11:17:40 2017
 Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
 
 
@@ -63,7 +63,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Fitter Summary                                                                ;
 +------------------------------------+------------------------------------------+
-; Fitter Status                      ; Successful - Sat May 27 10:50:40 2017    ;
+; Fitter Status                      ; Successful - Sat May 27 11:17:40 2017    ;
 ; Quartus II Version                 ; 9.0 Build 132 02/25/2009 SJ Full Version ;
 ; Revision Name                      ; HamsterBall                              ;
 ; Top-level Entity Name              ; HamsterBall                              ;
@@ -141,12 +141,12 @@ applicable agreement for further details.
 ; Number detected on machine ; 2           ;
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
-; Average used               ; 1.00        ;
+; Average used               ; 1.14        ;
 ; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     1 processor            ; 100.0%      ;
-;     2 processors           ; < 0.1%      ;
+;     2 processors           ;   7.7%      ;
 +----------------------------+-------------+
 
 
@@ -186,7 +186,7 @@ applicable agreement for further details.
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in //Mac/Home/Desktop/HamsterBall/HamsterBall.pin.
+The pin-out file can be found in E:/mycode/quartus/prj/clean_prj/HamsterBall/HamsterBall.pin.
 
 
 +----------------------------------------------------------------------------+
@@ -1505,7 +1505,7 @@ This will disable optimization of problematic paths and expose them for further 
 Info: *******************************************************************
 Info: Running Quartus II Fitter
     Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
-    Info: Processing started: Sat May 27 10:50:29 2017
+    Info: Processing started: Sat May 27 11:17:31 2017
 Info: Command: quartus_fit --read_settings_files=off --write_settings_files=off HamsterBall -c HamsterBall
 Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info: Selected device EP2C70F672C8 for design "HamsterBall"
@@ -1564,7 +1564,7 @@ Warning: Ignored locations or region assignments to the following nodes
     Warning: Node "seg1[4]" is assigned to location or region, but does not exist in design
     Warning: Node "seg1[5]" is assigned to location or region, but does not exist in design
     Warning: Node "seg1[6]" is assigned to location or region, but does not exist in design
-Info: Fitter preparation operations ending: elapsed time is 00:00:01
+Info: Fitter preparation operations ending: elapsed time is 00:00:00
 Info: Fitter placement preparation operations beginning
 Info: Fitter placement preparation operations ending: elapsed time is 00:00:00
 Info: Fitter placement operations beginning
@@ -1676,17 +1676,17 @@ Warning: Following 5 pins have nothing, GND, or VCC driving datain port -- chang
     Info: Pin f0o has GND driving its datain port
     Info: Pin do has GND driving its datain port
 Warning: The Reserve All Unused Pins setting has not been specified, and will default to 'As output driving ground'.
-Info: Generated suppressed messages file //Mac/Home/Desktop/HamsterBall/HamsterBall.fit.smsg
+Info: Generated suppressed messages file E:/mycode/quartus/prj/clean_prj/HamsterBall/HamsterBall.fit.smsg
 Info: Quartus II Fitter was successful. 0 errors, 18 warnings
-    Info: Peak virtual memory: 403 megabytes
-    Info: Processing ended: Sat May 27 10:50:41 2017
-    Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:12
+    Info: Peak virtual memory: 412 megabytes
+    Info: Processing ended: Sat May 27 11:17:40 2017
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:10
 
 
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in //Mac/Home/Desktop/HamsterBall/HamsterBall.fit.smsg.
+The suppressed messages can be found in E:/mycode/quartus/prj/clean_prj/HamsterBall/HamsterBall.fit.smsg.
 
 
