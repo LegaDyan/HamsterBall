@@ -2,6 +2,9 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity HamsterBall is
+generic(
+	depth	:	integer:= 1048576
+	);
 port(
 	clk_0,reset,datain,clkin: in std_logic;
 	hs,vs, seg, segf, breako, f0o, do: out STD_LOGIC; 
@@ -10,6 +13,39 @@ port(
 end HamsterBall;
 
 architecture arc of HamsterBall is
+
+---------------------------------signals----------------------------------------------
+
+signal address_tmp	: std_logic_vector(15 downto 0);
+signal address_ball	: std_logic_vector(11 downto 0);
+signal clk50, clkf	: std_logic;
+signal q_rgb		: std_logic_vector(8 downto 0);
+signal q_ball		: std_logic_vector(2 downto 0);
+signal vx, vy		: std_logic_vector(2 downto 0);
+signal mx, my		: std_logic;
+signal clkv			: std_logic;
+signal count		: integer range 0 to 10000 := 0;
+
+--------------------------------components-----------------------------------------
+
+component sram is 
+port(
+--- reset & clk 
+	clk      : in std_logic;
+	reset    : in std_logic;
+	wr		: in std_logic;		--1:write 0:read
+	addr_e	: in std_logic_vector(19 downto 0);   
+	--button3	: in std_logic;
+	--button4	: in std_logic;
+	--LEDBUS	: out std_logic_vector(31 downto 0);-- 32 LED
+--- memory 	to CFPGA
+	BASERAMWE           : out std_logic;   --write                    
+	BASERAMOE           : out std_logic;    --read                   
+	BASERAMCE           : out std_logic;		--cs
+	BASERAMADDR         : out std_logic_vector(19 downto 0);                                                              
+	BASERAMDATA         : inout std_logic_vector(8 downto 0)
+);
+end component sram;
 
 component vga640480 is
 	 port(
@@ -54,16 +90,7 @@ port(
 );
 END component;
 
-signal address_tmp	: std_logic_vector(15 downto 0);
-signal address_ball	: std_logic_vector(11 downto 0);
-signal clk50, clkf	: std_logic;
-signal q_rgb		: std_logic_vector(8 downto 0);
-signal q_ball		: std_logic_vector(2 downto 0);
-signal vx, vy		: std_logic_vector(2 downto 0);
-signal mx, my		: std_logic;
-signal clkv			: std_logic;
-signal count		: integer range 0 to 10000 := 0;
-
+---------------------------------------process-------------------------------------------
 
 begin
 

@@ -352,39 +352,6 @@ data0
 
 # end
 # entity
-HamsterBall
-# storage
-db|HamsterBall.(0).cnf
-db|HamsterBall.(0).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-HamsterBall.vhd
-277442b2cc67ae27cf221e75081d8cf
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# hierarchies {
-|
-}
-# lmf
-d:|develop|altera|90|quartus|lmf|maxplus2.lmf
-9a59d39b0706640b4b2718e8a1ff1f
-# macro_sequence
-
-# end
-# entity
 vga640480
 # storage
 db|HamsterBall.(1).cnf
@@ -1745,76 +1712,6 @@ ball:u5|altsyncram:altsyncram_component
 
 # end
 # entity
-altsyncram_ef81
-# storage
-db|HamsterBall.(10).cnf
-db|HamsterBall.(10).cnf
-# case_insensitive
-# source_file
-db|altsyncram_ef81.tdf
-a3c6694f9fabe6162fb92af44f651ffc
-7
-# used_port {
-q_a2
--1
-3
-q_a1
--1
-3
-q_a0
--1
-3
-clock0
--1
-3
-address_a9
--1
-3
-address_a8
--1
-3
-address_a7
--1
-3
-address_a6
--1
-3
-address_a5
--1
-3
-address_a4
--1
-3
-address_a3
--1
-3
-address_a2
--1
-3
-address_a11
--1
-3
-address_a10
--1
-3
-address_a1
--1
-3
-address_a0
--1
-3
-}
-# memory_file {
-.|map&mif|ball.mif
-8baedee7db55152e23a73aa15dd376
-}
-# hierarchies {
-ball:u5|altsyncram:altsyncram_component|altsyncram_ef81:auto_generated
-}
-# macro_sequence
-
-# end
-# entity
 controller
 # storage
 db|HamsterBall.(11).cnf
@@ -2239,6 +2136,115 @@ add_sub
 -1
 3
 }
+# macro_sequence
+
+# end
+# entity
+altsyncram_ef81
+# storage
+db|HamsterBall.(10).cnf
+db|HamsterBall.(10).cnf
+# case_insensitive
+# source_file
+db|altsyncram_ef81.tdf
+a3c6694f9fabe6162fb92af44f651ffc
+7
+# used_port {
+q_a2
+-1
+3
+q_a1
+-1
+3
+q_a0
+-1
+3
+clock0
+-1
+3
+address_a9
+-1
+3
+address_a8
+-1
+3
+address_a7
+-1
+3
+address_a6
+-1
+3
+address_a5
+-1
+3
+address_a4
+-1
+3
+address_a3
+-1
+3
+address_a2
+-1
+3
+address_a11
+-1
+3
+address_a10
+-1
+3
+address_a1
+-1
+3
+address_a0
+-1
+3
+}
+# memory_file {
+.|map&mif|ball.mif
+a5a957ce8dbece46e9f0bb916ea8ff57
+}
+# hierarchies {
+ball:u5|altsyncram:altsyncram_component|altsyncram_ef81:auto_generated
+}
+# macro_sequence
+
+# end
+# entity
+HamsterBall
+# storage
+db|HamsterBall.(0).cnf
+db|HamsterBall.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+HamsterBall.vhd
+f02e34362d7cf0bc23545156562c9fd
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+depth
+1048576
+PARAMETER_SIGNED_DEC
+DEF
+}
+# hierarchies {
+|
+}
+# lmf
+d:|develop|altera|90|quartus|lmf|maxplus2.lmf
+9a59d39b0706640b4b2718e8a1ff1f
 # macro_sequence
 
 # end

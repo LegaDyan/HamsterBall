@@ -1,5 +1,5 @@
 Analysis & Synthesis report for HamsterBall
-Sat May 27 11:17:30 2017
+Sat May 27 11:38:20 2017
 Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
 
 
@@ -19,13 +19,14 @@ Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
  11. Multiplexer Restructuring Statistics (Restructuring Performed)
  12. Source assignments for mymap:u2|altsyncram:altsyncram_component|altsyncram_6u71:auto_generated
  13. Source assignments for ball:u5|altsyncram:altsyncram_component|altsyncram_ef81:auto_generated
- 14. Parameter Settings for User Entity Instance: mymap:u2|altsyncram:altsyncram_component
- 15. Parameter Settings for User Entity Instance: ball:u5|altsyncram:altsyncram_component
- 16. Parameter Settings for Inferred Entity Instance: vga640480:u1|lpm_add_sub:Add0
- 17. Parameter Settings for Inferred Entity Instance: vga640480:u1|lpm_add_sub:Add4
- 18. altsyncram Parameter Settings by Entity Instance
- 19. Port Connectivity Checks: "controller:u6|Keyboard:u0"
- 20. Analysis & Synthesis Messages
+ 14. Parameter Settings for User Entity Instance: Top-level Entity: |HamsterBall
+ 15. Parameter Settings for User Entity Instance: mymap:u2|altsyncram:altsyncram_component
+ 16. Parameter Settings for User Entity Instance: ball:u5|altsyncram:altsyncram_component
+ 17. Parameter Settings for Inferred Entity Instance: vga640480:u1|lpm_add_sub:Add0
+ 18. Parameter Settings for Inferred Entity Instance: vga640480:u1|lpm_add_sub:Add4
+ 19. altsyncram Parameter Settings by Entity Instance
+ 20. Port Connectivity Checks: "controller:u6|Keyboard:u0"
+ 21. Analysis & Synthesis Messages
 
 
 
@@ -51,7 +52,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +------------------------------------+------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat May 27 11:17:30 2017    ;
+; Analysis & Synthesis Status        ; Successful - Sat May 27 11:38:20 2017    ;
 ; Quartus II Version                 ; 9.0 Build 132 02/25/2009 SJ Full Version ;
 ; Revision Name                      ; HamsterBall                              ;
 ; Top-level Entity Name              ; HamsterBall                              ;
@@ -143,42 +144,40 @@ applicable agreement for further details.
 +----------------------------------------------------------------+--------------------+--------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                     ;
-+----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                 ;
-+----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------+
-; HamsterBall.vhd                  ; yes             ; User VHDL File                         ; E:/mycode/quartus/prj/clean_prj/HamsterBall/HamsterBall.vhd                  ;
-; controller.vhd                   ; yes             ; User VHDL File                         ; E:/mycode/quartus/prj/clean_prj/HamsterBall/controller.vhd                   ;
-; Keyboard.vhd                     ; yes             ; User VHDL File                         ; E:/mycode/quartus/prj/clean_prj/HamsterBall/Keyboard.vhd                     ;
-; VGA_640480.vhd                   ; yes             ; User VHDL File                         ; E:/mycode/quartus/prj/clean_prj/HamsterBall/VGA_640480.vhd                   ;
-; ball.vhd                         ; yes             ; User Wizard-Generated File             ; E:/mycode/quartus/prj/clean_prj/HamsterBall/ball.vhd                         ;
-; mymap.vhd                        ; yes             ; User Wizard-Generated File             ; E:/mycode/quartus/prj/clean_prj/HamsterBall/mymap.vhd                        ;
-; altsyncram.tdf                   ; yes             ; Megafunction                           ; d:/develop/altera/90/quartus/libraries/megafunctions/altsyncram.tdf          ;
-; stratix_ram_block.inc            ; yes             ; Megafunction                           ; d:/develop/altera/90/quartus/libraries/megafunctions/stratix_ram_block.inc   ;
-; lpm_mux.inc                      ; yes             ; Megafunction                           ; d:/develop/altera/90/quartus/libraries/megafunctions/lpm_mux.inc             ;
-; lpm_decode.inc                   ; yes             ; Megafunction                           ; d:/develop/altera/90/quartus/libraries/megafunctions/lpm_decode.inc          ;
-; aglobal90.inc                    ; yes             ; Megafunction                           ; d:/develop/altera/90/quartus/libraries/megafunctions/aglobal90.inc           ;
-; a_rdenreg.inc                    ; yes             ; Megafunction                           ; d:/develop/altera/90/quartus/libraries/megafunctions/a_rdenreg.inc           ;
-; altrom.inc                       ; yes             ; Megafunction                           ; d:/develop/altera/90/quartus/libraries/megafunctions/altrom.inc              ;
-; altram.inc                       ; yes             ; Megafunction                           ; d:/develop/altera/90/quartus/libraries/megafunctions/altram.inc              ;
-; altdpram.inc                     ; yes             ; Megafunction                           ; d:/develop/altera/90/quartus/libraries/megafunctions/altdpram.inc            ;
-; altqpram.inc                     ; yes             ; Megafunction                           ; d:/develop/altera/90/quartus/libraries/megafunctions/altqpram.inc            ;
-; db/altsyncram_6u71.tdf           ; yes             ; Auto-Generated Megafunction            ; E:/mycode/quartus/prj/clean_prj/HamsterBall/db/altsyncram_6u71.tdf           ;
-; ./map&mif/map-256.mif            ; yes             ; Auto-Found Memory Initialization File  ; E:/mycode/quartus/prj/clean_prj/HamsterBall/map&mif/map-256.mif              ;
-; db/decode_ppa.tdf                ; yes             ; Auto-Generated Megafunction            ; E:/mycode/quartus/prj/clean_prj/HamsterBall/db/decode_ppa.tdf                ;
-; db/mux_akb.tdf                   ; yes             ; Auto-Generated Megafunction            ; E:/mycode/quartus/prj/clean_prj/HamsterBall/db/mux_akb.tdf                   ;
-; db/altsyncram_ef81.tdf           ; yes             ; Auto-Generated Megafunction            ; E:/mycode/quartus/prj/clean_prj/HamsterBall/db/altsyncram_ef81.tdf           ;
-; ./map&mif/ball.mif               ; yes             ; Auto-Found Memory Initialization File  ; E:/mycode/quartus/prj/clean_prj/HamsterBall/map&mif/ball.mif                 ;
-; lpm_add_sub.tdf                  ; yes             ; Megafunction                           ; d:/develop/altera/90/quartus/libraries/megafunctions/lpm_add_sub.tdf         ;
-; addcore.inc                      ; yes             ; Megafunction                           ; d:/develop/altera/90/quartus/libraries/megafunctions/addcore.inc             ;
-; look_add.inc                     ; yes             ; Megafunction                           ; d:/develop/altera/90/quartus/libraries/megafunctions/look_add.inc            ;
-; bypassff.inc                     ; yes             ; Megafunction                           ; d:/develop/altera/90/quartus/libraries/megafunctions/bypassff.inc            ;
-; altshift.inc                     ; yes             ; Megafunction                           ; d:/develop/altera/90/quartus/libraries/megafunctions/altshift.inc            ;
-; alt_stratix_add_sub.inc          ; yes             ; Megafunction                           ; d:/develop/altera/90/quartus/libraries/megafunctions/alt_stratix_add_sub.inc ;
-; alt_mercury_add_sub.inc          ; yes             ; Megafunction                           ; d:/develop/altera/90/quartus/libraries/megafunctions/alt_mercury_add_sub.inc ;
-; db/add_sub_5ri.tdf               ; yes             ; Auto-Generated Megafunction            ; E:/mycode/quartus/prj/clean_prj/HamsterBall/db/add_sub_5ri.tdf               ;
-+----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                           ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                 ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+
+; HamsterBall.vhd                  ; yes             ; User VHDL File               ; E:/mycode/quartus/prj/clean_prj/HamsterBall/HamsterBall.vhd                  ;
+; controller.vhd                   ; yes             ; User VHDL File               ; E:/mycode/quartus/prj/clean_prj/HamsterBall/controller.vhd                   ;
+; Keyboard.vhd                     ; yes             ; User VHDL File               ; E:/mycode/quartus/prj/clean_prj/HamsterBall/Keyboard.vhd                     ;
+; VGA_640480.vhd                   ; yes             ; User VHDL File               ; E:/mycode/quartus/prj/clean_prj/HamsterBall/VGA_640480.vhd                   ;
+; ball.vhd                         ; yes             ; User Wizard-Generated File   ; E:/mycode/quartus/prj/clean_prj/HamsterBall/ball.vhd                         ;
+; mymap.vhd                        ; yes             ; User Wizard-Generated File   ; E:/mycode/quartus/prj/clean_prj/HamsterBall/mymap.vhd                        ;
+; altsyncram.tdf                   ; yes             ; Megafunction                 ; d:/develop/altera/90/quartus/libraries/megafunctions/altsyncram.tdf          ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                 ; d:/develop/altera/90/quartus/libraries/megafunctions/stratix_ram_block.inc   ;
+; lpm_mux.inc                      ; yes             ; Megafunction                 ; d:/develop/altera/90/quartus/libraries/megafunctions/lpm_mux.inc             ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; d:/develop/altera/90/quartus/libraries/megafunctions/lpm_decode.inc          ;
+; aglobal90.inc                    ; yes             ; Megafunction                 ; d:/develop/altera/90/quartus/libraries/megafunctions/aglobal90.inc           ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                 ; d:/develop/altera/90/quartus/libraries/megafunctions/a_rdenreg.inc           ;
+; altrom.inc                       ; yes             ; Megafunction                 ; d:/develop/altera/90/quartus/libraries/megafunctions/altrom.inc              ;
+; altram.inc                       ; yes             ; Megafunction                 ; d:/develop/altera/90/quartus/libraries/megafunctions/altram.inc              ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; d:/develop/altera/90/quartus/libraries/megafunctions/altdpram.inc            ;
+; altqpram.inc                     ; yes             ; Megafunction                 ; d:/develop/altera/90/quartus/libraries/megafunctions/altqpram.inc            ;
+; db/altsyncram_6u71.tdf           ; yes             ; Auto-Generated Megafunction  ; E:/mycode/quartus/prj/clean_prj/HamsterBall/db/altsyncram_6u71.tdf           ;
+; db/decode_ppa.tdf                ; yes             ; Auto-Generated Megafunction  ; E:/mycode/quartus/prj/clean_prj/HamsterBall/db/decode_ppa.tdf                ;
+; db/mux_akb.tdf                   ; yes             ; Auto-Generated Megafunction  ; E:/mycode/quartus/prj/clean_prj/HamsterBall/db/mux_akb.tdf                   ;
+; db/altsyncram_ef81.tdf           ; yes             ; Auto-Generated Megafunction  ; E:/mycode/quartus/prj/clean_prj/HamsterBall/db/altsyncram_ef81.tdf           ;
+; lpm_add_sub.tdf                  ; yes             ; Megafunction                 ; d:/develop/altera/90/quartus/libraries/megafunctions/lpm_add_sub.tdf         ;
+; addcore.inc                      ; yes             ; Megafunction                 ; d:/develop/altera/90/quartus/libraries/megafunctions/addcore.inc             ;
+; look_add.inc                     ; yes             ; Megafunction                 ; d:/develop/altera/90/quartus/libraries/megafunctions/look_add.inc            ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; d:/develop/altera/90/quartus/libraries/megafunctions/bypassff.inc            ;
+; altshift.inc                     ; yes             ; Megafunction                 ; d:/develop/altera/90/quartus/libraries/megafunctions/altshift.inc            ;
+; alt_stratix_add_sub.inc          ; yes             ; Megafunction                 ; d:/develop/altera/90/quartus/libraries/megafunctions/alt_stratix_add_sub.inc ;
+; alt_mercury_add_sub.inc          ; yes             ; Megafunction                 ; d:/develop/altera/90/quartus/libraries/megafunctions/alt_mercury_add_sub.inc ;
+; db/add_sub_5ri.tdf               ; yes             ; Auto-Generated Megafunction  ; E:/mycode/quartus/prj/clean_prj/HamsterBall/db/add_sub_5ri.tdf               ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------+
@@ -355,6 +354,16 @@ Encoding Type:  One-Hot
 +---------------------------------+--------------------+------+---------------------------------+
 ; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                               ;
 +---------------------------------+--------------------+------+---------------------------------+
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |HamsterBall ;
++----------------+---------+--------------------------------------------------+
+; Parameter Name ; Value   ; Type                                             ;
++----------------+---------+--------------------------------------------------+
+; depth          ; 1048576 ; Signed Integer                                   ;
++----------------+---------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +---------------------------------------------------------------------------------------+
@@ -577,7 +586,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
-    Info: Processing started: Sat May 27 11:17:25 2017
+    Info: Processing started: Sat May 27 11:38:16 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off HamsterBall -c HamsterBall
 Info: Found 2 design units, including 1 entities, in source file HamsterBall.vhd
     Info: Found design unit 1: HamsterBall-arc
@@ -604,11 +613,11 @@ Info: Found 2 design units, including 1 entities, in source file sram.vhd
     Info: Found design unit 1: sram-logic_memy
     Info: Found entity 1: sram
 Info: Elaborating entity "HamsterBall" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at HamsterBall.vhd(7): used implicit default value for signal "seg" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at HamsterBall.vhd(7): used implicit default value for signal "segf" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at HamsterBall.vhd(7): used implicit default value for signal "breako" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at HamsterBall.vhd(7): used implicit default value for signal "f0o" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at HamsterBall.vhd(7): used implicit default value for signal "do" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at HamsterBall.vhd(10): used implicit default value for signal "seg" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at HamsterBall.vhd(10): used implicit default value for signal "segf" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at HamsterBall.vhd(10): used implicit default value for signal "breako" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at HamsterBall.vhd(10): used implicit default value for signal "f0o" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at HamsterBall.vhd(10): used implicit default value for signal "do" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Info: Elaborating entity "vga640480" for hierarchy "vga640480:u1"
 Warning (10492): VHDL Process Statement warning at VGA_640480.vhd(262): signal "vector_x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at VGA_640480.vhd(262): signal "vector_y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
@@ -713,9 +722,9 @@ Info: Implemented 632 device resources after synthesis - the final resource coun
     Info: Implemented 465 logic cells
     Info: Implemented 147 RAM segments
 Info: Quartus II Analysis & Synthesis was successful. 0 errors, 33 warnings
-    Info: Peak virtual memory: 309 megabytes
-    Info: Processing ended: Sat May 27 11:17:30 2017
-    Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:05
+    Info: Peak virtual memory: 275 megabytes
+    Info: Processing ended: Sat May 27 11:38:20 2017
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:04
 
 

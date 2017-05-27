@@ -1,5 +1,5 @@
 Classic Timing Analyzer report for HamsterBall
-Sat May 27 11:17:46 2017
+Sat May 27 11:38:37 2017
 Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
 
 
@@ -699,7 +699,7 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II Classic Timing Analyzer
     Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
-    Info: Processing started: Sat May 27 11:17:46 2017
+    Info: Processing started: Sat May 27 11:38:36 2017
 Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off HamsterBall -c HamsterBall --timing_analysis_only
 Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
 Warning: Found pins functioning as undefined clocks and/or memory enables
@@ -817,8 +817,8 @@ Info: th for register "controller:u6|vXout[1]" (data pin = "reset", clock pin = 
         Info: Total interconnect delay = 9.030 ns ( 83.39 % )
 Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 3 warnings
     Info: Peak virtual memory: 219 megabytes
-    Info: Processing ended: Sat May 27 11:17:46 2017
-    Info: Elapsed time: 00:00:00
+    Info: Processing ended: Sat May 27 11:38:37 2017
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:00
 
 
