@@ -2,6 +2,8 @@
 <LOG_ROOT>
 	<PROJECT NAME="HamsterBall">
 		<CBX_INST_ENTRY INSTANCE_NAME="|HamsterBall|ball:u5|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_ef81.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|HamsterBall|mymap:u2|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_k681.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|HamsterBall|mymap:u2|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_6u71.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|HamsterBall|vga640480:u1|lpm_add_sub:Add0" CBX_FILE_NAME="add_sub_5ri.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|HamsterBall|vga640480:u1|lpm_add_sub:Add4" CBX_FILE_NAME="add_sub_5ri.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

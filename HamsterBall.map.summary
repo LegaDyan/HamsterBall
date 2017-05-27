@@ -1,14 +1,14 @@
-Analysis & Synthesis Status : Successful - Thu May 25 21:01:31 2017
+Analysis & Synthesis Status : Successful - Sat May 27 10:50:28 2017
 Quartus II Version : 9.0 Build 132 02/25/2009 SJ Full Version
 Revision Name : HamsterBall
 Top-level Entity Name : HamsterBall
 Family : Cyclone II
-Total logic elements : 433
-    Total combinational functions : 397
-    Dedicated logic registers : 184
-Total registers : 184
-Total pins : 34
+Total logic elements : 463
+    Total combinational functions : 433
+    Dedicated logic registers : 194
+Total registers : 194
+Total pins : 20
 Total virtual pins : 0
-Total memory bits : 208,896
+Total memory bits : 602,112
 Embedded Multiplier 9-bit elements : 0
 Total PLLs : 0

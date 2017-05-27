@@ -1,16 +1,16 @@
-Fitter Status : Successful - Thu May 25 21:01:40 2017
+Fitter Status : Successful - Sat May 27 10:50:40 2017
 Quartus II Version : 9.0 Build 132 02/25/2009 SJ Full Version
 Revision Name : HamsterBall
 Top-level Entity Name : HamsterBall
 Family : Cyclone II
 Device : EP2C70F672C8
 Timing Models : Final
-Total logic elements : 422 / 68,416 ( < 1 % )
-    Total combinational functions : 397 / 68,416 ( < 1 % )
-    Dedicated logic registers : 184 / 68,416 ( < 1 % )
-Total registers : 184
-Total pins : 34 / 422 ( 8 % )
+Total logic elements : 452 / 68,416 ( < 1 % )
+    Total combinational functions : 433 / 68,416 ( < 1 % )
+    Dedicated logic registers : 194 / 68,416 ( < 1 % )
+Total registers : 194
+Total pins : 20 / 422 ( 5 % )
 Total virtual pins : 0
-Total memory bits : 208,896 / 1,152,000 ( 18 % )
+Total memory bits : 602,112 / 1,152,000 ( 52 % )
 Embedded Multiplier 9-bit elements : 0 / 300 ( 0 % )
 Total PLLs : 0 / 4 ( 0 % )

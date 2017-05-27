@@ -5,7 +5,6 @@ entity HamsterBall is
 port(
 	clk_0,reset,datain,clkin: in std_logic;
 	hs,vs, seg, segf, breako, f0o, do: out STD_LOGIC; 
-	seg0,seg1:out std_logic_vector(6 downto 0);
 	r,g,b: out STD_LOGIC_vector(2 downto 0)
 );
 end HamsterBall;
@@ -14,7 +13,7 @@ architecture arc of HamsterBall is
 
 component vga640480 is
 	 port(
-			address		:		  out	STD_LOGIC_VECTOR(19 DOWNTO 0);
+			address		:		  out	STD_LOGIC_VECTOR(15 DOWNTO 0);
 			addressBall :         out STD_LOGIC_VECTOR(11 downto 0);
 			reset       :         in  STD_LOGIC;
 			clk50       :		  out std_logic; 
@@ -31,7 +30,7 @@ end component;
 component mymap is
 	PORT
 	(
-		address		: IN STD_LOGIC_VECTOR (19 DOWNTO 0);	--20 bits
+		address		: IN STD_LOGIC_VECTOR (15 DOWNTO 0);	--20 bits
 		clock		: IN STD_LOGIC ;
 		q			: OUT STD_LOGIC_VECTOR (8 DOWNTO 0)
 	);
@@ -55,7 +54,7 @@ port(
 );
 END component;
 
-signal address_tmp	: std_logic_vector(19 downto 0);
+signal address_tmp	: std_logic_vector(15 downto 0);
 signal address_ball	: std_logic_vector(11 downto 0);
 signal clk50, clkf	: std_logic;
 signal q_rgb		: std_logic_vector(8 downto 0);

@@ -94,3 +94,4 @@ set_global_assignment -name VHDL_FILE seg7.vhd
 set_global_assignment -name VHDL_FILE VGA_640480.vhd
 set_global_assignment -name VHDL_FILE ball.vhd
 set_global_assignment -name VHDL_FILE mymap.vhd
+set_global_assignment -name QIP_FILE mymap.qip

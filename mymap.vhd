@@ -42,7 +42,7 @@ USE altera_mf.all;
 ENTITY mymap IS
 	PORT
 	(
-		address		: IN STD_LOGIC_VECTOR (19 DOWNTO 0);	--20 bits
+		address		: IN STD_LOGIC_VECTOR (15 DOWNTO 0);
 		clock		: IN STD_LOGIC ;
 		q		: OUT STD_LOGIC_VECTOR (8 DOWNTO 0)
 	);
@@ -73,7 +73,7 @@ ARCHITECTURE SYN OF mymap IS
 	);
 	PORT (
 			clock0	: IN STD_LOGIC ;
-			address_a	: IN STD_LOGIC_VECTOR (19 DOWNTO 0);
+			address_a	: IN STD_LOGIC_VECTOR (15 DOWNTO 0);
 			q_a	: OUT STD_LOGIC_VECTOR (8 DOWNTO 0)
 	);
 	END COMPONENT;
@@ -85,15 +85,15 @@ BEGIN
 	GENERIC MAP (
 		clock_enable_input_a => "BYPASS",
 		clock_enable_output_a => "BYPASS",
-		init_file => "./map&mif/map-new.mif",
+		init_file => "./map&mif/map-256.mif",
 		intended_device_family => "Cyclone II",
 		lpm_hint => "ENABLE_RUNTIME_MOD=NO",
 		lpm_type => "altsyncram",
-		numwords_a => 1048576,
+		numwords_a => 65536,
 		operation_mode => "ROM",
 		outdata_aclr_a => "NONE",
 		outdata_reg_a => "CLOCK0",
-		widthad_a => 20,
+		widthad_a => 16,
 		width_a => 9,
 		width_byteena_a => 1
 	)
