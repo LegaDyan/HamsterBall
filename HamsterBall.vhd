@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all;
 
 entity HamsterBall is
 generic(
-	depth	:	integer:= 1048576
+	depth_map	:	integer:= 1048576
 	);
 port(
 	clk_0,reset,datain,clkin: in std_logic;
@@ -17,14 +17,14 @@ architecture arc of HamsterBall is
 ---------------------------------signals----------------------------------------------
 
 signal address_tmp	: std_logic_vector(15 downto 0);
-signal address_ball	: std_logic_vector(11 downto 0);
+signal address_ball	: std_logic_vector(11 downto 0);	--read ball rom addr
 signal clk50, clkf	: std_logic;
-signal q_rgb		: std_logic_vector(8 downto 0);
-signal q_ball		: std_logic_vector(2 downto 0);
+signal q_rgb		: std_logic_vector(8 downto 0);		--
+signal q_ball		: std_logic_vector(2 downto 0);		--ball rom data
 signal vx, vy		: std_logic_vector(2 downto 0);
 signal mx, my		: std_logic;
 signal clkv			: std_logic;
-signal count		: integer range 0 to 10000 := 0;
+signal count		: integer range 0 to 10000 := 0;	--keyboard
 
 --------------------------------components-----------------------------------------
 
@@ -35,9 +35,7 @@ port(
 	reset    : in std_logic;
 	wr		: in std_logic;		--1:write 0:read
 	addr_e	: in std_logic_vector(19 downto 0);   
-	--button3	: in std_logic;
-	--button4	: in std_logic;
-	--LEDBUS	: out std_logic_vector(31 downto 0);-- 32 LED
+
 --- memory 	to CFPGA
 	BASERAMWE           : out std_logic;   --write                    
 	BASERAMOE           : out std_logic;    --read                   
@@ -110,7 +108,7 @@ begin
 	
 end process;
 
-u1: vga640480 port map(
+vga		: vga640480 port map(
 						address=>address_tmp, 
 						addressBall=>address_ball,
 						reset=>reset, 
@@ -126,17 +124,35 @@ u1: vga640480 port map(
 						mX=>mx, mY=>my,
 						clk_v=>clkv
 					);
-u2: mymap port map(	
+					
+map_rom	: mymap port map(	
 						address=>address_tmp, 
 						clock=>clk50, 
 						q=>q_rgb
 					);
+					
+sram_con: sram port map(
+--- reset & clk 
+						clk      : in std_logic;
+						reset    : in std_logic;
+						wr		: in std_logic;		--1:write 0:read
+						addr_e	: in std_logic_vector(19 downto 0);   
 
-u5: ball port map(	
+--- memory 	to CFPGA
+						BASERAMWE           : out std_logic;   --write                    
+						BASERAMOE           : out std_logic;    --read                   
+						BASERAMCE           : out std_logic;		--cs
+						BASERAMADDR         : out std_logic_vector(19 downto 0);                                                              
+						BASERAMDATA         : inout std_logic_vector(8 downto 0)
+);
+
+ball	: ball port map(	
 						address=>address_ball, 
 						clock=>clk50, 
 						q=>q_ball
 					);
-u6: controller port map(datain,clkin,clkf,reset,clkv,vx,vy,mx,my);
+phy_con	: controller port map(
+						datain,clkin,clkf,reset,clkv,vx,vy,mx,my
+						);
 
 end arc;
